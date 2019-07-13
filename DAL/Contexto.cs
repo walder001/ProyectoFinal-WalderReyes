@@ -11,9 +11,15 @@ namespace DAL
     public class Contexto : DbContext
     {
         public DbSet<Usuarios> Ususarios { get; set; }
+
         public Contexto() : base("DbProyectoFinal-WalderReyes")
         {
 
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

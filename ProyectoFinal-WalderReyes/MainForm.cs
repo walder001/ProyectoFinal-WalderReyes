@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoFinal.UI.Registro;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,12 @@ namespace ProyectoFinal_WalderReyes
         public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void UsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rUsuario us = new rUsuario();
+            us.Show();
         }
     }
 }
