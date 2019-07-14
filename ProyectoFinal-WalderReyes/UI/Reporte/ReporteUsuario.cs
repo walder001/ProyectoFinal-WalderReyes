@@ -20,20 +20,13 @@ namespace ProyectoFinal_WalderReyes.UI.Reporte
             InitializeComponent();
         }
 
-        private void CrystalReportViewer6_Load(object sender, EventArgs e)
-        {
-            
-
-        }
-
-        private void UsuarioReporte1_InitReport(object sender, EventArgs e)
+        private void UsuarioReporte_InitReport(object sender, EventArgs e)
         {
             UsuarioReporte us = new UsuarioReporte();
             us.SetDataSource(ListarUsuarios);
 
             Reporte.ReportSource = us;
             Reporte.Refresh();
-
         }
     }
 }

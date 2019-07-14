@@ -18,7 +18,7 @@ namespace ProyectoFinal.UI.Consulta
 {
     public partial class cUsuario : Form
     {
-        private List<Usuarios> ListarUsuarios;
+        private List<Usuarios> ListarUsuarios = new List<Usuarios>();
         public cUsuario()
         {
             InitializeComponent();
@@ -31,65 +31,54 @@ namespace ProyectoFinal.UI.Consulta
 
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
+            Expression<Func<Usuarios, bool>> filtro = x => true;
+
+            int id;
+            switch (cbFiltro.SelectedIndex)
+            {
+                case 0://ID
+                    filtro = x => true;
+                    break;
+                case 1://Usuario
+                    id = Convert.ToInt32(txtCriterio.Text);
+                    filtro = x => x.UsuarioId == id;
+                    break;
+                case 2://Nombre
+                    filtro = x => x.Nombre.Contains(txtCriterio.Text);
+                    break;
+                case 3://Email
+                    filtro = x => x.Email.Contains(txtCriterio.Text);
+                    break;
+                case 4://Nombre
+                    int nivel = Convert.ToInt32(txtCriterio.Text);
+                    filtro = x => x.NivelUsuario == nivel;
+                    break;
+                case 5://Email
+                    filtro = x => x.Usuario.Contains(txtCriterio.Text);
+                    break;
+
+
+            }
+
             RepositorioBase<Usuarios> repositorio = new RepositorioBase<Usuarios>(new Contexto());
-
-            var Listar = new List<Usuarios>();
-            if (txtCriterio.Text.Trim().Length > 0)
-            {
-                switch (cbFiltro.SelectedItem)
-                {
-                    case 0:
-                        Listar = repositorio.GetList(u => true);
-                        break;
-                    case 1:
-                        int id;
-                        id = Convert.ToInt32(txtCriterio.Text);
-                        Listar = repositorio.GetList(u => u.UsuarioId == id);
-                        break;
-                    case 2:
-                        Listar = repositorio.GetList(u => u.Email.Contains(txtCriterio.Text));
-                        break;
-                    case 3:
-                        int nivel;
-                        nivel = Convert.ToInt32(txtCriterio.Text);
-                        Listar = repositorio.GetList(u => u.NivelUsuario == nivel);
-                        break;
-                    case 4:
-                        Listar = repositorio.GetList(u => u.Nombre.Contains(txtCriterio.Text));
-                        break;
-                    case 5:
-                        Listar = repositorio.GetList(u => u.Usuario.Contains(txtCriterio.Text));
-                        break;
-
-
-
-
-                }
-               
- 
-
-            }
-            else
-            {
-                Listar = repositorio.GetList(i => true);
-            }
-            dgvConsulta.DataSource = null;
-            dgvConsulta.DataSource = Listar;
+            ListarUsuarios = repositorio.GetList(filtro);
+            dgvConsulta.DataSource = ListarUsuarios;
 
         }
 
         private void Imprimir_Click(object sender, EventArgs e)
         {
-           /* if(ListarUsuarios.Count == 0)
+           if(ListarUsuarios.Count == 0)
             {
                 MessageBox.Show("No hay datos para imprimir");
                 return;
-            }*/
-            ReporteUsuario r = new ReporteUsuario(ListarUsuarios);
-            r.ShowDialog();
+            }
+            else
+            {
+                ReporteUsuario r = new ReporteUsuario(ListarUsuarios);
+                r.ShowDialog();
+            }
             
-
-
         }
     }
 }

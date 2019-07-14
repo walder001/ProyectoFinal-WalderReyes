@@ -58,13 +58,13 @@
             this.dgvConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvConsulta.Location = new System.Drawing.Point(21, 56);
             this.dgvConsulta.Name = "dgvConsulta";
-            this.dgvConsulta.Size = new System.Drawing.Size(643, 394);
+            this.dgvConsulta.Size = new System.Drawing.Size(643, 301);
             this.dgvConsulta.TabIndex = 32;
             this.dgvConsulta.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvConsulta_CellContentClick);
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(419, 26);
+            this.btnBuscar.Location = new System.Drawing.Point(499, 26);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(68, 23);
             this.btnBuscar.TabIndex = 31;
@@ -74,7 +74,7 @@
             // 
             // txtCriterio
             // 
-            this.txtCriterio.Location = new System.Drawing.Point(114, 30);
+            this.txtCriterio.Location = new System.Drawing.Point(183, 29);
             this.txtCriterio.Name = "txtCriterio";
             this.txtCriterio.Size = new System.Drawing.Size(299, 20);
             this.txtCriterio.TabIndex = 30;
@@ -82,7 +82,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(111, 15);
+            this.label4.Location = new System.Drawing.Point(180, 14);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(39, 13);
             this.label4.TabIndex = 29;
@@ -99,11 +99,11 @@
             // 
             // Imprimir
             // 
-            this.Imprimir.Location = new System.Drawing.Point(322, 461);
+            this.Imprimir.Location = new System.Drawing.Point(589, 26);
             this.Imprimir.Name = "Imprimir";
             this.Imprimir.Size = new System.Drawing.Size(75, 23);
             this.Imprimir.TabIndex = 34;
-            this.Imprimir.Text = "button1";
+            this.Imprimir.Text = "Impirmir";
             this.Imprimir.UseVisualStyleBackColor = true;
             this.Imprimir.Click += new System.EventHandler(this.Imprimir_Click);
             // 
@@ -111,7 +111,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(703, 478);
+            this.ClientSize = new System.Drawing.Size(703, 383);
             this.Controls.Add(this.Imprimir);
             this.Controls.Add(this.cbFiltro);
             this.Controls.Add(this.dgvConsulta);
