@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rUsuario));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,11 +48,7 @@
             this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.UsarioId = new System.Windows.Forms.NumericUpDown();
             this.NivelUsuario = new System.Windows.Forms.NumericUpDown();
-            this.Nuevo = new System.Windows.Forms.Button();
-            this.Eliminar = new System.Windows.Forms.Button();
-            this.Guardar = new System.Windows.Forms.Button();
             this.Buscar = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UsarioId)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NivelUsuario)).BeginInit();
@@ -165,7 +160,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(138, 407);
+            this.btnEliminar.Location = new System.Drawing.Point(125, 407);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 15;
@@ -175,7 +170,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(280, 407);
+            this.btnGuardar.Location = new System.Drawing.Point(235, 407);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 16;
@@ -196,7 +191,7 @@
             // dateTime
             // 
             this.dateTime.CustomFormat = "dd-MM-yyyy";
-            this.dateTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTime.Location = new System.Drawing.Point(122, 344);
             this.dateTime.Name = "dateTime";
             this.dateTime.Size = new System.Drawing.Size(177, 20);
@@ -220,47 +215,6 @@
             this.NivelUsuario.Size = new System.Drawing.Size(177, 20);
             this.NivelUsuario.TabIndex = 22;
             // 
-            // Nuevo
-            // 
-            this.Nuevo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Nuevo.BackColor = System.Drawing.Color.Red;
-            this.Nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Nuevo.Image = ((System.Drawing.Image)(resources.GetObject("Nuevo.Image")));
-            this.Nuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Nuevo.Location = new System.Drawing.Point(-12, 398);
-            this.Nuevo.Name = "Nuevo";
-            this.Nuevo.Size = new System.Drawing.Size(118, 32);
-            this.Nuevo.TabIndex = 53;
-            this.Nuevo.Text = "Nuevo";
-            this.Nuevo.UseVisualStyleBackColor = false;
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Eliminar.BackColor = System.Drawing.Color.Red;
-            this.Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Eliminar.Image")));
-            this.Eliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Eliminar.Location = new System.Drawing.Point(261, 398);
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.Size = new System.Drawing.Size(117, 32);
-            this.Eliminar.TabIndex = 52;
-            this.Eliminar.Text = "Eliminar";
-            this.Eliminar.UseVisualStyleBackColor = false;
-            // 
-            // Guardar
-            // 
-            this.Guardar.BackColor = System.Drawing.Color.Red;
-            this.Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Guardar.Image = ((System.Drawing.Image)(resources.GetObject("Guardar.Image")));
-            this.Guardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Guardar.Location = new System.Drawing.Point(118, 398);
-            this.Guardar.Name = "Guardar";
-            this.Guardar.Size = new System.Drawing.Size(128, 32);
-            this.Guardar.TabIndex = 51;
-            this.Guardar.Text = "Guardar";
-            this.Guardar.UseVisualStyleBackColor = false;
-            // 
             // Buscar
             // 
             this.Buscar.BackColor = System.Drawing.Color.Red;
@@ -273,27 +227,11 @@
             this.Buscar.Text = "Buscar";
             this.Buscar.UseVisualStyleBackColor = false;
             // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.Red;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.ForeColor = System.Drawing.Color.Black;
-            this.button4.Location = new System.Drawing.Point(224, 39);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 30);
-            this.button4.TabIndex = 54;
-            this.button4.Text = "Buscar";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
             // rUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(381, 460);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.Nuevo);
-            this.Controls.Add(this.Eliminar);
-            this.Controls.Add(this.Guardar);
+            this.ClientSize = new System.Drawing.Size(355, 460);
             this.Controls.Add(this.Buscar);
             this.Controls.Add(this.NivelUsuario);
             this.Controls.Add(this.UsarioId);
@@ -345,10 +283,6 @@
         private System.Windows.Forms.ErrorProvider ErrorProvider;
         private System.Windows.Forms.NumericUpDown NivelUsuario;
         private System.Windows.Forms.NumericUpDown UsarioId;
-        private System.Windows.Forms.Button Nuevo;
-        private System.Windows.Forms.Button Eliminar;
-        private System.Windows.Forms.Button Guardar;
         private System.Windows.Forms.Button Buscar;
-        private System.Windows.Forms.Button button4;
     }
 }
