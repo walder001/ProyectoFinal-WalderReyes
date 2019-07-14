@@ -68,7 +68,17 @@ namespace ProyectoFinal.UI.Consulta
 
         private void Imprimir_Click(object sender, EventArgs e)
         {
-           if(ListarUsuarios.Count == 0)
+            if (ListarUsuarios.Count == 0)
+            {
+                MessageBox.Show("No hay datos para imprimir");
+                return;
+            }
+            
+                UsuarioReportyView r = new UsuarioReportyView(ListarUsuarios);
+                r.ShowDialog();
+            
+            
+           /*if(ListarUsuarios.Count == 0)
             {
                 MessageBox.Show("No hay datos para imprimir");
                 return;
@@ -77,7 +87,7 @@ namespace ProyectoFinal.UI.Consulta
             {
                 ReporteUsuario r = new ReporteUsuario(ListarUsuarios);
                 r.ShowDialog();
-            }
+            }*/
             
         }
     }
