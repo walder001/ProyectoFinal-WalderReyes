@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,27 @@ namespace ProyectoFinal_WalderReyes.UI.Reporte
 {
     public partial class ReporteUsuario : Form
     {
-        public ReporteUsuario()
+        private List<Usuarios> ListarUsuarios;
+        public ReporteUsuario(List<Usuarios> usuarios)
         {
+            this.ListarUsuarios = usuarios;
             InitializeComponent();
+        }
+
+        private void CrystalReportViewer6_Load(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void UsuarioReporte1_InitReport(object sender, EventArgs e)
+        {
+            UsuarioReporte us = new UsuarioReporte();
+            us.SetDataSource(ListarUsuarios);
+
+            Reporte.ReportSource = us;
+            Reporte.Refresh();
+
         }
     }
 }

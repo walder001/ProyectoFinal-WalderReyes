@@ -79,7 +79,12 @@ namespace ProyectoFinal_WalderReyes {
                 return this.ReportDefinition.Sections[3];
             }
         }
-        
+
+        internal void ShowDialog()
+        {
+            throw new NotImplementedException();
+        }
+
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section Section5 {

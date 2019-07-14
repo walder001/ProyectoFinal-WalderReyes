@@ -33,7 +33,8 @@
             this.crystalReportViewer3 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.crystalReportViewer4 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.crystalReportViewer5 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.crystalReportViewer6 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.Reporte = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.UsuarioReporte = new ProyectoFinal_WalderReyes.UsuarioReporte();
             this.SuspendLayout();
             // 
             // crystalReportViewer1
@@ -91,23 +92,28 @@
             this.crystalReportViewer5.Size = new System.Drawing.Size(800, 450);
             this.crystalReportViewer5.TabIndex = 4;
             // 
-            // crystalReportViewer6
+            // Reporte
             // 
-            this.crystalReportViewer6.ActiveViewIndex = -1;
-            this.crystalReportViewer6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.crystalReportViewer6.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crystalReportViewer6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.crystalReportViewer6.Location = new System.Drawing.Point(0, 0);
-            this.crystalReportViewer6.Name = "crystalReportViewer6";
-            this.crystalReportViewer6.Size = new System.Drawing.Size(800, 450);
-            this.crystalReportViewer6.TabIndex = 5;
+            this.Reporte.ActiveViewIndex = 0;
+            this.Reporte.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Reporte.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Reporte.Location = new System.Drawing.Point(0, 0);
+            this.Reporte.Name = "Reporte";
+            this.Reporte.ReportSource = this.UsuarioReporte;
+            this.Reporte.Size = new System.Drawing.Size(800, 450);
+            this.Reporte.TabIndex = 5;
+            this.Reporte.Load += new System.EventHandler(this.CrystalReportViewer6_Load);
+            // 
+            // UsuarioReporte
+            // 
+            this.UsuarioReporte.InitReport += new System.EventHandler(this.UsuarioReporte1_InitReport);
             // 
             // ReporteUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.crystalReportViewer6);
+            this.Controls.Add(this.Reporte);
             this.Controls.Add(this.crystalReportViewer5);
             this.Controls.Add(this.crystalReportViewer4);
             this.Controls.Add(this.crystalReportViewer3);
@@ -126,6 +132,7 @@
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer3;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer4;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer5;
-        private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer6;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer Reporte;
+        private ProyectoFinal_WalderReyes.UsuarioReporte UsuarioReporte;
     }
 }

@@ -1,6 +1,6 @@
-﻿namespace Parcial2_WalderReyes_Organizado.UI.Consulta
+﻿namespace ProyectoFinal.UI.Consulta
 {
-    partial class cAsignatura
+    partial class cUsuario
     {
         /// <summary>
         /// Required designer variable.
@@ -34,6 +34,7 @@
             this.txtCriterio = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.Imprimir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,9 +47,7 @@
             "Nombre",
             "Email",
             "NivelUsuario",
-            "Usuario",
-            "Clave",
-            "FechaIngreso"});
+            "Usuario"});
             this.cbFiltro.Location = new System.Drawing.Point(21, 30);
             this.cbFiltro.Name = "cbFiltro";
             this.cbFiltro.Size = new System.Drawing.Size(87, 21);
@@ -61,6 +60,7 @@
             this.dgvConsulta.Name = "dgvConsulta";
             this.dgvConsulta.Size = new System.Drawing.Size(643, 394);
             this.dgvConsulta.TabIndex = 32;
+            this.dgvConsulta.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvConsulta_CellContentClick);
             // 
             // btnBuscar
             // 
@@ -70,6 +70,7 @@
             this.btnBuscar.TabIndex = 31;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
             // 
             // txtCriterio
             // 
@@ -83,9 +84,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(111, 15);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 13);
+            this.label4.Size = new System.Drawing.Size(39, 13);
             this.label4.TabIndex = 29;
-            this.label4.Text = "Contexto";
+            this.label4.Text = "Criterio";
             // 
             // label3
             // 
@@ -96,18 +97,29 @@
             this.label3.TabIndex = 28;
             this.label3.Text = "Filtro";
             // 
-            // cAsignatura
+            // Imprimir
+            // 
+            this.Imprimir.Location = new System.Drawing.Point(322, 461);
+            this.Imprimir.Name = "Imprimir";
+            this.Imprimir.Size = new System.Drawing.Size(75, 23);
+            this.Imprimir.TabIndex = 34;
+            this.Imprimir.Text = "button1";
+            this.Imprimir.UseVisualStyleBackColor = true;
+            this.Imprimir.Click += new System.EventHandler(this.Imprimir_Click);
+            // 
+            // cUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(703, 478);
+            this.Controls.Add(this.Imprimir);
             this.Controls.Add(this.cbFiltro);
             this.Controls.Add(this.dgvConsulta);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtCriterio);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Name = "cAsignatura";
+            this.Name = "cUsuario";
             this.Text = "cAsignatura";
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).EndInit();
             this.ResumeLayout(false);
@@ -123,5 +135,6 @@
         private System.Windows.Forms.TextBox txtCriterio;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button Imprimir;
     }
 }

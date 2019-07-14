@@ -34,7 +34,10 @@
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.usuarioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.repositorioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,20 +70,46 @@
             // 
             // consultaToolStripMenuItem
             // 
+            this.consultaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.usuarioToolStripMenuItem1});
             this.consultaToolStripMenuItem.Name = "consultaToolStripMenuItem";
             this.consultaToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.consultaToolStripMenuItem.Text = "Consulta";
             // 
             // reporteToolStripMenuItem
             // 
+            this.reporteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.repositorioToolStripMenuItem});
             this.reporteToolStripMenuItem.Name = "reporteToolStripMenuItem";
             this.reporteToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.reporteToolStripMenuItem.Text = "Reporte";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem1.Text = "ReporteUsuario";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.ToolStripMenuItem1_Click);
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // usuarioToolStripMenuItem1
+            // 
+            this.usuarioToolStripMenuItem1.Name = "usuarioToolStripMenuItem1";
+            this.usuarioToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.usuarioToolStripMenuItem1.Text = "Usuario";
+            this.usuarioToolStripMenuItem1.Click += new System.EventHandler(this.UsuarioToolStripMenuItem1_Click);
+            // 
+            // repositorioToolStripMenuItem
+            // 
+            this.repositorioToolStripMenuItem.Name = "repositorioToolStripMenuItem";
+            this.repositorioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.repositorioToolStripMenuItem.Text = "Repositorio";
+            this.repositorioToolStripMenuItem.Click += new System.EventHandler(this.RepositorioToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -106,6 +135,9 @@
         private System.Windows.Forms.ToolStripMenuItem consultaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reporteToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem repositorioToolStripMenuItem;
     }
 }
 
