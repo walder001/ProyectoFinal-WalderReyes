@@ -183,6 +183,7 @@
     <Content Include="Release\Icon\baseline_print_white_18dp.png" />
     <Content Include="Release\Icon\baseline_save_white_18dp.png" />
     <Content Include="Release\Icon\baseline_search_white_18dp.png" />
+    <Content Include="UI\Reporte\Imagenes.png" />
     <Content Include="UI\Reporte\Reporte.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
