@@ -157,7 +157,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{e169858c-c127-48d4-9953-01a53d25b72f}</Project>
@@ -174,6 +173,17 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Release\baseline_delete_white_18dp.png" />
+    <Content Include="Release\baseline_save_white_18dp.png" />
+    <Content Include="Release\Icon\baseline_create_white_18dp.png" />
+    <Content Include="Release\Icon\baseline_delete_sweep_white_18dp.png" />
+    <Content Include="Release\Icon\baseline_gesture_white_18dp.png" />
+    <Content Include="Release\Icon\baseline_print_white_18dp.png" />
+    <Content Include="Release\Icon\baseline_save_white_18dp.png" />
+    <Content Include="Release\Icon\baseline_search_white_18dp.png" />
+    <Content Include="UI\Reporte\Reporte.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

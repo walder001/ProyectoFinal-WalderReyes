@@ -41,20 +41,29 @@ namespace ProyectoFinal.UI.Consulta
                     break;
                 case 1://Usuario
                     id = Convert.ToInt32(txtCriterio.Text);
-                    filtro = x => x.UsuarioId == id;
+                    filtro = x => x.UsuarioId == id && 
+                    (x.FehaIngreso >= DesdedateTimePicker.Value && x.FehaIngreso <= dateTimePicker2.Value);
                     break;
                 case 2://Nombre
-                    filtro = x => x.Nombre.Contains(txtCriterio.Text);
+                    filtro = x => x.Nombre.Contains(txtCriterio.Text)
+                    &&
+                    (x.FehaIngreso >= DesdedateTimePicker.Value && x.FehaIngreso <= dateTimePicker2.Value);
                     break;
                 case 3://Email
-                    filtro = x => x.Email.Contains(txtCriterio.Text);
+                    filtro = x => x.Email.Contains(txtCriterio.Text)
+                    &&
+                    (x.FehaIngreso >= DesdedateTimePicker.Value && x.FehaIngreso <= dateTimePicker2.Value);
                     break;
                 case 4://Nombre
                     int nivel = Convert.ToInt32(txtCriterio.Text);
-                    filtro = x => x.NivelUsuario == nivel;
+                    filtro = x => x.NivelUsuario == nivel
+                    &&
+                    (x.FehaIngreso >= DesdedateTimePicker.Value && x.FehaIngreso <= dateTimePicker2.Value);
                     break;
                 case 5://Email
-                    filtro = x => x.Usuario.Contains(txtCriterio.Text);
+                    filtro = x => x.Usuario.Contains(txtCriterio.Text)
+                    &&
+                    (x.FehaIngreso >= DesdedateTimePicker.Value && x.FehaIngreso <= dateTimePicker2.Value);
                     break;
 
 
@@ -90,5 +99,11 @@ namespace ProyectoFinal.UI.Consulta
             }*/
             
         }
+
+        private void CbFiltro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

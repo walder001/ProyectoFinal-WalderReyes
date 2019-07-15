@@ -117,24 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnBuscar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAAQBJREFUOE/N
-        kqFrAnEYhk/B4HAyTAr2Fdu6TTCIf4QMbFajf4Oui7CwMlgwabDYDEO02gxLiroyEDmf73wV5HaHaPGB
-        B/zee3/fwe907h/XdRP4igP8wCom9fgyOPCMSzQ2OMUt/mBBtXAoxnGmQxV8UJ7GIf5hziuHQamGRlnR
-        CbJHtBd8KQqG0ieuNPrg2TsuNAZDqYcTjT541sS1xmAoveEOM4rOIB9jX2MwlF7QsIt9UuzBbH8BI68o
-        HIqNQ9+72Da28NsCmKN9kIjq4VAs4fHwL46wiHULwF5w2bL/4HAMu7YJbl4WxY5tgtuWGSywL2z3mFV0
-        PSxJ6edd4jh7YqwoMPQfKb4AAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="Imprimir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAAKlJREFUOE/N
-        k8sNgzAQRF0KTeROGRzpgwM0RA8pJadckNLCZtY7ER9je5EiJU8ayd4ZBmSZ8P+ISA/dK+oZz4PQBNWY
-        GM+jIcsWcRU1UFtRw3gKzAF6QV4WaODjBgZdtPw8odmW0rEmFo02c6MlN1vKyBr3AedYD143NtuhszMd
-        KRfRSqC9ZVe0vc0PqFakmfIthxG/jtsE9cClm/1541GKq+g7P+2PCeENUwtkleY8TbsAAAAASUVORK5C
-        YII=
-</value>
-  </data>
+  <metadata name="UsuarioReporte.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>
