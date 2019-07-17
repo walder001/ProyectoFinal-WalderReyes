@@ -16,5 +16,10 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
         {
             InitializeComponent();
         }
+
+        private void GroupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

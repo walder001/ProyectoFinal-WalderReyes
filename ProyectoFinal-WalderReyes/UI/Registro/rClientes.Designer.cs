@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rClientes));
-            this.UsarioId = new System.Windows.Forms.NumericUpDown();
-            this.dateTime = new System.Windows.Forms.DateTimePicker();
+            this.ClienteIdNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.NacimientoDateTime = new System.Windows.Forms.DateTimePicker();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -43,33 +44,35 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.EmailTextBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.MasculinoRadioButton = new System.Windows.Forms.RadioButton();
+            this.FemeninoRadioButton = new System.Windows.Forms.RadioButton();
             this.DireccionTextBox = new System.Windows.Forms.TextBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.UsarioId)).BeginInit();
+            this.CedulaMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.CelulamaskedTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.TelefonoMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.ClienteIdNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
-            // UsarioId
+            // ClienteIdNumericUpDown
             // 
-            this.UsarioId.Location = new System.Drawing.Point(134, 28);
-            this.UsarioId.Name = "UsarioId";
-            this.UsarioId.Size = new System.Drawing.Size(98, 20);
-            this.UsarioId.TabIndex = 68;
+            this.ClienteIdNumericUpDown.Location = new System.Drawing.Point(134, 28);
+            this.ClienteIdNumericUpDown.Name = "ClienteIdNumericUpDown";
+            this.ClienteIdNumericUpDown.Size = new System.Drawing.Size(98, 20);
+            this.ClienteIdNumericUpDown.TabIndex = 68;
             // 
-            // dateTime
+            // NacimientoDateTime
             // 
-            this.dateTime.CustomFormat = "dd-MM-yyyy";
-            this.dateTime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTime.Location = new System.Drawing.Point(134, 306);
-            this.dateTime.Name = "dateTime";
-            this.dateTime.Size = new System.Drawing.Size(221, 20);
-            this.dateTime.TabIndex = 67;
+            this.NacimientoDateTime.CustomFormat = "dd-MM-yyyy";
+            this.NacimientoDateTime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.NacimientoDateTime.Location = new System.Drawing.Point(134, 306);
+            this.NacimientoDateTime.Name = "NacimientoDateTime";
+            this.NacimientoDateTime.Size = new System.Drawing.Size(221, 20);
+            this.NacimientoDateTime.TabIndex = 67;
             // 
             // btnBuscar
             // 
@@ -98,6 +101,7 @@
             this.btnGuardar.TabIndex = 65;
             this.btnGuardar.Text = "Guargar";
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
             // btnEliminar
             // 
@@ -112,6 +116,7 @@
             this.btnEliminar.TabIndex = 64;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // btnNuevo
             // 
@@ -126,6 +131,7 @@
             this.btnNuevo.TabIndex = 63;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click);
             // 
             // NombresTextBox
             // 
@@ -133,6 +139,7 @@
             this.NombresTextBox.Name = "NombresTextBox";
             this.NombresTextBox.Size = new System.Drawing.Size(221, 20);
             this.NombresTextBox.TabIndex = 59;
+            this.NombresTextBox.TextChanged += new System.EventHandler(this.NombresTextBox_TextChanged);
             // 
             // label7
             // 
@@ -211,12 +218,12 @@
             this.label1.TabIndex = 52;
             this.label1.Text = "ClienteId";
             // 
-            // textBox1
+            // EmailTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(134, 343);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(221, 20);
-            this.textBox1.TabIndex = 71;
+            this.EmailTextBox.Location = new System.Drawing.Point(134, 343);
+            this.EmailTextBox.Name = "EmailTextBox";
+            this.EmailTextBox.Size = new System.Drawing.Size(221, 20);
+            this.EmailTextBox.TabIndex = 71;
             // 
             // label8
             // 
@@ -240,27 +247,27 @@
             this.label9.TabIndex = 72;
             this.label9.Text = "Telefono";
             // 
-            // radioButton1
+            // MasculinoRadioButton
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(134, 111);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(73, 17);
-            this.radioButton1.TabIndex = 74;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Masculino";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.MasculinoRadioButton.AutoSize = true;
+            this.MasculinoRadioButton.Location = new System.Drawing.Point(134, 111);
+            this.MasculinoRadioButton.Name = "MasculinoRadioButton";
+            this.MasculinoRadioButton.Size = new System.Drawing.Size(73, 17);
+            this.MasculinoRadioButton.TabIndex = 74;
+            this.MasculinoRadioButton.TabStop = true;
+            this.MasculinoRadioButton.Text = "Masculino";
+            this.MasculinoRadioButton.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // FemeninoRadioButton
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(281, 111);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(71, 17);
-            this.radioButton2.TabIndex = 75;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Femenino";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.FemeninoRadioButton.AutoSize = true;
+            this.FemeninoRadioButton.Location = new System.Drawing.Point(281, 111);
+            this.FemeninoRadioButton.Name = "FemeninoRadioButton";
+            this.FemeninoRadioButton.Size = new System.Drawing.Size(71, 17);
+            this.FemeninoRadioButton.TabIndex = 75;
+            this.FemeninoRadioButton.TabStop = true;
+            this.FemeninoRadioButton.Text = "Femenino";
+            this.FemeninoRadioButton.UseVisualStyleBackColor = true;
             // 
             // DireccionTextBox
             // 
@@ -269,46 +276,50 @@
             this.DireccionTextBox.Size = new System.Drawing.Size(221, 20);
             this.DireccionTextBox.TabIndex = 76;
             // 
-            // maskedTextBox1
+            // CedulaMaskedTextBox
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(134, 192);
-            this.maskedTextBox1.Mask = "000-0000000-0";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(221, 20);
-            this.maskedTextBox1.TabIndex = 78;
+            this.CedulaMaskedTextBox.Location = new System.Drawing.Point(134, 192);
+            this.CedulaMaskedTextBox.Mask = "000-0000000-0";
+            this.CedulaMaskedTextBox.Name = "CedulaMaskedTextBox";
+            this.CedulaMaskedTextBox.Size = new System.Drawing.Size(221, 20);
+            this.CedulaMaskedTextBox.TabIndex = 78;
             // 
-            // maskedTextBox2
+            // CelulamaskedTextBox
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(134, 233);
-            this.maskedTextBox2.Mask = "000-000-0000";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(217, 20);
-            this.maskedTextBox2.TabIndex = 79;
+            this.CelulamaskedTextBox.Location = new System.Drawing.Point(134, 233);
+            this.CelulamaskedTextBox.Mask = "000-000-0000";
+            this.CelulamaskedTextBox.Name = "CelulamaskedTextBox";
+            this.CelulamaskedTextBox.Size = new System.Drawing.Size(217, 20);
+            this.CelulamaskedTextBox.TabIndex = 79;
             // 
-            // maskedTextBox3
+            // TelefonoMaskedTextBox
             // 
-            this.maskedTextBox3.Location = new System.Drawing.Point(134, 276);
-            this.maskedTextBox3.Mask = "(999)000-0000";
-            this.maskedTextBox3.Name = "maskedTextBox3";
-            this.maskedTextBox3.Size = new System.Drawing.Size(217, 20);
-            this.maskedTextBox3.TabIndex = 80;
+            this.TelefonoMaskedTextBox.Location = new System.Drawing.Point(134, 276);
+            this.TelefonoMaskedTextBox.Mask = "(999)000-0000";
+            this.TelefonoMaskedTextBox.Name = "TelefonoMaskedTextBox";
+            this.TelefonoMaskedTextBox.Size = new System.Drawing.Size(217, 20);
+            this.TelefonoMaskedTextBox.TabIndex = 80;
+            // 
+            // ErrorProvider
+            // 
+            this.ErrorProvider.ContainerControl = this;
             // 
             // rClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(376, 429);
-            this.Controls.Add(this.maskedTextBox3);
-            this.Controls.Add(this.maskedTextBox2);
-            this.Controls.Add(this.maskedTextBox1);
+            this.Controls.Add(this.TelefonoMaskedTextBox);
+            this.Controls.Add(this.CelulamaskedTextBox);
+            this.Controls.Add(this.CedulaMaskedTextBox);
             this.Controls.Add(this.DireccionTextBox);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.FemeninoRadioButton);
+            this.Controls.Add(this.MasculinoRadioButton);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.EmailTextBox);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.UsarioId);
-            this.Controls.Add(this.dateTime);
+            this.Controls.Add(this.ClienteIdNumericUpDown);
+            this.Controls.Add(this.NacimientoDateTime);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnEliminar);
@@ -323,15 +334,16 @@
             this.Controls.Add(this.label1);
             this.Name = "rClientes";
             this.Text = "rClientes";
-            ((System.ComponentModel.ISupportInitialize)(this.UsarioId)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ClienteIdNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.NumericUpDown UsarioId;
-        private System.Windows.Forms.DateTimePicker dateTime;
+        private System.Windows.Forms.NumericUpDown ClienteIdNumericUpDown;
+        private System.Windows.Forms.DateTimePicker NacimientoDateTime;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnEliminar;
@@ -344,14 +356,15 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox EmailTextBox;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton MasculinoRadioButton;
+        private System.Windows.Forms.RadioButton FemeninoRadioButton;
         private System.Windows.Forms.TextBox DireccionTextBox;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox3;
+        private System.Windows.Forms.MaskedTextBox CedulaMaskedTextBox;
+        private System.Windows.Forms.MaskedTextBox CelulamaskedTextBox;
+        private System.Windows.Forms.MaskedTextBox TelefonoMaskedTextBox;
+        private System.Windows.Forms.ErrorProvider ErrorProvider;
     }
 }

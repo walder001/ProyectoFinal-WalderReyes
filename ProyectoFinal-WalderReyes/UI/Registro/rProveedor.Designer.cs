@@ -1,6 +1,6 @@
 ﻿namespace ProyectoFinal_WalderReyes.UI.Registro
 {
-    partial class Proveedor
+    partial class rProveedor
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Proveedor));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rProveedor));
             this.ExtencionNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
             this.ProductoIdTextBox = new System.Windows.Forms.NumericUpDown();

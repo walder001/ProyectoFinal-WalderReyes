@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ProyectoFinal_WalderReyes.UI.Registro
 {
-    public partial class Proveedor : Form
+    public partial class rProveedor : Form
     {
-        public Proveedor()
+        public rProveedor()
         {
             InitializeComponent();
         }

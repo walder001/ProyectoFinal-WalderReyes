@@ -74,11 +74,11 @@
     <Compile Include="UI\Consulta\cUsuario.designer.cs">
       <DependentUpon>cUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Registro\Proveedor.cs">
+    <Compile Include="UI\Registro\rProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Registro\Proveedor.Designer.cs">
-      <DependentUpon>Proveedor.cs</DependentUpon>
+    <Compile Include="UI\Registro\rProveedor.Designer.cs">
+      <DependentUpon>rProveedor.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Registro\rClientes.cs">
       <SubType>Form</SubType>
@@ -97,6 +97,12 @@
     </Compile>
     <Compile Include="UI\Registro\rUsuario.designer.cs">
       <DependentUpon>rUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registro\rVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Registro\rVentas.Designer.cs">
+      <DependentUpon>rVentas.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Reporte\UsuarioReporte.cs">
       <AutoGen>True</AutoGen>
@@ -136,8 +142,8 @@
     <EmbeddedResource Include="UI\Consulta\cUsuario.resx">
       <DependentUpon>cUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Registro\Proveedor.resx">
-      <DependentUpon>Proveedor.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Registro\rProveedor.resx">
+      <DependentUpon>rProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Registro\rClientes.resx">
       <DependentUpon>rClientes.cs</DependentUpon>
@@ -147,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Registro\rUsuario.resx">
       <DependentUpon>rUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Registro\rVentas.resx">
+      <DependentUpon>rVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Reporte\UsuarioReporte.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

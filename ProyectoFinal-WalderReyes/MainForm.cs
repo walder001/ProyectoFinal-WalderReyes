@@ -1,5 +1,6 @@
 ﻿using ProyectoFinal.UI.Consulta;
 using ProyectoFinal.UI.Registro;
+using ProyectoFinal_WalderReyes.UI.Registro;
 using ProyectoFinal_WalderReyes.UI.Reporte;
 using System;
 using System.Collections.Generic;
@@ -40,6 +41,12 @@ namespace ProyectoFinal_WalderReyes
         private void RepositorioToolStripMenuItem_Click(object sender, EventArgs e)
         {
            
+        }
+
+        private void ClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rClientes rcl = new rClientes();
+            rcl.Show();
         }
     }
 }

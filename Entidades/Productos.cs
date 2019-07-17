@@ -10,12 +10,13 @@ namespace Entidades
     {
         public int ProductoId { get; set; }
         public int ProveedoresId { get; set; }
+        public int CategoriaId { get; set; }
         public string Descripcion { get; set; }
         public decimal Cantidad { get; set; }
         public decimal Costo { get; set; }
         public decimal Precio { get; set; }
         public decimal Ganancia { get; set; }
-        public decimal ITebis { get; set; }
+        public decimal Itebis { get; set; }
 
 
         public Productos()
