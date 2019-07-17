@@ -114,7 +114,7 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
             RepositorioBase<Productos> reposistorio = new RepositorioBase<Productos>(new Contexto());
-            reposistorio.
+            reposistorio.Eliminar((int)ProductoIdNumericUpDown.Value);
         }
     }
 }
