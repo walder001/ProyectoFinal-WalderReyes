@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Proveedor));
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.ExtencionNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
             this.ProductoIdTextBox = new System.Windows.Forms.NumericUpDown();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -47,16 +47,16 @@
             this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
             this.EmailTextBox = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ExtencionNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProductoIdTextBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // numericUpDown3
+            // ExtencionNumericUpDown
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(187, 264);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(221, 20);
-            this.numericUpDown3.TabIndex = 129;
+            this.ExtencionNumericUpDown.Location = new System.Drawing.Point(187, 264);
+            this.ExtencionNumericUpDown.Name = "ExtencionNumericUpDown";
+            this.ExtencionNumericUpDown.Size = new System.Drawing.Size(221, 20);
+            this.ExtencionNumericUpDown.TabIndex = 129;
             // 
             // label9
             // 
@@ -243,7 +243,7 @@
             this.Controls.Add(this.EmailTextBox);
             this.Controls.Add(this.maskedTextBox2);
             this.Controls.Add(this.maskedTextBox1);
-            this.Controls.Add(this.numericUpDown3);
+            this.Controls.Add(this.ExtencionNumericUpDown);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.ProductoIdTextBox);
             this.Controls.Add(this.btnBuscar);
@@ -259,7 +259,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Proveedor";
             this.Text = "Proveedor";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ExtencionNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProductoIdTextBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -267,7 +267,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.NumericUpDown ExtencionNumericUpDown;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.NumericUpDown ProductoIdTextBox;
         private System.Windows.Forms.Button btnBuscar;
