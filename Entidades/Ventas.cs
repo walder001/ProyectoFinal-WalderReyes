@@ -16,6 +16,7 @@ namespace Entidades
         public decimal ItebisVenta { get; set; }
         public decimal SubTotalVenta { get; set; }
         public decimal TotalVenta { get; set; }
+
         VentasDetalle Detalle = new VentasDetalle();
         public Ventas()
         {
