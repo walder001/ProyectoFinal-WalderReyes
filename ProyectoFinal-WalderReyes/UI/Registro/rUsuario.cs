@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Entidades;
 using BLL;
 using DAL;
+using System.Security.Cryptography;
 
 namespace ProyectoFinal.UI.Registro
 {
@@ -18,6 +19,8 @@ namespace ProyectoFinal.UI.Registro
         public rUsuario()
         {
             InitializeComponent();
+            //txtClave.Text = EnCryptDecrypt.CryptorEngine.Encrypt(txtClave.Text, true);
+
         }
 
         private void Label4_Click(object sender, EventArgs e)
@@ -164,6 +167,8 @@ namespace ProyectoFinal.UI.Registro
 
 
         }
+
+ 
 
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
