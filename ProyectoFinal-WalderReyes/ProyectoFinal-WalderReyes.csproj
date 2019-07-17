@@ -74,11 +74,23 @@
     <Compile Include="UI\Consulta\cUsuario.designer.cs">
       <DependentUpon>cUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Registro\Proveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Registro\Proveedor.Designer.cs">
+      <DependentUpon>Proveedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Registro\rClientes.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Registro\rClientes.Designer.cs">
       <DependentUpon>rClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registro\rProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Registro\rProductos.Designer.cs">
+      <DependentUpon>rProductos.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Registro\rUsuario.cs">
       <SubType>Form</SubType>
@@ -124,8 +136,14 @@
     <EmbeddedResource Include="UI\Consulta\cUsuario.resx">
       <DependentUpon>cUsuario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Registro\Proveedor.resx">
+      <DependentUpon>Proveedor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Registro\rClientes.resx">
       <DependentUpon>rClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Registro\rProductos.resx">
+      <DependentUpon>rProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Registro\rUsuario.resx">
       <DependentUpon>rUsuario.cs</DependentUpon>
