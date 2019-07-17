@@ -74,6 +74,12 @@
     <Compile Include="UI\Consulta\cUsuario.designer.cs">
       <DependentUpon>cUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Registro\rClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Registro\rClientes.Designer.cs">
+      <DependentUpon>rClientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Registro\rUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +123,9 @@
     </Compile>
     <EmbeddedResource Include="UI\Consulta\cUsuario.resx">
       <DependentUpon>cUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Registro\rClientes.resx">
+      <DependentUpon>rClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Registro\rUsuario.resx">
       <DependentUpon>rUsuario.cs</DependentUpon>
