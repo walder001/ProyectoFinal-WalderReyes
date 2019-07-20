@@ -24,7 +24,6 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             ProductoIdNumericUpDown.Value = 0;
             DescripcionTextBox.Text = string.Empty;
             ProveedorComboBox1.Text = string.Empty;
-            Descripcion.Text = string.Empty;
             CantidadnumericUpDown.Value = 0;
             CostoNumericUpDown.Value = 0;
             PrecioNumericUpDown.Value = 0;

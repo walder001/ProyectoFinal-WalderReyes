@@ -48,5 +48,17 @@ namespace ProyectoFinal_WalderReyes
             rClientes rcl = new rClientes();
             rcl.Show();
         }
+
+        private void VentasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rVentas ven = new rVentas();
+            ven.Show();
+        }
+
+        private void ProductoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rProductos p = new rProductos();
+            p.Show();
+        }
     }
 }
