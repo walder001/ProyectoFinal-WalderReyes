@@ -12,7 +12,7 @@ namespace Entidades
 
         [Key]
         public int UsuarioId { get; set; }
-        public string Nombre { get; set; }
+        public string Nombres { get; set; }
         public string Email { get; set; }
         public int NivelUsuario { get; set; }
         public string Usuario { get; set; }
@@ -22,7 +22,7 @@ namespace Entidades
         public Usuarios()
         {
             UsuarioId = 0;
-            Nombre = string.Empty;
+            Nombres = string.Empty;
             Email = string.Empty;
             NivelUsuario = 0;
             Usuario = string.Empty; ;

@@ -74,9 +74,13 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             }
             Detalle.Add(
                 new VentasDetalle(
-                    ventaDetalleId:0,
+                    ventaDetalleId: 0,
                     productoId: (int)ProductoComboBox.SelectedValue,
-                    ventaId:(int)VentasIdNumericUpDown.Value
+                    ventaId: (int)VentasIdNumericUpDown.Value,
+                    itebisVenta: Convert.ToDecimal( ItebisTextBox.Text),
+                    subTotalVenta:Convert.ToDecimal(SubTotalTextBox.Text),
+                    totalVenta: Convert.ToDecimal(TotalTextBox.Text)
+               
                     
                     )
                 );

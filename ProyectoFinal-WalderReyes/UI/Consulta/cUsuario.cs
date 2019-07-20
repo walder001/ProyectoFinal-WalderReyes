@@ -45,7 +45,7 @@ namespace ProyectoFinal.UI.Consulta
                     (x.FehaIngreso >= DesdedateTimePicker.Value && x.FehaIngreso <= dateTimePicker2.Value);
                     break;
                 case 2://Nombre
-                    filtro = x => x.Nombre.Contains(txtCriterio.Text)
+                    filtro = x => x.Nombres.Contains(txtCriterio.Text)
                     &&
                     (x.FehaIngreso >= DesdedateTimePicker.Value && x.FehaIngreso <= dateTimePicker2.Value);
                     break;

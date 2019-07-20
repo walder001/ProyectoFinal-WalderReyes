@@ -40,7 +40,7 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
-            this.txtClave = new System.Windows.Forms.TextBox();
+            this.ClaveTexBox = new System.Windows.Forms.TextBox();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -51,6 +51,8 @@
             this.NivelUsuario = new System.Windows.Forms.NumericUpDown();
             this.Buscar = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.ConfirmarTextbox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UsarioId)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NivelUsuario)).BeginInit();
@@ -99,7 +101,6 @@
             this.label4.Size = new System.Drawing.Size(75, 13);
             this.label4.TabIndex = 3;
             this.label4.Text = "NivelUsiario";
-            this.label4.Click += new System.EventHandler(this.Label4_Click);
             // 
             // label5
             // 
@@ -111,7 +112,6 @@
             this.label5.Size = new System.Drawing.Size(50, 13);
             this.label5.TabIndex = 4;
             this.label5.Text = "Usuario";
-            this.label5.Click += new System.EventHandler(this.Label5_Click);
             // 
             // label6
             // 
@@ -129,12 +129,11 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Chocolate;
-            this.label7.Location = new System.Drawing.Point(25, 320);
+            this.label7.Location = new System.Drawing.Point(25, 352);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(84, 13);
             this.label7.TabIndex = 6;
             this.label7.Text = "FechaIngreso";
-            this.label7.Click += new System.EventHandler(this.Label7_Click);
             // 
             // txtNombre
             // 
@@ -142,6 +141,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(221, 20);
             this.txtNombre.TabIndex = 8;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNombre_KeyPress);
             // 
             // txtEmail
             // 
@@ -156,13 +156,15 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(221, 20);
             this.txtUsuario.TabIndex = 11;
+            this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtUsuario_KeyPress);
             // 
-            // txtClave
+            // ClaveTexBox
             // 
-            this.txtClave.Location = new System.Drawing.Point(115, 272);
-            this.txtClave.Name = "txtClave";
-            this.txtClave.Size = new System.Drawing.Size(221, 20);
-            this.txtClave.TabIndex = 12;
+            this.ClaveTexBox.Location = new System.Drawing.Point(115, 272);
+            this.ClaveTexBox.Name = "ClaveTexBox";
+            this.ClaveTexBox.Size = new System.Drawing.Size(221, 20);
+            this.ClaveTexBox.TabIndex = 12;
+            this.ClaveTexBox.UseSystemPasswordChar = true;
             // 
             // btnNuevo
             // 
@@ -171,7 +173,7 @@
             this.btnNuevo.ForeColor = System.Drawing.Color.White;
             this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(13, 360);
+            this.btnNuevo.Location = new System.Drawing.Point(13, 392);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(104, 32);
             this.btnNuevo.TabIndex = 14;
@@ -186,7 +188,7 @@
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(240, 360);
+            this.btnEliminar.Location = new System.Drawing.Point(240, 392);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(104, 32);
             this.btnEliminar.TabIndex = 15;
@@ -201,7 +203,7 @@
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(126, 360);
+            this.btnGuardar.Location = new System.Drawing.Point(126, 392);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(104, 32);
             this.btnGuardar.TabIndex = 16;
@@ -228,7 +230,7 @@
             // 
             this.dateTime.CustomFormat = "dd-MM-yyyy";
             this.dateTime.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTime.Location = new System.Drawing.Point(115, 313);
+            this.dateTime.Location = new System.Drawing.Point(115, 345);
             this.dateTime.Name = "dateTime";
             this.dateTime.Size = new System.Drawing.Size(221, 20);
             this.dateTime.TabIndex = 19;
@@ -274,11 +276,30 @@
             this.label8.TabIndex = 51;
             this.label8.Text = "Registro Usuarios";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Chocolate;
+            this.label9.Location = new System.Drawing.Point(25, 315);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(60, 13);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "Confirmar";
+            // 
+            // ConfirmarTextbox
+            // 
+            this.ConfirmarTextbox.Location = new System.Drawing.Point(115, 308);
+            this.ConfirmarTextbox.Name = "ConfirmarTextbox";
+            this.ConfirmarTextbox.Size = new System.Drawing.Size(221, 20);
+            this.ConfirmarTextbox.TabIndex = 12;
+            this.ConfirmarTextbox.UseSystemPasswordChar = true;
+            // 
             // rUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(355, 401);
+            this.ClientSize = new System.Drawing.Size(355, 440);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.Buscar);
             this.Controls.Add(this.NivelUsuario);
@@ -288,11 +309,13 @@
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnNuevo);
-            this.Controls.Add(this.txtClave);
+            this.Controls.Add(this.ConfirmarTextbox);
+            this.Controls.Add(this.ClaveTexBox);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label7);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -322,7 +345,7 @@
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtUsuario;
-        private System.Windows.Forms.TextBox txtClave;
+        private System.Windows.Forms.TextBox ClaveTexBox;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnGuardar;
@@ -333,5 +356,7 @@
         private System.Windows.Forms.NumericUpDown UsarioId;
         private System.Windows.Forms.Button Buscar;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox ConfirmarTextbox;
+        private System.Windows.Forms.Label label9;
     }
 }

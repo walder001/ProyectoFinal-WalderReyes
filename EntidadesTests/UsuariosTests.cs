@@ -23,22 +23,20 @@ namespace Entidades.Tests
             Assert.IsTrue(repositorio.Guardar(new Usuarios()));
         }
         [TestMethod()]
-        public void GetList()
+        public void Buscar()
         {
             RepositorioBase<Usuarios> repositorio;
             repositorio = new RepositorioBase<Usuarios>(new Contexto());
-            Assert.IsNotNull(repositorio.GetList(a => true));
-
+            Assert.IsNotNull(repositorio.Buscar(1));
         }
-
         [TestMethod()]
         public void Modificar()
         {
             RepositorioBase<Usuarios> repositorio;
             repositorio = new RepositorioBase<Usuarios>(new Contexto());
             Usuarios usuarios = new Usuarios();
-            usuarios.UsuarioId = 2;
-            usuarios.Nombre = "walder";
+            usuarios.UsuarioId = 1;
+            usuarios.Nombres = "walder";
             usuarios.Email = "Walderreyes34@gmail.com";
             usuarios.NivelUsuario = 0;
             usuarios.Usuario = "walder001";
@@ -47,11 +45,12 @@ namespace Entidades.Tests
             Assert.IsTrue(repositorio.Modificar(usuarios));
         }
         [TestMethod()]
-        public void Buscar()
+        public void GetList()
         {
             RepositorioBase<Usuarios> repositorio;
             repositorio = new RepositorioBase<Usuarios>(new Contexto());
-            Assert.IsNotNull(repositorio.Buscar(3));
+            Assert.IsNotNull(repositorio.GetList(a => true));
+
         }
         [TestMethod()]
         public void Eliminar()

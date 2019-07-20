@@ -51,9 +51,9 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.SubTotalTextBox = new System.Windows.Forms.TextBox();
+            this.TotalTextBox = new System.Windows.Forms.TextBox();
+            this.ItebisTextBox = new System.Windows.Forms.TextBox();
             this.ClienteComboBox = new System.Windows.Forms.ComboBox();
             this.ProductoComboBox = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -303,26 +303,26 @@
             this.label8.TabIndex = 73;
             this.label8.Text = "Total";
             // 
-            // textBox5
+            // SubTotalTextBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(303, 331);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(55, 20);
-            this.textBox5.TabIndex = 74;
+            this.SubTotalTextBox.Location = new System.Drawing.Point(303, 331);
+            this.SubTotalTextBox.Name = "SubTotalTextBox";
+            this.SubTotalTextBox.Size = new System.Drawing.Size(55, 20);
+            this.SubTotalTextBox.TabIndex = 74;
             // 
-            // textBox4
+            // TotalTextBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(303, 357);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(55, 20);
-            this.textBox4.TabIndex = 75;
+            this.TotalTextBox.Location = new System.Drawing.Point(303, 357);
+            this.TotalTextBox.Name = "TotalTextBox";
+            this.TotalTextBox.Size = new System.Drawing.Size(55, 20);
+            this.TotalTextBox.TabIndex = 75;
             // 
-            // textBox6
+            // ItebisTextBox
             // 
-            this.textBox6.Location = new System.Drawing.Point(303, 305);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(55, 20);
-            this.textBox6.TabIndex = 76;
+            this.ItebisTextBox.Location = new System.Drawing.Point(303, 305);
+            this.ItebisTextBox.Name = "ItebisTextBox";
+            this.ItebisTextBox.Size = new System.Drawing.Size(55, 20);
+            this.ItebisTextBox.TabIndex = 76;
             // 
             // ClienteComboBox
             // 
@@ -359,9 +359,9 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.ProductoComboBox);
             this.Controls.Add(this.ClienteComboBox);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.ItebisTextBox);
+            this.Controls.Add(this.TotalTextBox);
+            this.Controls.Add(this.SubTotalTextBox);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label10);
@@ -409,9 +409,9 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox SubTotalTextBox;
+        private System.Windows.Forms.TextBox TotalTextBox;
+        private System.Windows.Forms.TextBox ItebisTextBox;
         private System.Windows.Forms.ComboBox ClienteComboBox;
         private System.Windows.Forms.ComboBox ProductoComboBox;
         private System.Windows.Forms.Label label11;

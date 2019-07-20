@@ -23,21 +23,6 @@ namespace ProyectoFinal.UI.Registro
 
         }
 
-        private void Label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
         //Limpia
         //UsuarioId, Nombres, Email, NivelUsuario, Usuario, Clave, FechaIngreso
         private void Limpiar()
@@ -47,7 +32,8 @@ namespace ProyectoFinal.UI.Registro
             txtEmail.Text = string.Empty;
             NivelUsuario.Value = 0;
             txtUsuario.Text = string.Empty;
-            txtClave.Text = string.Empty;
+            ClaveTexBox.Text = string.Empty;
+            ConfirmarTextbox.Text = string.Empty;
             dateTime.Value = DateTime.Now;
             ErrorProvider.Clear();
         }
@@ -66,22 +52,23 @@ namespace ProyectoFinal.UI.Registro
         {
             Usuarios us = new Usuarios();
             us.UsuarioId = Convert.ToInt32(UsarioId.Value);
-            us.Nombre = txtNombre.Text;
-            us.Email = txtEmail.Text;
+            us.Nombres = txtNombre.Text.TrimStart();
+            us.Email = txtEmail.Text.TrimStart();
             us.NivelUsuario = Convert.ToInt32(NivelUsuario.Value);
-            us.Usuario = txtUsuario.Text;
-            us.Clave = txtClave.Text;
+            us.Usuario = txtUsuario.Text.TrimStart();
+            us.Clave = ClaveTexBox.Text;
             us.FehaIngreso = dateTime.Value;
             return us;
         }
         private void LlenaCampo(Usuarios usuarios)
         {
             UsarioId.Value = usuarios.UsuarioId;
-            txtNombre.Text = usuarios.Nombre;
+            txtNombre.Text = usuarios.Nombres;
             txtEmail.Text = usuarios.Email;
             NivelUsuario.Value = usuarios.NivelUsuario;
-            txtUsuario.Text = string.Empty;
-            txtClave.Text = string.Empty;
+            txtUsuario.Text = usuarios.Usuario;
+            ClaveTexBox.Text = usuarios.Clave;
+            ConfirmarTextbox.Text = usuarios.Clave;
             dateTime.Value = DateTime.Now;
         }
 
@@ -96,8 +83,12 @@ namespace ProyectoFinal.UI.Registro
                 txtNombre.Focus();
                 paso = false;
             }
-
-            //UsuarioId, Nombres, Email, NivelUsuario, Usuario, Clave, FechaIngreso
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
+            {
+                ErrorProvider.SetError(txtNombre, "El campo Nombre no puede estar vacio");
+                txtNombre.Focus();
+                paso = false;
+            }
 
             if (string.IsNullOrWhiteSpace(txtUsuario.Text))
             {
@@ -106,10 +97,10 @@ namespace ProyectoFinal.UI.Registro
                 paso = false;
             }
 
-            if (string.IsNullOrWhiteSpace(txtClave.Text))
+            if (string.IsNullOrWhiteSpace(ClaveTexBox.Text))
             {
-                ErrorProvider.SetError(txtClave, "El campo Direccion no puede estar vacio");
-                txtClave.Focus();
+                ErrorProvider.SetError(ClaveTexBox, "El campo Direccion no puede estar vacio");
+                ClaveTexBox.Focus();
                 paso = false;
             }
 
@@ -119,6 +110,12 @@ namespace ProyectoFinal.UI.Registro
             {
                 ErrorProvider.SetError(txtEmail, "El campo Direccion no puede estar vacio");
                 txtEmail.Focus();
+                paso = false;
+            }
+            if (ClaveTexBox.Text != ConfirmarTextbox.Text)
+            {
+                ErrorProvider.SetError(ClaveTexBox,"La clave no coinciden");
+                ClaveTexBox.Focus();
                 paso = false;
             }
 
@@ -178,18 +175,24 @@ namespace ProyectoFinal.UI.Registro
             Usuarios persona = new Usuarios();
             int.TryParse(UsarioId.Text, out id);
 
-            Limpiar();
-
-            persona = UsuarioBLL.Buscar(id);
-
-            if (persona != null)
+            try
             {
-                MessageBox.Show("Persona Encontrada");
-                LlenaCampo(persona);
+                Limpiar();
+
+                persona = UsuarioBLL.Buscar(id);
+
+                if (persona != null)
+                {
+                    LlenaCampo(persona);
+                }
+                else
+                {
+                    MessageBox.Show("Persona no Encontada");
+                }
             }
-            else
+            catch (Exception)
             {
-                MessageBox.Show("Persona no Encontada");
+                MessageBox.Show("No fue posible buscarlo");
             }
         }
 
@@ -205,6 +208,57 @@ namespace ProyectoFinal.UI.Registro
                 MessageBox.Show("Eliminado");
             else
                 ErrorProvider.SetError(UsarioId, "No se puede eliminar una persona que no existe");
+        }
+
+        
+        public void SoloLetras(KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }else if (char.IsLetter(e.KeyChar))
+            {
+
+                e.Handled = false;
+            }else if (char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+      public void LetrasNumeros(KeyPressEventArgs e)
+        {
+            if (char.IsNumber(e.KeyChar))
+            {
+                e.Handled = false;
+
+            }else if (char.IsLetter(e.KeyChar))
+            {
+                e.Handled = false;
+            }else if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            SoloLetras(e);
+        }
+
+        private void TxtUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            LetrasNumeros(e);
         }
     }
 }
