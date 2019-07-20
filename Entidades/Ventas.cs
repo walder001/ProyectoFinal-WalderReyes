@@ -46,9 +46,9 @@ namespace Entidades
             this.Detalle = new List<VentasDetalle>();
 
         }
-        public void AgregarDetalle(int ventaDetalleId, int ventaId, int productoId)
+        public void AgregarDetalle(int ventaDetalleId, int ventaId, int productoId, decimal itebisVenta, decimal subTotalVenta, decimal totalVenta)
         {
-            this.Detalle.Add(new VentasDetalle(ventaDetalleId,ventaId,productoId));
+            this.Detalle.Add(new VentasDetalle(ventaDetalleId, ventaId, productoId, itebisVenta, subTotalVenta, totalVenta));
         }
     }
 }
