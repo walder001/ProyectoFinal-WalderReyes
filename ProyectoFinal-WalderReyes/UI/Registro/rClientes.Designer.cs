@@ -87,6 +87,7 @@
             this.btnBuscar.TabIndex = 66;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
             // 
             // btnGuardar
             // 
@@ -140,6 +141,7 @@
             this.NombresTextBox.Size = new System.Drawing.Size(221, 20);
             this.NombresTextBox.TabIndex = 59;
             this.NombresTextBox.TextChanged += new System.EventHandler(this.NombresTextBox_TextChanged);
+            this.NombresTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NombresTextBox_KeyPress);
             // 
             // label7
             // 
