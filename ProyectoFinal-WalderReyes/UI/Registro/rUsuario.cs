@@ -123,35 +123,43 @@ namespace ProyectoFinal.UI.Registro
         }
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            RepositorioBase<Usuarios> UsuarioBLL = new RepositorioBase<Usuarios>(new Contexto());
-            Usuarios usuarios = new Usuarios();
-
-            bool paso = false;
-
-            if (!Validar())
-                return;
-
-            usuarios = LlenarClase();
-            Limpiar();
-
-            //Determinar si es guardar o modificar
-            if (UsarioId.Value == 0)
-                paso = UsuarioBLL.Guardar(usuarios);
-            else
+            try
             {
-                if (!ExisteEnLaBaseDeDatos())
-                {
-                    MessageBox.Show("No se puede modificar una persona que no existe", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                paso = UsuarioBLL.Modificar(usuarios);
-            }
+                RepositorioBase<Usuarios> UsuarioBLL = new RepositorioBase<Usuarios>(new Contexto());
+                Usuarios usuarios = new Usuarios();
 
-            //Informar el resultado
-            if (paso)
-                MessageBox.Show("Guardado!!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            else
-                MessageBox.Show("No fue posible guardar!!", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                bool paso = false;
+
+                if (!Validar())
+                    return;
+
+                usuarios = LlenarClase();
+                Limpiar();
+
+                //Determinar si es guardar o modificar
+                if (UsarioId.Value == 0)
+                    paso = UsuarioBLL.Guardar(usuarios);
+                else
+                {
+                    if (!ExisteEnLaBaseDeDatos())
+                    {
+                        MessageBox.Show("No se puede modificar una persona que no existe", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    paso = UsuarioBLL.Modificar(usuarios);
+                }
+
+                //Informar el resultado
+                if (paso)
+                    MessageBox.Show("Guardado!!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                    MessageBox.Show("No fue posible guardar!!", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No se pudo guardar","Information",MessageBoxButtons.OK,MessageBoxIcon.Error);
+
+            }
         }
 
         private bool ExisteEnLaBaseDeDatos()
@@ -200,15 +208,23 @@ namespace ProyectoFinal.UI.Registro
         {
             RepositorioBase<Usuarios> UsuarioBLL = new RepositorioBase<Usuarios>(new Contexto());
 
-            ErrorProvider.Clear();
-            int id;
-            int.TryParse(UsarioId.Text, out id);
-            Limpiar();
-            if (UsuarioBLL.Eliminar(id))
-                MessageBox.Show("Eliminado");
-            else
-                ErrorProvider.SetError(UsarioId, "No se puede eliminar una persona que no existe");
-        }
+            try
+            {
+                ErrorProvider.Clear();
+                int id;
+                int.TryParse(UsarioId.Text, out id);
+                Limpiar();
+                if (UsuarioBLL.Eliminar(id))
+                    MessageBox.Show("Eliminado");
+                else
+                    ErrorProvider.SetError(UsarioId, "No se puede eliminar una persona que no existe");
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No fue posible eliminar","Imformation",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+          }
 
         
         public void SoloLetras(KeyPressEventArgs e)
