@@ -234,7 +234,13 @@
             // 
             // CantidadnumericUpDown
             // 
+            this.CantidadnumericUpDown.DecimalPlaces = 2;
             this.CantidadnumericUpDown.Location = new System.Drawing.Point(136, 141);
+            this.CantidadnumericUpDown.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
             this.CantidadnumericUpDown.Name = "CantidadnumericUpDown";
             this.CantidadnumericUpDown.Size = new System.Drawing.Size(221, 20);
             this.CantidadnumericUpDown.TabIndex = 105;
@@ -242,7 +248,13 @@
             // 
             // CostoNumericUpDown
             // 
+            this.CostoNumericUpDown.DecimalPlaces = 2;
             this.CostoNumericUpDown.Location = new System.Drawing.Point(136, 182);
+            this.CostoNumericUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.CostoNumericUpDown.Name = "CostoNumericUpDown";
             this.CostoNumericUpDown.Size = new System.Drawing.Size(221, 20);
             this.CostoNumericUpDown.TabIndex = 106;
@@ -250,7 +262,13 @@
             // 
             // PrecioNumericUpDown
             // 
+            this.PrecioNumericUpDown.DecimalPlaces = 2;
             this.PrecioNumericUpDown.Location = new System.Drawing.Point(136, 218);
+            this.PrecioNumericUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.PrecioNumericUpDown.Name = "PrecioNumericUpDown";
             this.PrecioNumericUpDown.Size = new System.Drawing.Size(221, 20);
             this.PrecioNumericUpDown.TabIndex = 107;
@@ -266,7 +284,13 @@
             // 
             // ItebisNumericUpDown1
             // 
+            this.ItebisNumericUpDown1.DecimalPlaces = 2;
             this.ItebisNumericUpDown1.Location = new System.Drawing.Point(136, 254);
+            this.ItebisNumericUpDown1.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.ItebisNumericUpDown1.Name = "ItebisNumericUpDown1";
             this.ItebisNumericUpDown1.Size = new System.Drawing.Size(221, 20);
             this.ItebisNumericUpDown1.TabIndex = 111;

@@ -38,7 +38,7 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
         {
             Productos pro = new Productos();
             pro.ProductoId = (int)ProductoIdNumericUpDown.Value;
-            pro.Descripcion = DescripcionTextBox.Text;
+            pro.Descripcion = DescripcionTextBox.Text.TrimStart();
             pro.Cantidad = (decimal)CantidadnumericUpDown.Value;
             pro.Costo = (decimal)CostoNumericUpDown.Value;
             pro.Precio = (decimal)PrecioNumericUpDown.Value;
@@ -106,10 +106,11 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             decimal precio = PrecioNumericUpDown.Value;
             decimal cantidad = CantidadnumericUpDown.Value;
             decimal itebis = ItebisNumericUpDown1.Value;
-            decimal ganancia = 0;
-            decimal valor = 0;
-            valor = ((cantidad*precio)*(itebis/100));
-            ganancia = (((cantidad * precio) + valor) - (cantidad * costo));
+            decimal ganancia, valor,itebisproducto;
+            valor = (cantidad*precio);
+            itebisproducto = valor * (itebis / 100);
+            
+            ganancia = ((valor + itebisproducto) - (cantidad * costo));
             GananciaTextBox.Text = ganancia.ToString();
 
 
@@ -175,7 +176,16 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
 
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
-
+            RepositorioBase<Productos> repositorio = new RepositorioBase<Productos>(new Contexto());
+            Productos productos = repositorio.Buscar((int)ProductoIdNumericUpDown.Value);
+            if (productos!= null)
+            {
+                LLenaCampo(productos);
+            }
+            else
+            {
+                MessageBox.Show("Producto no encontrado","Informacion",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
         }
 
         private void DescripcionTextBox_KeyPress(object sender, KeyPressEventArgs e)
