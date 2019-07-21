@@ -14,9 +14,9 @@ using System.Windows.Forms;
 
 namespace ProyectoFinal_WalderReyes
 {
-    public partial class MainForm : Form
+    public partial class Login : Form
     {
-        public MainForm()
+        public Login()
         {
             InitializeComponent();
         }
@@ -59,6 +59,12 @@ namespace ProyectoFinal_WalderReyes
         {
             rProductos p = new rProductos();
             p.Show();
+        }
+
+        private void Acceder_Click(object sender, EventArgs e)
+        {
+            Main m = new Main();
+            m.Show();
         }
     }
 }
