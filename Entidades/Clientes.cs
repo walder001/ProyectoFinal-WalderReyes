@@ -19,6 +19,7 @@ namespace Entidades
         public string Telefono { get; set; }
         public DateTime FechaNacimiento { get; set; }
         public string Email { get; set; }
+        public decimal Balance { get; set; }
         public Clientes()
         {
             CienteId = 0;
@@ -30,10 +31,11 @@ namespace Entidades
             Telefono = string.Empty;
             FechaNacimiento = DateTime.Now;
             Email = string.Empty;
+            Balance = 0;
 
         }
 
-        public Clientes(int cienteId, string nombres, string sexo, string direccion, string numeroCedula, string celular, string telefono, DateTime fechaNacimiento, string email)
+        public Clientes(int cienteId, string nombres, string sexo, string direccion, string numeroCedula, string celular, string telefono, DateTime fechaNacimiento, string email, decimal balance)
         {
             CienteId = cienteId;
             Nombres = nombres;
@@ -44,6 +46,7 @@ namespace Entidades
             Telefono = telefono;
             FechaNacimiento = fechaNacimiento;
             Email = email;
+            Balance = balance;
         }
     }
 }
