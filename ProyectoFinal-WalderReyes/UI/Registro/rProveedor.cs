@@ -176,6 +176,18 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
         }
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
+            RepositorioBase<Proveedores> repositorio = new RepositorioBase<Proveedores>(new Contexto());
+            Proveedores proveedores = repositorio.Buscar((int)ProveedordNumericUpDown.Value);
+            if (proveedores != null)
+            {
+                LLanaCampo(proveedores);
+
+            }
+            else
+            {
+                MessageBox.Show("Proveedor no encontrado", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
 
         }
 
