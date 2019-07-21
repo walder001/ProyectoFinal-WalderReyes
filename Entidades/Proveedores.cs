@@ -14,7 +14,7 @@ namespace Entidades
         public string TelefonoProveedor { get; set; }
         public string Email { get; set; }
         public string NombreRepresentante { get; set; }
-        public string EstencionRepresentante { get; set; }
+        public int ExtencionRepresentante { get; set; }
         public Proveedores()
         {
             ProveedorId = 0;
@@ -23,11 +23,11 @@ namespace Entidades
             TelefonoProveedor = string.Empty;
             Email = string.Empty;
             NombreRepresentante = string.Empty;
-            EstencionRepresentante = string.Empty;
+            ExtencionRepresentante = 0;
 
         }
 
-        public Proveedores(int proveedorId, string nombreProveedor, string rNC, string telefonoProveedor, string email, string nombreRepresentante, string estencionRepresentante)
+        public Proveedores(int proveedorId, string nombreProveedor, string rNC, string telefonoProveedor, string email, string nombreRepresentante, int extencionRepresentante)
         {
             ProveedorId = proveedorId;
             NombreProveedor = nombreProveedor;
@@ -35,7 +35,7 @@ namespace Entidades
             TelefonoProveedor = telefonoProveedor;
             Email = email;
             NombreRepresentante = nombreRepresentante;
-            EstencionRepresentante = estencionRepresentante;
+            ExtencionRepresentante = extencionRepresentante;
         }
     }
 }

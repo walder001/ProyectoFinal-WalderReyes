@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rProveedor));
             this.ExtencionNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
-            this.ProductoIdTextBox = new System.Windows.Forms.NumericUpDown();
+            this.ProveedordNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -43,12 +44,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.nombres = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.RNCMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.TelefonoMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.EmailTextBox = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.NombreRepresentantetextBox = new System.Windows.Forms.TextBox();
+            this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ExtencionNumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ProductoIdTextBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProveedordNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // ExtencionNumericUpDown
@@ -69,12 +72,12 @@
             this.label9.TabIndex = 124;
             this.label9.Text = "Estencion Representante";
             // 
-            // ProductoIdTextBox
+            // ProveedordNumericUpDown
             // 
-            this.ProductoIdTextBox.Location = new System.Drawing.Point(187, 23);
-            this.ProductoIdTextBox.Name = "ProductoIdTextBox";
-            this.ProductoIdTextBox.Size = new System.Drawing.Size(98, 20);
-            this.ProductoIdTextBox.TabIndex = 121;
+            this.ProveedordNumericUpDown.Location = new System.Drawing.Point(187, 23);
+            this.ProveedordNumericUpDown.Name = "ProveedordNumericUpDown";
+            this.ProveedordNumericUpDown.Size = new System.Drawing.Size(98, 20);
+            this.ProveedordNumericUpDown.TabIndex = 121;
             // 
             // btnBuscar
             // 
@@ -89,6 +92,7 @@
             this.btnBuscar.TabIndex = 120;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
             // 
             // btnGuardar
             // 
@@ -103,6 +107,7 @@
             this.btnGuardar.TabIndex = 119;
             this.btnGuardar.Text = "Guargar";
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
             // btnEliminar
             // 
@@ -117,6 +122,7 @@
             this.btnEliminar.TabIndex = 118;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // btnNuevo
             // 
@@ -131,6 +137,7 @@
             this.btnNuevo.TabIndex = 117;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click);
             // 
             // NombreTextBox
             // 
@@ -138,6 +145,7 @@
             this.NombreTextBox.Name = "NombreTextBox";
             this.NombreTextBox.Size = new System.Drawing.Size(221, 20);
             this.NombreTextBox.TabIndex = 116;
+            this.NombreTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NombreTextBox_KeyPress);
             // 
             // label6
             // 
@@ -205,20 +213,22 @@
             this.label1.TabIndex = 109;
             this.label1.Text = "ProveedorId";
             // 
-            // maskedTextBox1
+            // RNCMaskedTextBox
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(187, 105);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(221, 20);
-            this.maskedTextBox1.TabIndex = 130;
+            this.RNCMaskedTextBox.Location = new System.Drawing.Point(187, 105);
+            this.RNCMaskedTextBox.Mask = "000-000000000-0";
+            this.RNCMaskedTextBox.Name = "RNCMaskedTextBox";
+            this.RNCMaskedTextBox.Size = new System.Drawing.Size(221, 20);
+            this.RNCMaskedTextBox.TabIndex = 130;
+            this.RNCMaskedTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RNCMaskedTextBox_KeyPress);
             // 
-            // maskedTextBox2
+            // TelefonoMaskedTextBox
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(187, 146);
-            this.maskedTextBox2.Mask = "(999)000-0000";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(221, 20);
-            this.maskedTextBox2.TabIndex = 131;
+            this.TelefonoMaskedTextBox.Location = new System.Drawing.Point(187, 146);
+            this.TelefonoMaskedTextBox.Mask = "(999)000-0000";
+            this.TelefonoMaskedTextBox.Name = "TelefonoMaskedTextBox";
+            this.TelefonoMaskedTextBox.Size = new System.Drawing.Size(221, 20);
+            this.TelefonoMaskedTextBox.TabIndex = 131;
             // 
             // EmailTextBox
             // 
@@ -227,25 +237,30 @@
             this.EmailTextBox.Size = new System.Drawing.Size(221, 20);
             this.EmailTextBox.TabIndex = 132;
             // 
-            // textBox1
+            // NombreRepresentantetextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(187, 228);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(221, 20);
-            this.textBox1.TabIndex = 133;
+            this.NombreRepresentantetextBox.Location = new System.Drawing.Point(187, 228);
+            this.NombreRepresentantetextBox.Name = "NombreRepresentantetextBox";
+            this.NombreRepresentantetextBox.Size = new System.Drawing.Size(221, 20);
+            this.NombreRepresentantetextBox.TabIndex = 133;
+            this.NombreRepresentantetextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NombreRepresentantetextBox_KeyPress);
             // 
-            // Proveedor
+            // ErrorProvider
+            // 
+            this.ErrorProvider.ContainerControl = this;
+            // 
+            // rProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(421, 357);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.NombreRepresentantetextBox);
             this.Controls.Add(this.EmailTextBox);
-            this.Controls.Add(this.maskedTextBox2);
-            this.Controls.Add(this.maskedTextBox1);
+            this.Controls.Add(this.TelefonoMaskedTextBox);
+            this.Controls.Add(this.RNCMaskedTextBox);
             this.Controls.Add(this.ExtencionNumericUpDown);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.ProductoIdTextBox);
+            this.Controls.Add(this.ProveedordNumericUpDown);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnEliminar);
@@ -257,10 +272,11 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.nombres);
             this.Controls.Add(this.label1);
-            this.Name = "Proveedor";
+            this.Name = "rProveedor";
             this.Text = "Proveedor";
             ((System.ComponentModel.ISupportInitialize)(this.ExtencionNumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ProductoIdTextBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ProveedordNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -269,7 +285,7 @@
         #endregion
         private System.Windows.Forms.NumericUpDown ExtencionNumericUpDown;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.NumericUpDown ProductoIdTextBox;
+        private System.Windows.Forms.NumericUpDown ProveedordNumericUpDown;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnEliminar;
@@ -281,9 +297,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label nombres;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.MaskedTextBox RNCMaskedTextBox;
+        private System.Windows.Forms.MaskedTextBox TelefonoMaskedTextBox;
         private System.Windows.Forms.TextBox EmailTextBox;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox NombreRepresentantetextBox;
+        private System.Windows.Forms.ErrorProvider ErrorProvider;
     }
 }
