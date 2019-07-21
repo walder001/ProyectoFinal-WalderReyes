@@ -18,6 +18,8 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
         public rProductos()
         {
             InitializeComponent();
+            CalcularGanancia();
+
         }
         public void Limpiar()
         {
@@ -28,7 +30,7 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             CostoNumericUpDown.Value = 0;
             PrecioNumericUpDown.Value = 0;
             ItebisNumericUpDown1.Value = 0;
-            GananciaNumericUpDown.Value = 0;
+            GananciaTextBox.Text = string.Empty;
             CategoriaComboBox.Text = string.Empty;
 
         }
@@ -41,7 +43,7 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             pro.Costo = (decimal)CostoNumericUpDown.Value;
             pro.Precio = (decimal)PrecioNumericUpDown.Value;
             pro.Itebis = (decimal)PrecioNumericUpDown.Value;
-            pro.Ganancia = (decimal)GananciaNumericUpDown.Value;
+            pro.Ganancia = Convert.ToDecimal(GananciaTextBox.Text);
 
             return pro;
         } 
@@ -53,8 +55,7 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             CostoNumericUpDown.Value = pro.Costo;
             PrecioNumericUpDown.Value = pro.Precio;
             ItebisNumericUpDown1.Value = pro.Itebis;
-            GananciaNumericUpDown.Value = pro.Ganancia;
-
+             GananciaTextBox.Text =Convert.ToString(pro.Ganancia);
 
         }
         public bool Validar()
@@ -76,6 +77,48 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             RepositorioBase<Productos> reposistorio = new RepositorioBase<Productos>(new Contexto());
             Productos pro = reposistorio.Buscar((int)ProductoIdNumericUpDown.Value);
             return (pro != null);
+        }
+        public void SoloLetras(KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+
+            }
+           else if (char.IsLetter(e.KeyChar))
+            {
+                e.Handled = false;
+
+            }else if (char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+
+            }
+            else
+            {
+                e.Handled = true;
+            }
+
+        }
+        public void CalcularGanancia()
+        {
+            decimal costo = CostoNumericUpDown.Value;
+            decimal precio = PrecioNumericUpDown.Value;
+            decimal cantidad = CantidadnumericUpDown.Value;
+            decimal itebis = ItebisNumericUpDown1.Value;
+            decimal ganancia = 0;
+            decimal valor = 0;
+            valor = ((cantidad*precio)*(itebis/100));
+            ganancia = (((cantidad * precio) + valor) - (cantidad * costo));
+            GananciaTextBox.Text = ganancia.ToString();
+
+
+            if (CostoNumericUpDown.Value > 0 && CantidadnumericUpDown.Value == 0)
+                GananciaTextBox.Text = "0";
+            if (CostoNumericUpDown.Value ==  0 && CantidadnumericUpDown.Value> 0)
+                GananciaTextBox.Text = "0";
+            if (CostoNumericUpDown.Value == 0 && CantidadnumericUpDown.Value == 0)
+                GananciaTextBox.Text = "0";
         }
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
@@ -133,6 +176,36 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void DescripcionTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            SoloLetras(e);
+        }
+
+        private void GananciaTextBox_TextChanged(object sender, EventArgs e)
+        {
+            CalcularGanancia();
+        }
+
+        private void CantidadnumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            CalcularGanancia();
+        }
+
+        private void CostoNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            CalcularGanancia();
+        }
+
+        private void PrecioNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            CalcularGanancia();
+        }
+
+        private void ItebisNumericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            CalcularGanancia();
         }
     }
 }

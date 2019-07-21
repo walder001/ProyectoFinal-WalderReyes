@@ -48,16 +48,15 @@
             this.CantidadnumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.CostoNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.PrecioNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.GananciaNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.CategoriaComboBox = new System.Windows.Forms.ComboBox();
             this.ItebisNumericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.GananciaTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.ProductoIdNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CantidadnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CostoNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PrecioNumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GananciaNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItebisNumericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             this.SuspendLayout();
@@ -157,6 +156,7 @@
             this.DescripcionTextBox.Name = "DescripcionTextBox";
             this.DescripcionTextBox.Size = new System.Drawing.Size(221, 20);
             this.DescripcionTextBox.TabIndex = 88;
+            this.DescripcionTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DescripcionTextBox_KeyPress);
             // 
             // label7
             // 
@@ -238,6 +238,7 @@
             this.CantidadnumericUpDown.Name = "CantidadnumericUpDown";
             this.CantidadnumericUpDown.Size = new System.Drawing.Size(221, 20);
             this.CantidadnumericUpDown.TabIndex = 105;
+            this.CantidadnumericUpDown.ValueChanged += new System.EventHandler(this.CantidadnumericUpDown_ValueChanged);
             // 
             // CostoNumericUpDown
             // 
@@ -245,6 +246,7 @@
             this.CostoNumericUpDown.Name = "CostoNumericUpDown";
             this.CostoNumericUpDown.Size = new System.Drawing.Size(221, 20);
             this.CostoNumericUpDown.TabIndex = 106;
+            this.CostoNumericUpDown.ValueChanged += new System.EventHandler(this.CostoNumericUpDown_ValueChanged);
             // 
             // PrecioNumericUpDown
             // 
@@ -252,13 +254,7 @@
             this.PrecioNumericUpDown.Name = "PrecioNumericUpDown";
             this.PrecioNumericUpDown.Size = new System.Drawing.Size(221, 20);
             this.PrecioNumericUpDown.TabIndex = 107;
-            // 
-            // GananciaNumericUpDown
-            // 
-            this.GananciaNumericUpDown.Location = new System.Drawing.Point(136, 293);
-            this.GananciaNumericUpDown.Name = "GananciaNumericUpDown";
-            this.GananciaNumericUpDown.Size = new System.Drawing.Size(221, 20);
-            this.GananciaNumericUpDown.TabIndex = 108;
+            this.PrecioNumericUpDown.ValueChanged += new System.EventHandler(this.PrecioNumericUpDown_ValueChanged);
             // 
             // CategoriaComboBox
             // 
@@ -274,6 +270,7 @@
             this.ItebisNumericUpDown1.Name = "ItebisNumericUpDown1";
             this.ItebisNumericUpDown1.Size = new System.Drawing.Size(221, 20);
             this.ItebisNumericUpDown1.TabIndex = 111;
+            this.ItebisNumericUpDown1.ValueChanged += new System.EventHandler(this.ItebisNumericUpDown1_ValueChanged);
             // 
             // label2
             // 
@@ -290,15 +287,24 @@
             // 
             this.ErrorProvider.ContainerControl = this;
             // 
+            // GananciaTextBox
+            // 
+            this.GananciaTextBox.Location = new System.Drawing.Point(136, 293);
+            this.GananciaTextBox.Name = "GananciaTextBox";
+            this.GananciaTextBox.ReadOnly = true;
+            this.GananciaTextBox.Size = new System.Drawing.Size(220, 20);
+            this.GananciaTextBox.TabIndex = 112;
+            this.GananciaTextBox.TextChanged += new System.EventHandler(this.GananciaTextBox_TextChanged);
+            // 
             // rProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(376, 457);
+            this.Controls.Add(this.GananciaTextBox);
             this.Controls.Add(this.ItebisNumericUpDown1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.CategoriaComboBox);
-            this.Controls.Add(this.GananciaNumericUpDown);
             this.Controls.Add(this.PrecioNumericUpDown);
             this.Controls.Add(this.CostoNumericUpDown);
             this.Controls.Add(this.CantidadnumericUpDown);
@@ -324,7 +330,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.CantidadnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CostoNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PrecioNumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GananciaNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItebisNumericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             this.ResumeLayout(false);
@@ -351,10 +356,10 @@
         private System.Windows.Forms.NumericUpDown CantidadnumericUpDown;
         private System.Windows.Forms.NumericUpDown CostoNumericUpDown;
         private System.Windows.Forms.NumericUpDown PrecioNumericUpDown;
-        private System.Windows.Forms.NumericUpDown GananciaNumericUpDown;
         private System.Windows.Forms.ComboBox CategoriaComboBox;
         private System.Windows.Forms.NumericUpDown ItebisNumericUpDown1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ErrorProvider ErrorProvider;
+        private System.Windows.Forms.TextBox GananciaTextBox;
     }
 }
