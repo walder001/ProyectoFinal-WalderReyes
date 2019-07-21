@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rProductos));
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -51,12 +52,14 @@
             this.CategoriaComboBox = new System.Windows.Forms.ComboBox();
             this.ItebisNumericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
+            this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ProductoIdNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CantidadnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CostoNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PrecioNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GananciaNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItebisNumericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label9
@@ -101,6 +104,7 @@
             this.btnBuscar.TabIndex = 92;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
             // 
             // btnGuardar
             // 
@@ -282,6 +286,10 @@
             this.label2.TabIndex = 110;
             this.label2.Text = "Itebis";
             // 
+            // ErrorProvider
+            // 
+            this.ErrorProvider.ContainerControl = this;
+            // 
             // rProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -311,12 +319,14 @@
             this.Controls.Add(this.label1);
             this.Name = "rProductos";
             this.Text = " ";
+            this.Load += new System.EventHandler(this.RProductos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ProductoIdNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CantidadnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CostoNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PrecioNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GananciaNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItebisNumericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -345,5 +355,6 @@
         private System.Windows.Forms.ComboBox CategoriaComboBox;
         private System.Windows.Forms.NumericUpDown ItebisNumericUpDown1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ErrorProvider ErrorProvider;
     }
 }

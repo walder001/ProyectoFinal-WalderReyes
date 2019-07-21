@@ -267,6 +267,11 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             Limpiar();
         }
 
+        private void NombresTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+            
+        }
         //Programacion del boton guardar
         private void BtnGuardar_Click(object sender, EventArgs e)
         {

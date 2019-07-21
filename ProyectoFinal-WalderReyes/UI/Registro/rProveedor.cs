@@ -35,11 +35,11 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
         {
             Proveedores proveedores = new Proveedores();
             proveedores.ProveedorId = (int)ProveedordNumericUpDown.Value;
-            proveedores.NombreProveedor = NombreTextBox.Text;
+            proveedores.NombreProveedor = NombreTextBox.Text.TrimStart();
             proveedores.RNC = RNCMaskedTextBox.Text;
             proveedores.TelefonoProveedor = TelefonoMaskedTextBox.Text;
-            proveedores.Email = EmailTextBox.Text;
-            proveedores.NombreRepresentante = NombreRepresentantetextBox.Text;
+            proveedores.Email = EmailTextBox.Text.TrimStart();
+            proveedores.NombreRepresentante = NombreRepresentantetextBox.Text.TrimStart();
             proveedores.ExtencionRepresentante = (int)ExtencionNumericUpDown.Value;
             return proveedores;
         }
@@ -128,13 +128,13 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             }
         }
         //Expresion regural para validar el Email
-        private Boolean ValidarTelefono(String email)
+        private Boolean ValidarTelefono(String telefono)
         {
             String expresion;
-            expresion = "^[0-9- +] + $";
-            if (Regex.IsMatch(email, expresion))
+            expresion = @"\A[0-9]{3} [0-9]{3} [0-9]{3}\Z";
+            if (Regex.IsMatch(telefono, expresion))
             {
-                if (Regex.Replace(email, expresion, String.Empty).Length == 0)
+                if (Regex.Replace(telefono, expresion, String.Empty).Length == 0)
                 {
                     return true;
                 }
@@ -158,13 +158,13 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
                 NombreTextBox.Focus();
                 paso = false;
             }
-            if (ValidarTelefono(TelefonoMaskedTextBox.Text) == false)
+           /* if (ValidarTelefono(TelefonoMaskedTextBox.Text))
             {
-                ErrorProvider.SetError(TelefonoMaskedTextBox, "EmailInvalido");
+                ErrorProvider.SetError(TelefonoMaskedTextBox, "Telefono invalido");
                 TelefonoMaskedTextBox.Focus();
                 paso = false;
 
-            }
+            }*/
             if (ValidarEmail(EmailTextBox.Text) == false)
             {
                 ErrorProvider.SetError(EmailTextBox,"EmailInvalido");

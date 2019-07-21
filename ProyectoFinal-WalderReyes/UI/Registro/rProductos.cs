@@ -60,6 +60,15 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
         public bool Validar()
         {
             bool paso = true;
+            ErrorProvider.Clear();
+            if (string.IsNullOrWhiteSpace(DescripcionTextBox.Text))
+            {
+                ErrorProvider.SetError(DescripcionTextBox,"No puede esta en blanco");
+                DescripcionTextBox.Focus();
+                paso = false;
+
+
+            }
             return paso;
         }
         public bool Existe()
@@ -114,6 +123,16 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
         {
             RepositorioBase<Productos> reposistorio = new RepositorioBase<Productos>(new Contexto());
             reposistorio.Eliminar((int)ProductoIdNumericUpDown.Value);
+        }
+
+        private void RProductos_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnBuscar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
