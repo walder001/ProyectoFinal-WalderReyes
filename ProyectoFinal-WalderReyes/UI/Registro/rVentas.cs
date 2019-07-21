@@ -19,6 +19,8 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
         public rVentas()
         {
             InitializeComponent();
+            LLenarProducto();
+            LLenarClientes();
             Detalle = new List<VentasDetalle>();
         }
 
@@ -60,6 +62,22 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             dataGridView.DataSource = Detalle;
         }
 
+        public void LLenarProducto()
+        {
+            RepositorioBase<Productos> repositorio = new RepositorioBase<Productos>(new Contexto());
+            ProductoComboBox.DataSource = repositorio.GetList(a => true);
+            ProductoComboBox.ValueMember = "ProductoId";
+            ProductoComboBox.DisplayMember = "Descripcion";
+
+        }
+        public void LLenarClientes()
+        {
+            RepositorioBase<Clientes> repositorio = new RepositorioBase<Clientes>(new Contexto());
+            ClienteComboBox.DataSource = repositorio.GetList(c => true);
+            ClienteComboBox.ValueMember = "CienteId";
+            ClienteComboBox.DisplayMember = "Nombres";
+        }
+
 
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
@@ -91,6 +109,11 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Guardado","Informacion",MessageBoxButtons.OK,MessageBoxIcon.Information);
+        }
+
+        private void BtnBuscar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -54,6 +54,8 @@
             this.CelulamaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.TelefonoMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.BalanceTextBox = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ClienteIdNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             this.SuspendLayout();
@@ -96,7 +98,7 @@
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(134, 385);
+            this.btnGuardar.Location = new System.Drawing.Point(134, 413);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(104, 32);
             this.btnGuardar.TabIndex = 65;
@@ -111,7 +113,7 @@
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(248, 385);
+            this.btnEliminar.Location = new System.Drawing.Point(248, 413);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(104, 32);
             this.btnEliminar.TabIndex = 64;
@@ -126,7 +128,7 @@
             this.btnNuevo.ForeColor = System.Drawing.Color.White;
             this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(21, 385);
+            this.btnNuevo.Location = new System.Drawing.Point(21, 413);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(104, 32);
             this.btnNuevo.TabIndex = 63;
@@ -292,7 +294,7 @@
             this.CelulamaskedTextBox.Location = new System.Drawing.Point(134, 233);
             this.CelulamaskedTextBox.Mask = "000-000-0000";
             this.CelulamaskedTextBox.Name = "CelulamaskedTextBox";
-            this.CelulamaskedTextBox.Size = new System.Drawing.Size(217, 20);
+            this.CelulamaskedTextBox.Size = new System.Drawing.Size(221, 20);
             this.CelulamaskedTextBox.TabIndex = 79;
             // 
             // TelefonoMaskedTextBox
@@ -300,18 +302,39 @@
             this.TelefonoMaskedTextBox.Location = new System.Drawing.Point(134, 276);
             this.TelefonoMaskedTextBox.Mask = "(999)000-0000";
             this.TelefonoMaskedTextBox.Name = "TelefonoMaskedTextBox";
-            this.TelefonoMaskedTextBox.Size = new System.Drawing.Size(217, 20);
+            this.TelefonoMaskedTextBox.Size = new System.Drawing.Size(221, 20);
             this.TelefonoMaskedTextBox.TabIndex = 80;
             // 
             // ErrorProvider
             // 
             this.ErrorProvider.ContainerControl = this;
             // 
+            // BalanceTextBox
+            // 
+            this.BalanceTextBox.Location = new System.Drawing.Point(134, 378);
+            this.BalanceTextBox.Name = "BalanceTextBox";
+            this.BalanceTextBox.ReadOnly = true;
+            this.BalanceTextBox.Size = new System.Drawing.Size(221, 20);
+            this.BalanceTextBox.TabIndex = 82;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Chocolate;
+            this.label10.Location = new System.Drawing.Point(22, 385);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(53, 13);
+            this.label10.TabIndex = 81;
+            this.label10.Text = "Balance";
+            // 
             // rClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(376, 429);
+            this.ClientSize = new System.Drawing.Size(376, 455);
+            this.Controls.Add(this.BalanceTextBox);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.TelefonoMaskedTextBox);
             this.Controls.Add(this.CelulamaskedTextBox);
             this.Controls.Add(this.CedulaMaskedTextBox);
@@ -369,5 +392,7 @@
         private System.Windows.Forms.MaskedTextBox CelulamaskedTextBox;
         private System.Windows.Forms.MaskedTextBox TelefonoMaskedTextBox;
         private System.Windows.Forms.ErrorProvider ErrorProvider;
+        private System.Windows.Forms.TextBox BalanceTextBox;
+        private System.Windows.Forms.Label label10;
     }
 }

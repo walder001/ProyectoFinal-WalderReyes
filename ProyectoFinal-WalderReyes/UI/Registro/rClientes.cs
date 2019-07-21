@@ -38,6 +38,7 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             TelefonoMaskedTextBox.Text = string.Empty;
             NacimientoDateTime.Value = DateTime.Now;
             EmailTextBox.Text = string.Empty;
+            BalanceTextBox.Text = string.Empty;
 
         }
         //Metodo encargado de pasar los datos del formulario a la clase
@@ -62,6 +63,7 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             cl.Telefono = TelefonoMaskedTextBox.Text;
             cl.FechaNacimiento = NacimientoDateTime.Value;
             cl.Email = EmailTextBox.Text.TrimStart();
+            cl.Balance = 0;
             return cl;
         }
 
@@ -85,6 +87,7 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             TelefonoMaskedTextBox.Text = cl.Telefono;
             NacimientoDateTime.Value = cl.FechaNacimiento;
             EmailTextBox.Text = cl.Email;
+            BalanceTextBox.Text = cl.Balance.ToString();
         }
         //Validacion de los campos de la clase
         public bool Validar()
@@ -151,7 +154,7 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
                 FemeninoRadioButton.Focus();
                 paso = false;
             }
-            if (ValidarTelefono(TelefonoMaskedTextBox.Text) == false)
+            /*if (ValidarTelefono(TelefonoMaskedTextBox.Text) == false)
             {
                 ErrorProvider.SetError(TelefonoMaskedTextBox, "telefono invalido");
                 TelefonoMaskedTextBox.Focus();
@@ -164,7 +167,7 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
                 CedulaMaskedTextBox.Focus();
                 paso = false;
 
-            }
+            }*/
           
             return paso;
         }
