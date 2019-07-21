@@ -54,7 +54,7 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             {
                 sexo = FemeninoRadioButton.Text;
             }
-            cl.CienteId = (int)ClienteIdNumericUpDown.Value;
+            cl.ClienteId = (int)ClienteIdNumericUpDown.Value;
             cl.Nombres = NombresTextBox.Text.TrimStart();
             cl.Sexo = sexo;
             cl.Direccion = DireccionTextBox.Text.TrimStart();
@@ -79,7 +79,7 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             {
                 FemeninoRadioButton.Checked = true;
             }
-            ClienteIdNumericUpDown.Value = cl.CienteId;
+            ClienteIdNumericUpDown.Value = cl.ClienteId;
             NombresTextBox.Text = cl.Nombres;
             DireccionTextBox.Text = cl.Direccion;
             CedulaMaskedTextBox.Text = cl.NumeroCedula;

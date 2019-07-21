@@ -12,20 +12,21 @@ namespace Entidades
         public int ClienteId { get; set; }
         public int UsuarioId { get; set; }
         public string TipoPago { get; set; }
-        public decimal Valor { get; set; }
-        public decimal Devuelta { get; set; }
+        public decimal ItebisVenta { get; set; }
+        public decimal SubTotalVenta { get; set; }
+        public decimal CostoVenta { get; set; }
         public DateTime FechaVenta { get; set; }
-
-
         public virtual List<VentasDetalle> Detalle { get; set; }
+
         public Ventas()
         {
             VentasId = 0;
             ClienteId = 0;
             UsuarioId = 0;
             TipoPago = string.Empty;
-            Valor = 0;
-            Devuelta = 0;
+            ItebisVenta = 0;
+            SubTotalVenta = 0;
+            CostoVenta = 0;
             FechaVenta = DateTime.Now;
      
             this.Detalle = new List<VentasDetalle>();
@@ -33,22 +34,21 @@ namespace Entidades
 
         }
 
-        public Ventas(int ventasId, string tipoPago, decimal valor, decimal devuelta, DateTime fechaVenta )
+        public Ventas(int ventasId, int clienteId, int usuarioId, string tipoPago, decimal itebisVenta, decimal subTotalVenta, decimal costoVenta, DateTime fechaVenta )
         {
             VentasId = ventasId;
+            ClienteId = clienteId;
+            UsuarioId = usuarioId;
             TipoPago = tipoPago;
-            Valor = valor;
-            Devuelta = devuelta;
+            ItebisVenta = itebisVenta;
+            SubTotalVenta = subTotalVenta;
+            CostoVenta = costoVenta;
             FechaVenta = fechaVenta;
-
-
-           
             this.Detalle = new List<VentasDetalle>();
-
         }
-        public void AgregarDetalle(int ventaDetalleId, int ventaId, int productoId, decimal itebisVenta, decimal subTotalVenta, decimal totalVenta)
+        public void AgregarDetalle(int ventaDetalleId, int ventaId, int productoId, decimal cantidad, decimal precio, decimal descuento)
         {
-            this.Detalle.Add(new VentasDetalle(ventaDetalleId, ventaId, productoId, itebisVenta, subTotalVenta, totalVenta));
+            this.Detalle.Add(new VentasDetalle(ventaDetalleId, ventaId, productoId, cantidad, precio, descuento));
         }
     }
 }

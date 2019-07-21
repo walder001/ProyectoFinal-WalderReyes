@@ -10,7 +10,7 @@ namespace Entidades
     public class Clientes
     {
         [Key]
-        public int CienteId { get; set; }
+        public int ClienteId { get; set; }
         public string Nombres { get; set; }
         public string Sexo { get; set; }
         public string Direccion { get; set; }
@@ -22,7 +22,7 @@ namespace Entidades
         public decimal Balance { get; set; }
         public Clientes()
         {
-            CienteId = 0;
+            ClienteId = 0;
             Nombres = string.Empty;
             Sexo = string.Empty;
             Direccion = string.Empty;
@@ -35,9 +35,9 @@ namespace Entidades
 
         }
 
-        public Clientes(int cienteId, string nombres, string sexo, string direccion, string numeroCedula, string celular, string telefono, DateTime fechaNacimiento, string email, decimal balance)
+        public Clientes(int clienteId, string nombres, string sexo, string direccion, string numeroCedula, string celular, string telefono, DateTime fechaNacimiento, string email, decimal balance)
         {
-            CienteId = cienteId;
+            ClienteId = clienteId;
             Nombres = nombres;
             Sexo = sexo;
             Direccion = direccion;

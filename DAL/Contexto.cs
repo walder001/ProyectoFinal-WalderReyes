@@ -13,8 +13,8 @@ namespace DAL
         public DbSet<Usuarios> Ususarios { get; set; }
         public DbSet<Clientes> Clientes { get; set; }
         public DbSet<Proveedores> Proveedores { get; set; }
-
         public DbSet<Productos> Productos { get; set; }
+        public DbSet<Ventas> Ventas { get; set; }
 
         public Contexto() : base("DbProyectoFinal-WalderReyes")
         {
