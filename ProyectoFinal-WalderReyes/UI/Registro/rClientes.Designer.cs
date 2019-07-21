@@ -226,6 +226,7 @@
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.Size = new System.Drawing.Size(221, 20);
             this.EmailTextBox.TabIndex = 71;
+            this.EmailTextBox.TextChanged += new System.EventHandler(this.EmailTextBox_TextChanged);
             // 
             // label8
             // 
@@ -285,6 +286,7 @@
             this.CedulaMaskedTextBox.Name = "CedulaMaskedTextBox";
             this.CedulaMaskedTextBox.Size = new System.Drawing.Size(221, 20);
             this.CedulaMaskedTextBox.TabIndex = 78;
+            this.CedulaMaskedTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CedulaMaskedTextBox_KeyPress);
             // 
             // CelulamaskedTextBox
             // 

@@ -27,7 +27,7 @@ namespace Entidades.Tests
         {
             RepositorioBase<Usuarios> repositorio;
             repositorio = new RepositorioBase<Usuarios>(new Contexto());
-            Assert.IsNotNull(repositorio.Buscar(1));
+            Assert.IsNotNull(repositorio.Buscar(2));
         }
         [TestMethod()]
         public void Modificar()
@@ -35,7 +35,7 @@ namespace Entidades.Tests
             RepositorioBase<Usuarios> repositorio;
             repositorio = new RepositorioBase<Usuarios>(new Contexto());
             Usuarios usuarios = new Usuarios();
-            usuarios.UsuarioId = 1;
+            usuarios.UsuarioId = 3;
             usuarios.Nombres = "walder";
             usuarios.Email = "Walderreyes34@gmail.com";
             usuarios.NivelUsuario = 0;

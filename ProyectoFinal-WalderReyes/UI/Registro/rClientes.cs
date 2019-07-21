@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -67,18 +68,17 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
         //Metodo encargado de la buscar los datos de la clase y llenar el formulario
         public void LLenaCampo(Clientes cl)
         {
-            string sexo;
-            if (MasculinoRadioButton.Checked)
+            
+            if (cl.Sexo == "Masculino")
             {
-                sexo = MasculinoRadioButton.Text;
+                MasculinoRadioButton.Checked = true;
             }
             else
             {
-                sexo = FemeninoRadioButton.Text;
+                FemeninoRadioButton.Checked = true;
             }
             ClienteIdNumericUpDown.Value = cl.CienteId;
             NombresTextBox.Text = cl.Nombres;
-            sexo = cl.Sexo;
             DireccionTextBox.Text = cl.Direccion;
             CedulaMaskedTextBox.Text = cl.NumeroCedula;
             CelulamaskedTextBox.Text = cl.Celular;
@@ -139,7 +139,33 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
                 TelefonoMaskedTextBox.Focus();
                 paso = false;
             }
+            if (ValidarEmail(EmailTextBox.Text) == false)
+            {
+                ErrorProvider.SetError(EmailTextBox, "Correo invalido");
+                EmailTextBox.Focus();
+                paso = false;
+            }
+            if (MasculinoRadioButton.Checked == false && FemeninoRadioButton.Checked == false)
+            {
+                ErrorProvider.SetError(FemeninoRadioButton, "Es campo sexo no puede esta vacio");
+                FemeninoRadioButton.Focus();
+                paso = false;
+            }
+            if (ValidarTelefono(TelefonoMaskedTextBox.Text) == false)
+            {
+                ErrorProvider.SetError(TelefonoMaskedTextBox, "telefono invalido");
+                TelefonoMaskedTextBox.Focus();
+                paso = false;
 
+            }
+            if (ValidarTelefono(CelulamaskedTextBox.Text) == false)
+            {
+                ErrorProvider.SetError(CedulaMaskedTextBox, "telefono invalido");
+                CedulaMaskedTextBox.Focus();
+                paso = false;
+
+            }
+          
             return paso;
         }
         //Metodo para ver si esiste el la base de tao
@@ -174,6 +200,67 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             }
 
         }
+        public void SoloNumero(KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+
+            }
+            else if (char.IsNumber(e.KeyChar))
+            {
+                e.Handled = false;
+
+            }
+            else
+            {
+                e.Handled = true;
+
+            }
+        }
+        //Expresion regural para validar el Email
+        private Boolean ValidarEmail(String email)
+        {
+            String expresion;
+            expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+            if (Regex.IsMatch(email, expresion))
+            {
+                if (Regex.Replace(email, expresion, String.Empty).Length == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+        //Expresion regural para validar el Email
+        private Boolean ValidarTelefono(String email)
+        {
+            String expresion;
+            expresion = "^[0-9- +] + $";
+            if (Regex.IsMatch(email, expresion))
+            {
+                if (Regex.Replace(email, expresion, String.Empty).Length == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+        
         //Programacion del boton buevo
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
@@ -196,14 +283,22 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
                 if (!Validar())
                     return;
                 clientes = LLenaCLase();
-                Limpiar();
-                if (!Existe())
+                if (ClienteIdNumericUpDown.Value == 0)
                 {
-                    MessageBox.Show("No se puede modificar un cliente que no existe");
+                    paso = BLL.Guardar(clientes);
+
                 }
                 else
                 {
-                    paso = BLL.Modificar(clientes);
+                    if (!Existe())
+                    {
+                        MessageBox.Show("No se puede modificar un cliente que no existe");
+                    }
+                    else
+                    {
+                        paso = BLL.Modificar(clientes);
+                    }
+                   
                 }
                 if (paso)
                 {
@@ -213,14 +308,15 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
                 {
                     MessageBox.Show("No se pudo Guardar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
             }
             catch (Exception)
             {
-                MessageBox.Show("","",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("Error al guardar","Information",MessageBoxButtons.OK,MessageBoxIcon.Information);
             } 
 
         }
-
+        //Implementacion del boton eliminar
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
             RepositorioBase<Clientes> repositorio = new RepositorioBase<Clientes>(new Contexto());
@@ -236,17 +332,16 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             }
 
         }
-
+        //Implementacion dell boton buscar
         private void BtnBuscar_Click(object sender, EventArgs e)
-        {
-            try
-            {
+        {   
                 RepositorioBase<Clientes> repositorio = new RepositorioBase<Clientes>(new Contexto());
                 Clientes clientes = new Clientes();
-
-                repositorio.Buscar(clientes.CienteId);
-                if (repositorio != null)
+             
+               clientes = repositorio.Buscar((int)ClienteIdNumericUpDown.Value);
+                if (clientes != null)
                 {
+                    
                     LLenaCampo(clientes);
                 }
                 else
@@ -254,18 +349,25 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
                     MessageBox.Show("Cliente no encontrado","Information",MessageBoxButtons.OK,MessageBoxIcon.Information);
 
                 }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Error en la busqueda","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
-
-            }
+           
 
         }
-
+        //Implementacion del metodo para que solo accepte lentras
         private void NombresTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             SoloLetras(e);
+        }
+        //Implementacion de la la validacion para el email
+        private void EmailTextBox_TextChanged(object sender, EventArgs e)
+        {
+            ValidarEmail(EmailTextBox.Text);
+           
+        }
+
+        //Implementacion de la validacion para la cedula
+        private void CedulaMaskedTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            SoloNumero(e);
         }
     }
 }
