@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ namespace Entidades
 {
     public class VentasDetalle
     {
+        [Key]
         public int VentaDetalleId { get; set; }
         public int VentaId { get; set; }
         public int ProductoId { get; set; }
@@ -30,14 +32,14 @@ namespace Entidades
         }
         public VentasDetalle(int ventaDetalleId, int ventaId, int productoId, int clienteId, decimal cantidad, decimal precio, decimal descuento, decimal total)
         {
-            VentaDetalleId = ventaDetalleId;
-            VentaId = ventaId;
-            ProductoId = productoId;
-            ClienteId = ClienteId;
-            Cantidad = cantidad;
-            Precio = precio;
-            Descuento = descuento;
-            Total = total;
+            this.VentaDetalleId = ventaDetalleId;
+            this.VentaId = ventaId;
+            this.ProductoId = productoId;
+            this.ClienteId = ClienteId;
+            this.Cantidad = cantidad;
+            this.Precio = precio;
+            this.Descuento = descuento;
+            this.Total = total;
         
         }
     }

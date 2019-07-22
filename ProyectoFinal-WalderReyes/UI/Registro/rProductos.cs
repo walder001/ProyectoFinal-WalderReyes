@@ -114,12 +114,12 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             GananciaTextBox.Text = ganancia.ToString();
 
 
-            if (CostoNumericUpDown.Value > 0 && CantidadnumericUpDown.Value == 0)
+            /*if (CostoNumericUpDown.Value > 0 && CantidadnumericUpDown.Value == 0)
                 GananciaTextBox.Text = "0";
             if (CostoNumericUpDown.Value ==  0 && CantidadnumericUpDown.Value> 0)
                 GananciaTextBox.Text = "0";
             if (CostoNumericUpDown.Value == 0 && CantidadnumericUpDown.Value == 0)
-                GananciaTextBox.Text = "0";
+                GananciaTextBox.Text = "0";*/
         }
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
@@ -134,18 +134,20 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             if (!Validar())
                 return;
             productos = LLenaClase();
-            Limpiar();
             if (ProductoIdNumericUpDown.Value == 0)
             {
                 paso = reposistorio.Guardar(productos);
-
             }
             else
             {
-                if (Existe())
+                if (!Existe())
                 {
                     MessageBox.Show("No se puede modificar un producto que no existe", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                }
+                else
+                {
+                    paso = reposistorio.Modificar(productos);
                 }
 
             }
