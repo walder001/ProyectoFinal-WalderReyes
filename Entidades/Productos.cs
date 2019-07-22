@@ -20,6 +20,8 @@ namespace Entidades
         public decimal Ganancia { get; set; }
         public decimal Itebis { get; set; }
 
+        public decimal DescuentoProducto { get; set; }
+
 
         public Productos()
         {
@@ -30,8 +32,9 @@ namespace Entidades
             Costo = 0;
             Precio = 0;
             Ganancia = 0;
+            DescuentoProducto = 0;
         }
-        public Productos(int productoId, int proveedores, string descripcion, decimal cantidad, decimal costo, decimal precio, decimal ganancia)
+        public Productos(int productoId, int proveedores, string descripcion, decimal cantidad, decimal costo, decimal precio, decimal ganancia, decimal itebis, decimal descuentoProducto)
         {
             ProductoId = productoId;
             ProveedoresId = proveedores;
@@ -40,6 +43,10 @@ namespace Entidades
             Costo = costo;
             Precio = precio;
             Ganancia = ganancia;
+            Itebis = itebis;
+            DescuentoProducto = descuentoProducto;
         }
+        
+        
     }
 }

@@ -23,7 +23,9 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             LLenarClientes();
            this.Detalle = new List<VentasDetalle>();
         }
-
+        /// <summary>
+        /// Metodo encargado de limpiar el formulario
+        /// </summary>
         public void Limpiar()
         {
             VentasIdNumericUpDown.Value = 0;
@@ -31,15 +33,19 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             TipoPagoTextBox.Text = string.Empty;
             ProductoComboBox.Text = string.Empty;
             CodigoTextBox.Text = string.Empty;
-            CantidadTextBox.Text = string.Empty;
+            CantidadNumericUpDown.Value = 0;
             PrecioTextBox.Text = string.Empty;
+            InteresTextBox.Text = string.Empty;
             ItebisTextBox.Text = string.Empty;
             SubTotalTextBox.Text = string.Empty;
             TotalTextBox.Text = string.Empty;
             this.Detalle = new List<VentasDetalle>();
             CargarGrid();
         }
-
+        /// <summary>
+        /// Metodo encargado de llenar la clase y el detalle
+        /// </summary>
+        /// <returns></returns>
         private Ventas LLenaClase()
         {
             Ventas pro = new Ventas();
@@ -65,6 +71,7 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
           
             return pro;
         }
+        //Metodo auxiliar para el uso de ToInt
 
         private int ToInt(object value)
         {
@@ -74,7 +81,10 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
 
             return retorno;
         }
-
+        /// <summary>
+        /// Metodo encargado de llenar el formulario con los datos de la clase
+        /// </summary>
+        /// <param name="pro"></param>
         public void LLenaCampo(Ventas pro)
         {
             VentasIdNumericUpDown.Value = pro.VentasId;
@@ -87,11 +97,66 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             ventaDataGridView.DataSource = pro.Detalle;
             
         }
+        /// <summary>
+        /// Metodo encargado de validar los campos del formulario
+        /// </summary>
+        /// <returns></returns>
         public bool Validar()
         {
             bool paso = true;
+            ErrorProvider.Clear();
+            if (string.IsNullOrWhiteSpace(CodigoTextBox.Text))
+            {
+                ErrorProvider.SetError(CodigoTextBox,"El codigo no puede estar vacio");
+                CodigoTextBox.Focus();
+                paso = false;
+            }
+            
+            if (string.IsNullOrWhiteSpace(PrecioTextBox.Text))
+            {
+                ErrorProvider.SetError(PrecioTextBox, "El codigo no puede estar vacio");
+                PrecioTextBox.Focus();
+                paso = false;
+            }
+            if (string.IsNullOrWhiteSpace(ItebisTextBox.Text))
+            {
+                ErrorProvider.SetError(ItebisTextBox, "El codigo no puede estar vacio");
+                ItebisTextBox.Focus();
+                paso = false;
+            }
+            if (string.IsNullOrWhiteSpace(TotalTextBox.Text))
+            {
+                ErrorProvider.SetError(TotalTextBox, "El codigo no puede estar vacio");
+                TotalTextBox.Focus();
+                paso = false;
+            }
             return paso;
         }
+        /// <summary>
+        /// Validar para que el campo solo reciba numeros
+        /// </summary>
+        /// <param name="e"></param>
+        public void SoloNumeros(KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (char.IsNumber(e.KeyChar))
+            {
+                e.Handled = false;
+
+            }
+            else
+            {
+                e.Handled = true;
+            }
+            
+        }
+        /// <summary>
+        /// Metodo qeu compruba s
+        /// </summary>
+        /// <returns></returns>
         public bool Existe()
         {
             VentasBLL reposistorio = new VentasBLL();
@@ -100,36 +165,18 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             Ventas pro = VentasBLL.Buscar((int)VentasIdNumericUpDown.Value);
             return (pro != null);
         }
-
-
+        /// <summary>
+        /// Metodo encargado de cargar el grid
+        /// </summary>
         public void CargarGrid()
         {
             ventaDataGridView.DataSource = null;
             ventaDataGridView.DataSource = Detalle;
         }
 
-        public void C()
-        {
-            if (ventaDataGridView.DataSource != null)
-            {
-                Detalle = (List<VentasDetalle>)ventaDataGridView.DataSource;
-            }
-            Detalle.Add(
-                new VentasDetalle(
-                    ventaDetalleId: 0,
-                    productoId: (int)ProductoComboBox.SelectedValue,
-                    ventaId: (int)VentasIdNumericUpDown.Value,
-                    clienteId: (int)ClienteComboBox.SelectedValue,
-                    cantidad: Convert.ToDecimal(CantidadTextBox.Text),
-                    precio: Convert.ToDecimal(PrecioTextBox.Text),
-                    descuento: 0,
-                    total: Convert.ToDecimal(TotalTextBox.Text)
-                    )
-                );
-
-            CargarGrid();
-        }
-
+        /// <summary>
+        /// Cargar el combobox producto
+        /// </summary>
         public void LLenarProducto()
         {
             RepositorioBase<Productos> repositorio = new RepositorioBase<Productos>(new Contexto());
@@ -138,6 +185,9 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             ProductoComboBox.DisplayMember = "Descripcion";
 
         }
+        /// <summary>
+        /// Cargar el combobox cleinte
+        /// </summary>
         public void LLenarClientes()
         {
             RepositorioBase<Clientes> repositorio = new RepositorioBase<Clientes>(new Contexto());
@@ -146,15 +196,21 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             ClienteComboBox.DisplayMember = "Nombres";
         }
 
-
+        /// <summary>
+        /// Boton Nuevo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
             Limpiar();
 
         }
-
-       
-
+        /// <summary>
+        /// Boton Guardar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
             Ventas ventas;
@@ -184,7 +240,11 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             else
                 MessageBox.Show("No se pudo guardar!!", "Fallo",MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-
+        /// <summary>
+        /// Boton Buscar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(VentasIdNumericUpDown.Value);
@@ -195,34 +255,50 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
                 LLenaCampo(ventas);
             }
             else
-                MessageBox.Show("No se encontro!", "Fallo",
-MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se encontro!", "Fallo",MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-
+        /// <summary>
+        /// Boton Agregar al grid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AgregarButton_Click(object sender, EventArgs e)
         {
             List<VentasDetalle> detalle = new List<VentasDetalle>();
-
-             if (ventaDataGridView.DataSource != null)
+            try
             {
-                detalle = (List<VentasDetalle>)ventaDataGridView.DataSource;
-            }
-            detalle.Add(
-                new VentasDetalle(
-                    ventaDetalleId: 0,
-                    productoId: (int)ProductoComboBox.SelectedValue,
-                    ventaId: (int)VentasIdNumericUpDown.Value,
-                    clienteId: (int)ClienteComboBox.SelectedValue,
-                    cantidad: Convert.ToDecimal(CantidadTextBox.Text),
-                    precio: Convert.ToDecimal(PrecioTextBox.Text),
-                    descuento: 0,
-                    total: Convert.ToDecimal(TotalTextBox.Text)
-                    )
-                );
-           
-            CargarGrid();
-        }
 
+
+                if (ventaDataGridView.DataSource != null)
+                {
+                    detalle = (List<VentasDetalle>)ventaDataGridView.DataSource;
+                }
+                detalle.Add(
+                    new VentasDetalle(
+                        ventaDetalleId: 0,
+                        productoId: (int)ProductoComboBox.SelectedValue,
+                        ventaId: (int)VentasIdNumericUpDown.Value,
+                        clienteId: (int)ClienteComboBox.SelectedValue,
+                        cantidad: Convert.ToDecimal(CantidadNumericUpDown.Value),
+                        precio: Convert.ToDecimal(PrecioTextBox.Text),
+                        descuento: 0,
+                        total: Convert.ToDecimal(TotalTextBox.Text)
+                        )
+                    );
+
+                CargarGrid();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No puede haber campos vacio");
+
+            }
+        }
+        /// <summary>
+        /// Boton Eliminar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(VentasIdNumericUpDown.Value);
@@ -233,7 +309,10 @@ MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
                 MessageBox.Show("No se pudo eliminar!!", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-
+        /// <summary>
+        /// Metodo encargado de buscar los datos del producto
+        /// </summary>
+        /// <param name="id"></param>
         public void Cantidad(int id)
         {
             Contexto contexto = new Contexto();
@@ -245,12 +324,31 @@ MessageBoxButtons.OK, MessageBoxIcon.Error);
             {
                 CodigoTextBox.Text = Convert.ToString(p.ProductoId);
                 DisponibletextBox.Text = Convert.ToString(p.Cantidad);
+                InteresTextBox.Text = Convert.ToString(p.Itebis);
                 PrecioTextBox.Text = Convert.ToString(p.Precio);
-                
             }
-    
+
+
+            if (CantidadNumericUpDown.Value != 0)
+            {
+                decimal subtotal, total,impuestos;    
+                impuestos = ((Convert.ToDecimal(CantidadNumericUpDown.Value) * Convert.ToDecimal(PrecioTextBox.Text)) * (Convert.ToDecimal(InteresTextBox.Text) /100));
+                subtotal = Convert.ToDecimal(CantidadNumericUpDown.Value) * Convert.ToDecimal(PrecioTextBox.Text);
+                total = impuestos + subtotal;
+
+                ItebisTextBox.Text = impuestos.ToString();
+                DescuentoTextBox.Text = "0";
+                SubTotalTextBox.Text = subtotal.ToString();
+                TotalTextBox.Text = total.ToString();
+            }
+           
 
         }
+        /// <summary>
+        /// Cargar datos del producto
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CantidadTextBox_TextChanged(object sender, EventArgs e)
         {
             Cantidad(Convert.ToInt32(ProductoComboBox.SelectedIndex));
@@ -267,5 +365,15 @@ MessageBoxButtons.OK, MessageBoxIcon.Error);
         {
 
         }
+        /// <summary>
+        /// Validar solo letras
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CantidadTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            SoloNumeros(e);
+        }
+        
     }
 }

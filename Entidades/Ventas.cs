@@ -55,6 +55,10 @@ namespace Entidades
         {
             this.Detalle.Add(new VentasDetalle(ventaDetalleId, ventaId, productoId, clienteId, cantidad, precio, descuento, total));
         }
+        public void Calculo()
+        {
+            
+        }
 
         
     }
