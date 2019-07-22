@@ -8,4 +8,3 @@ Select * from VentasDetalles
 renam
 alter table Usuarios alter column Nombre Nombres
 
-use m

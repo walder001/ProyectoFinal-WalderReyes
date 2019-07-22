@@ -1,4 +1,5 @@
-﻿using ProyectoFinal.UI.Registro;
+﻿using ProyectoFinal.UI.Consulta;
+using ProyectoFinal.UI.Registro;
 using ProyectoFinal_WalderReyes.UI.Registro;
 using System;
 using System.Collections.Generic;
@@ -52,6 +53,12 @@ namespace ProyectoFinal_WalderReyes
         private void SalirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void UsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cUsuario u = new cUsuario();
+            u.Show();
         }
     }
 }
