@@ -21,7 +21,7 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             InitializeComponent();
             LLenarProducto();
             LLenarClientes();
-            this.Detalle = new List<VentasDetalle>();
+           this.Detalle = new List<VentasDetalle>();
         }
 
         public void Limpiar()
@@ -44,14 +44,14 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
         {
             Ventas pro = new Ventas();
             pro.VentasId = (int)VentasIdNumericUpDown.Value;
-           // pro.ClienteId = ClienteComboBox.ValueMember.ToString();
+            pro.ClienteId = Convert.ToInt32(ClienteComboBox.SelectedIndex);
             pro.TipoPago = TipoPagoTextBox.Text;
             pro.ItebisVenta = Convert.ToInt32(ItebisTextBox.Text);
             pro.SubTotalVenta = Convert.ToInt32(ItebisTextBox.Text);
             pro.CostoVenta = Convert.ToInt32(ItebisTextBox.Text);
-            //foreach (DataGridView item in ventaDataGridView.Rows)
-            //{
-                /*pro.AgregarDetalle(
+            foreach (DataGridViewRow item in ventaDataGridView.Rows)
+            {
+                   pro.AgregarDetalle(
                      ToInt(item.Cells["VentaDetalleId"].Value),
                      ToInt(item.Cells["VentaId"].Value),
                      ToInt(item.Cells["ProductoId"].Value),
@@ -59,12 +59,10 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
                      ToInt(item.Cells["Cantidad"].Value),
                      ToInt(item.Cells["Precio"].Value),
                      ToInt(item.Cells["Descuento"].Value),
-                     ToInt(item.Cells["Total"].Value),
-                     ToInt(item.Cells["Balance"].Value)
-                );*/
+                     ToInt(item.Cells["Total"].Value));
 
-            //}
-
+            }
+          
             return pro;
         }
 
@@ -80,7 +78,7 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
         public void LLenaCampo(Ventas pro)
         {
             VentasIdNumericUpDown.Value = pro.VentasId;
-           // ClienteComboBox.ValueMember = Convert.ToString(pro.ClienteId);
+           ClienteComboBox.SelectedItem = Convert.ToInt32(pro.ClienteId);
             TipoPagoTextBox.Text = Convert.ToString(pro.TipoPago);
 
             ItebisTextBox.Text = pro.TipoPago;
@@ -203,11 +201,13 @@ MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         private void AgregarButton_Click(object sender, EventArgs e)
         {
+            List<VentasDetalle> detalle = new List<VentasDetalle>();
+
              if (ventaDataGridView.DataSource != null)
             {
-                Detalle = (List<VentasDetalle>)ventaDataGridView.DataSource;
+                detalle = (List<VentasDetalle>)ventaDataGridView.DataSource;
             }
-            Detalle.Add(
+            detalle.Add(
                 new VentasDetalle(
                     ventaDetalleId: 0,
                     productoId: (int)ProductoComboBox.SelectedValue,
@@ -260,6 +260,11 @@ MessageBoxButtons.OK, MessageBoxIcon.Error);
         private void ProductoComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Cantidad(Convert.ToInt32(ProductoComboBox.SelectedIndex));
+
+        }
+
+        private void VentaDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }

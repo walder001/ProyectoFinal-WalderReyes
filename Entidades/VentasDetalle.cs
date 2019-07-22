@@ -35,7 +35,7 @@ namespace Entidades
             this.VentaDetalleId = ventaDetalleId;
             this.VentaId = ventaId;
             this.ProductoId = productoId;
-            this.ClienteId = ClienteId;
+            this.ClienteId = clienteId;
             this.Cantidad = cantidad;
             this.Precio = precio;
             this.Descuento = descuento;

@@ -41,6 +41,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.DisponibletextBox = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.ventaDataGridView = new System.Windows.Forms.DataGridView();
             this.AgregarButton = new System.Windows.Forms.Button();
             this.PrecioTextBox = new System.Windows.Forms.TextBox();
@@ -57,8 +59,6 @@
             this.ClienteComboBox = new System.Windows.Forms.ComboBox();
             this.ProductoComboBox = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.DisponibletextBox = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.VentasIdNumericUpDown)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ventaDataGridView)).BeginInit();
@@ -212,13 +212,34 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos";
             // 
+            // DisponibletextBox
+            // 
+            this.DisponibletextBox.Location = new System.Drawing.Point(240, 34);
+            this.DisponibletextBox.Name = "DisponibletextBox";
+            this.DisponibletextBox.ReadOnly = true;
+            this.DisponibletextBox.Size = new System.Drawing.Size(89, 20);
+            this.DisponibletextBox.TabIndex = 71;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Chocolate;
+            this.label12.Location = new System.Drawing.Point(237, 18);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(66, 13);
+            this.label12.TabIndex = 70;
+            this.label12.Text = "Disponible";
+            // 
             // ventaDataGridView
             // 
+            this.ventaDataGridView.AllowUserToOrderColumns = true;
             this.ventaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ventaDataGridView.Location = new System.Drawing.Point(4, 60);
             this.ventaDataGridView.Name = "ventaDataGridView";
             this.ventaDataGridView.Size = new System.Drawing.Size(482, 107);
             this.ventaDataGridView.TabIndex = 69;
+            this.ventaDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.VentaDataGridView_CellContentClick);
             // 
             // AgregarButton
             // 
@@ -359,25 +380,6 @@
             this.label11.Size = new System.Drawing.Size(58, 13);
             this.label11.TabIndex = 79;
             this.label11.Text = "Producto";
-            // 
-            // DisponibletextBox
-            // 
-            this.DisponibletextBox.Location = new System.Drawing.Point(240, 34);
-            this.DisponibletextBox.Name = "DisponibletextBox";
-            this.DisponibletextBox.ReadOnly = true;
-            this.DisponibletextBox.Size = new System.Drawing.Size(89, 20);
-            this.DisponibletextBox.TabIndex = 71;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Chocolate;
-            this.label12.Location = new System.Drawing.Point(237, 18);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(66, 13);
-            this.label12.TabIndex = 70;
-            this.label12.Text = "Disponible";
             // 
             // rVentas
             // 
