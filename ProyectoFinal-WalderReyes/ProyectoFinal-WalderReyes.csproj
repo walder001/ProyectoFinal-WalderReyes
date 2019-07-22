@@ -86,6 +86,12 @@
     <Compile Include="UI\Consulta\cCliente.Designer.cs">
       <DependentUpon>cCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Consulta\CProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Consulta\CProducto.Designer.cs">
+      <DependentUpon>CProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Consulta\cProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +103,12 @@
     </Compile>
     <Compile Include="UI\Consulta\cUsuario.designer.cs">
       <DependentUpon>cUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Consulta\cVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Consulta\cVentas.Designer.cs">
+      <DependentUpon>cVentas.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Registro\rProveedor.cs">
       <SubType>Form</SubType>
@@ -178,11 +190,17 @@
     <EmbeddedResource Include="UI\Consulta\cCliente.resx">
       <DependentUpon>cCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Consulta\CProducto.resx">
+      <DependentUpon>CProducto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Consulta\cProveedor.resx">
       <DependentUpon>cProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Consulta\cUsuario.resx">
       <DependentUpon>cUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Consulta\cVentas.resx">
+      <DependentUpon>cVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Registro\rProveedor.resx">
       <DependentUpon>rProveedor.cs</DependentUpon>
