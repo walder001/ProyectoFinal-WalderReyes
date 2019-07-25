@@ -21,7 +21,7 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             InitializeComponent();
             LLenarProducto();
             LLenarClientes();
-           this.Detalle = new List<VentasDetalle>();
+            Limpiar();
         }
         /// <summary>
         /// Metodo encargado de limpiar el formulario
@@ -29,9 +29,9 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
         public void Limpiar()
         {
             VentasIdNumericUpDown.Value = 0;
-            ClienteComboBox.Text = string.Empty;
+            ClienteComboBox.Text = null;
             TipoPagoTextBox.Text = string.Empty;
-            ProductoComboBox.Text = string.Empty;
+            ProductoComboBox.Text = null;
             CodigoTextBox.Text = string.Empty;
             CantidadNumericUpDown.Value = 0;
             PrecioTextBox.Text = string.Empty;
@@ -95,7 +95,11 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             SubTotalTextBox.Text = pro.SubTotalVenta.ToString();
             TotalTextBox.Text = pro.CostoVenta.ToString();
             ventaDataGridView.DataSource = pro.Detalle;
-            
+            ventaDataGridView.Columns["InscripcioneDetalleId"].Visible = false;
+            ventaDataGridView.Columns["VentaId"].Visible = false;
+            ventaDataGridView.Columns["ProductoId"].Visible = false;
+            ventaDataGridView.Columns["ClienteId"].Visible = false;
+
         }
         /// <summary>
         /// Metodo encargado de validar los campos del formulario
@@ -177,9 +181,10 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
         /// <summary>
         /// Cargar el combobox producto
         /// </summary>
-        public void LLenarProducto()
+        private void LLenarProducto()
         {
             RepositorioBase<Productos> repositorio = new RepositorioBase<Productos>(new Contexto());
+            ProductoComboBox.DataSource = null;
             ProductoComboBox.DataSource = repositorio.GetList(a => true);
             ProductoComboBox.ValueMember = "ProductoId";
             ProductoComboBox.DisplayMember = "Descripcion";
@@ -188,9 +193,10 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
         /// <summary>
         /// Cargar el combobox cleinte
         /// </summary>
-        public void LLenarClientes()
+        private void LLenarClientes()
         {
             RepositorioBase<Clientes> repositorio = new RepositorioBase<Clientes>(new Contexto());
+            ClienteComboBox.DataSource = null;
             ClienteComboBox.DataSource = repositorio.GetList(c => true);
             ClienteComboBox.ValueMember = "ClienteId";
             ClienteComboBox.DisplayMember = "Nombres";
@@ -273,6 +279,8 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
                 {
                     detalle = (List<VentasDetalle>)ventaDataGridView.DataSource;
                 }
+                CargarGrid();
+              
                 detalle.Add(
                     new VentasDetalle(
                         ventaDetalleId: 0,
@@ -286,7 +294,7 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
                         )
                     );
 
-                CargarGrid();
+               
             }
             catch (Exception)
             {
@@ -374,6 +382,17 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
         {
             SoloNumeros(e);
         }
-        
+
+        private void CantidadNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            Cantidad(Convert.ToInt32(ProductoComboBox.SelectedIndex));
+
+        }
+
+        private void ClienteComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Cantidad(Convert.ToInt32(ProductoComboBox.SelectedIndex));
+
+        }
     }
 }

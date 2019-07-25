@@ -20,13 +20,14 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             InitializeComponent();
             CalcularGanancia();
             LLenaCombobox();
+            Limpiar();
 
         }
         public void Limpiar()
         {
             ProductoIdNumericUpDown.Value = 0;
             DescripcionTextBox.Text = string.Empty;
-            ProveedorComboBox1.Text = string.Empty;
+            ProveedorComboBox1.Text = null;
             CantidadnumericUpDown.Value = 0;
             CostoNumericUpDown.Value = 0;
             PrecioNumericUpDown.Value = 0;
@@ -43,7 +44,7 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             pro.Cantidad = (decimal)CantidadnumericUpDown.Value;
             pro.Costo = (decimal)CostoNumericUpDown.Value;
             pro.Precio = (decimal)PrecioNumericUpDown.Value;
-            pro.Itebis = (decimal)PrecioNumericUpDown.Value;
+            pro.Itebis = ((decimal)ItebisNumericUpDown1.Value/100);
             pro.Ganancia = Convert.ToDecimal(GananciaTextBox.Text);
 
             return pro;
@@ -135,6 +136,7 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             if (!Validar())
                 return;
             productos = LLenaClase();
+            Limpiar();
             if (ProductoIdNumericUpDown.Value == 0)
             {
                 paso = reposistorio.Guardar(productos);
@@ -148,7 +150,11 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
                 }
                 else
                 {
-                    paso = reposistorio.Modificar(productos);
+                    var opcion = MessageBox.Show("Decea Modificar el Usuario", "Question", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if (DialogResult.OK == opcion)
+                    {
+                        paso = reposistorio.Modificar(productos);
+                    }
                 }
 
             }
@@ -179,10 +185,10 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
 
         public void LLenaCombobox()
         {
-            RepositorioBase<Productos> repositorio = new RepositorioBase<Productos>(new Contexto());
+            RepositorioBase<Proveedores> repositorio = new RepositorioBase<Proveedores>(new Contexto());
             ProveedorComboBox1.DataSource = repositorio.GetList(a => true);
             ProveedorComboBox1.ValueMember = "ProveedorId";
-            ProveedorComboBox1.DisplayMember = "Nombre";
+            ProveedorComboBox1.DisplayMember = "NombreProveedor";
         }
         private void BtnBuscar_Click(object sender, EventArgs e)
         {

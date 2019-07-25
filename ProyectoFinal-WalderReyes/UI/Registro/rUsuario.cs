@@ -134,8 +134,6 @@ namespace ProyectoFinal.UI.Registro
                     return;
 
                 usuarios = LlenarClase();
-                Limpiar();
-
                 //Determinar si es guardar o modificar
                 if (UsarioId.Value == 0)
                     paso = UsuarioBLL.Guardar(usuarios);
@@ -146,7 +144,12 @@ namespace ProyectoFinal.UI.Registro
                         MessageBox.Show("No se puede modificar una persona que no existe", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    paso = UsuarioBLL.Modificar(usuarios);
+                    var opcion = MessageBox.Show("Decea Modificar el Usuario","Question",MessageBoxButtons.OKCancel,MessageBoxIcon.Question);
+                    if (DialogResult.OK == opcion)
+                    {
+                        paso = UsuarioBLL.Modificar(usuarios);
+                    }
+                    
                 }
 
                 //Informar el resultado

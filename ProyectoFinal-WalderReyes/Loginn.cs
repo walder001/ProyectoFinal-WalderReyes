@@ -76,16 +76,18 @@ namespace ProyectoFinal_WalderReyes
             RepositorioBase<Usuarios> repositorio = new RepositorioBase<Usuarios>(new Contexto());
             Usuarios usuarios = new Usuarios();
              var usuario = repositorio.Buscar(usuarios.UsuarioId);
-            if (txtUse.Text.Equals("admin") && txtPassword.Text.Equals("vivo"))
-            {
-                Main m = new Main();
-                m.Show();
+            /* if (txtUse.Text.Equals("admin") && txtPassword.Text.Equals("vivo"))
+             {
+                 Main m = new Main();
+                 m.Show();
 
-            }
-            else
-            {
-                MessageBox.Show("Usuario No enciantrado");
-            }
+             }
+             else
+             {
+                 MessageBox.Show("Usuario No enciantrado");
+             }*/
+            Main m = new Main();
+            m.Show();
 
         }
 

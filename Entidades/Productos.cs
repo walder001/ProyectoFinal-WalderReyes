@@ -11,7 +11,7 @@ namespace Entidades
     {
         [Key]
         public int ProductoId { get; set; }
-        public int ProveedoresId { get; set; }
+        public int ProveedorId { get; set; }
         public int CategoriaId { get; set; }
         public string Descripcion { get; set; }
         public decimal Cantidad { get; set; }
@@ -26,7 +26,7 @@ namespace Entidades
         public Productos()
         {
             ProductoId = 0;
-            ProveedoresId = 0;
+            ProveedorId = 0;
             Descripcion = string.Empty;
             Cantidad = 0;
             Costo = 0;
@@ -37,7 +37,7 @@ namespace Entidades
         public Productos(int productoId, int proveedores, string descripcion, decimal cantidad, decimal costo, decimal precio, decimal ganancia, decimal itebis, decimal descuentoProducto)
         {
             ProductoId = productoId;
-            ProveedoresId = proveedores;
+            ProveedorId = proveedores;
             Descripcion = descripcion;
             Cantidad = cantidad;
             Costo = costo;

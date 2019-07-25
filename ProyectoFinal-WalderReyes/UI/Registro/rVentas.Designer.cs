@@ -247,6 +247,7 @@
             this.CantidadNumericUpDown.Name = "CantidadNumericUpDown";
             this.CantidadNumericUpDown.Size = new System.Drawing.Size(104, 20);
             this.CantidadNumericUpDown.TabIndex = 72;
+            this.CantidadNumericUpDown.ValueChanged += new System.EventHandler(this.CantidadNumericUpDown_ValueChanged);
             // 
             // DisponibletextBox
             // 
@@ -388,6 +389,7 @@
             this.ClienteComboBox.Name = "ClienteComboBox";
             this.ClienteComboBox.Size = new System.Drawing.Size(457, 21);
             this.ClienteComboBox.TabIndex = 77;
+            this.ClienteComboBox.SelectedIndexChanged += new System.EventHandler(this.ClienteComboBox_SelectedIndexChanged);
             // 
             // ProductoComboBox
             // 
