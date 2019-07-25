@@ -34,7 +34,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.HastaDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.DesdedateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.cbFiltro = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -53,7 +53,7 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.dateTimePicker2);
+            this.groupBox1.Controls.Add(this.HastaDateTimePicker);
             this.groupBox1.Controls.Add(this.DesdedateTimePicker);
             this.groupBox1.Controls.Add(this.cbFiltro);
             this.groupBox1.Controls.Add(this.label3);
@@ -108,13 +108,13 @@
             this.label1.TabIndex = 37;
             this.label1.Text = "Desde";
             // 
-            // dateTimePicker2
+            // HastaDateTimePicker
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(479, 17);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(136, 20);
-            this.dateTimePicker2.TabIndex = 36;
+            this.HastaDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.HastaDateTimePicker.Location = new System.Drawing.Point(479, 17);
+            this.HastaDateTimePicker.Name = "HastaDateTimePicker";
+            this.HastaDateTimePicker.Size = new System.Drawing.Size(136, 20);
+            this.HastaDateTimePicker.TabIndex = 36;
             // 
             // DesdedateTimePicker
             // 
@@ -129,11 +129,8 @@
             this.cbFiltro.FormattingEnabled = true;
             this.cbFiltro.Items.AddRange(new object[] {
             "Todos",
-            "UsuarioId",
-            "Nombre",
-            "Email",
-            "NivelUsuario",
-            "Usuario"});
+            "ProductoId",
+            "Descripcion"});
             this.cbFiltro.Location = new System.Drawing.Point(54, 72);
             this.cbFiltro.Name = "cbFiltro";
             this.cbFiltro.Size = new System.Drawing.Size(102, 21);
@@ -170,6 +167,7 @@
             this.btnBuscar.TabIndex = 31;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
             // 
             // label4
             // 
@@ -228,7 +226,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker HastaDateTimePicker;
         private System.Windows.Forms.DateTimePicker DesdedateTimePicker;
         private System.Windows.Forms.ComboBox cbFiltro;
         private System.Windows.Forms.Label label3;
