@@ -174,6 +174,8 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             }
             return paso;
         }
+
+        
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
             RepositorioBase<Proveedores> repositorio = new RepositorioBase<Proveedores>(new Contexto());

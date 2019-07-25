@@ -56,7 +56,7 @@
             // 
             // ExtencionNumericUpDown
             // 
-            this.ExtencionNumericUpDown.Location = new System.Drawing.Point(187, 264);
+            this.ExtencionNumericUpDown.Location = new System.Drawing.Point(140, 264);
             this.ExtencionNumericUpDown.Name = "ExtencionNumericUpDown";
             this.ExtencionNumericUpDown.Size = new System.Drawing.Size(221, 20);
             this.ExtencionNumericUpDown.TabIndex = 129;
@@ -65,28 +65,28 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Chocolate;
+            this.label9.ForeColor = System.Drawing.SystemColors.Highlight;
             this.label9.Location = new System.Drawing.Point(26, 271);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(150, 13);
+            this.label9.Size = new System.Drawing.Size(63, 13);
             this.label9.TabIndex = 124;
-            this.label9.Text = "Estencion Representante";
+            this.label9.Text = "Estencion";
             // 
             // ProveedordNumericUpDown
             // 
-            this.ProveedordNumericUpDown.Location = new System.Drawing.Point(187, 23);
+            this.ProveedordNumericUpDown.Location = new System.Drawing.Point(140, 23);
             this.ProveedordNumericUpDown.Name = "ProveedordNumericUpDown";
             this.ProveedordNumericUpDown.Size = new System.Drawing.Size(98, 20);
             this.ProveedordNumericUpDown.TabIndex = 121;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.BackColor = System.Drawing.Color.Chocolate;
+            this.btnBuscar.BackColor = System.Drawing.SystemColors.Highlight;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(304, 14);
+            this.btnBuscar.Location = new System.Drawing.Point(257, 14);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(104, 32);
             this.btnBuscar.TabIndex = 120;
@@ -96,14 +96,14 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.BackColor = System.Drawing.Color.Chocolate;
+            this.btnGuardar.BackColor = System.Drawing.SystemColors.Highlight;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(175, 307);
+            this.btnGuardar.Location = new System.Drawing.Point(140, 313);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(104, 32);
+            this.btnGuardar.Size = new System.Drawing.Size(105, 32);
             this.btnGuardar.TabIndex = 119;
             this.btnGuardar.Text = "Guargar";
             this.btnGuardar.UseVisualStyleBackColor = false;
@@ -111,14 +111,14 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.BackColor = System.Drawing.Color.Chocolate;
+            this.btnEliminar.BackColor = System.Drawing.SystemColors.Highlight;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(304, 307);
+            this.btnEliminar.Location = new System.Drawing.Point(264, 313);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(104, 32);
+            this.btnEliminar.Size = new System.Drawing.Size(105, 32);
             this.btnEliminar.TabIndex = 118;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
@@ -126,14 +126,14 @@
             // 
             // btnNuevo
             // 
-            this.btnNuevo.BackColor = System.Drawing.Color.Chocolate;
+            this.btnNuevo.BackColor = System.Drawing.SystemColors.Highlight;
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.ForeColor = System.Drawing.Color.White;
             this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(29, 307);
+            this.btnNuevo.Location = new System.Drawing.Point(17, 313);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(104, 32);
+            this.btnNuevo.Size = new System.Drawing.Size(105, 32);
             this.btnNuevo.TabIndex = 117;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
@@ -141,7 +141,7 @@
             // 
             // NombreTextBox
             // 
-            this.NombreTextBox.Location = new System.Drawing.Point(187, 64);
+            this.NombreTextBox.Location = new System.Drawing.Point(140, 64);
             this.NombreTextBox.Name = "NombreTextBox";
             this.NombreTextBox.Size = new System.Drawing.Size(221, 20);
             this.NombreTextBox.TabIndex = 116;
@@ -151,18 +151,18 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Chocolate;
+            this.label6.ForeColor = System.Drawing.SystemColors.Highlight;
             this.label6.Location = new System.Drawing.Point(26, 235);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(134, 13);
+            this.label6.Size = new System.Drawing.Size(91, 13);
             this.label6.TabIndex = 114;
-            this.label6.Text = "NombreReprecentante";
+            this.label6.Text = "Reprecentante";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Chocolate;
+            this.label5.ForeColor = System.Drawing.SystemColors.Highlight;
             this.label5.Location = new System.Drawing.Point(26, 194);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(37, 13);
@@ -173,7 +173,7 @@
             // 
             this.Descripcion.AutoSize = true;
             this.Descripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Descripcion.ForeColor = System.Drawing.Color.Chocolate;
+            this.Descripcion.ForeColor = System.Drawing.SystemColors.Highlight;
             this.Descripcion.Location = new System.Drawing.Point(26, 153);
             this.Descripcion.Name = "Descripcion";
             this.Descripcion.Size = new System.Drawing.Size(57, 13);
@@ -184,7 +184,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Chocolate;
+            this.label3.ForeColor = System.Drawing.SystemColors.Highlight;
             this.label3.Location = new System.Drawing.Point(26, 112);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(33, 13);
@@ -195,7 +195,7 @@
             // 
             this.nombres.AutoSize = true;
             this.nombres.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nombres.ForeColor = System.Drawing.Color.Chocolate;
+            this.nombres.ForeColor = System.Drawing.SystemColors.Highlight;
             this.nombres.Location = new System.Drawing.Point(26, 71);
             this.nombres.Name = "nombres";
             this.nombres.Size = new System.Drawing.Size(50, 13);
@@ -206,7 +206,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Chocolate;
+            this.label1.ForeColor = System.Drawing.SystemColors.Highlight;
             this.label1.Location = new System.Drawing.Point(26, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 13);
@@ -215,7 +215,7 @@
             // 
             // RNCMaskedTextBox
             // 
-            this.RNCMaskedTextBox.Location = new System.Drawing.Point(187, 105);
+            this.RNCMaskedTextBox.Location = new System.Drawing.Point(140, 105);
             this.RNCMaskedTextBox.Mask = "000-000000000-0";
             this.RNCMaskedTextBox.Name = "RNCMaskedTextBox";
             this.RNCMaskedTextBox.Size = new System.Drawing.Size(221, 20);
@@ -224,7 +224,7 @@
             // 
             // TelefonoMaskedTextBox
             // 
-            this.TelefonoMaskedTextBox.Location = new System.Drawing.Point(187, 146);
+            this.TelefonoMaskedTextBox.Location = new System.Drawing.Point(140, 146);
             this.TelefonoMaskedTextBox.Mask = "(999)000-0000";
             this.TelefonoMaskedTextBox.Name = "TelefonoMaskedTextBox";
             this.TelefonoMaskedTextBox.Size = new System.Drawing.Size(221, 20);
@@ -232,14 +232,14 @@
             // 
             // EmailTextBox
             // 
-            this.EmailTextBox.Location = new System.Drawing.Point(187, 187);
+            this.EmailTextBox.Location = new System.Drawing.Point(140, 187);
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.Size = new System.Drawing.Size(221, 20);
             this.EmailTextBox.TabIndex = 132;
             // 
             // NombreRepresentantetextBox
             // 
-            this.NombreRepresentantetextBox.Location = new System.Drawing.Point(187, 228);
+            this.NombreRepresentantetextBox.Location = new System.Drawing.Point(140, 228);
             this.NombreRepresentantetextBox.Name = "NombreRepresentantetextBox";
             this.NombreRepresentantetextBox.Size = new System.Drawing.Size(221, 20);
             this.NombreRepresentantetextBox.TabIndex = 133;
@@ -253,7 +253,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(421, 357);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(381, 357);
             this.Controls.Add(this.NombreRepresentantetextBox);
             this.Controls.Add(this.EmailTextBox);
             this.Controls.Add(this.TelefonoMaskedTextBox);
@@ -273,7 +274,7 @@
             this.Controls.Add(this.nombres);
             this.Controls.Add(this.label1);
             this.Name = "rProveedor";
-            this.Text = "Proveedor";
+            this.Text = "Registro de Proveedor";
             ((System.ComponentModel.ISupportInitialize)(this.ExtencionNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProveedordNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();

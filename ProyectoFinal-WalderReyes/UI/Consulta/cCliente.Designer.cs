@@ -62,14 +62,14 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Location = new System.Drawing.Point(12, 10);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(658, 101);
+            this.groupBox1.Size = new System.Drawing.Size(658, 92);
             this.groupBox1.TabIndex = 38;
             this.groupBox1.TabStop = false;
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(141, 24);
+            this.checkBox1.Location = new System.Drawing.Point(124, 23);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(15, 14);
             this.checkBox1.TabIndex = 40;
@@ -79,8 +79,8 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Chocolate;
-            this.label5.Location = new System.Drawing.Point(26, 25);
+            this.label5.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label5.Location = new System.Drawing.Point(6, 23);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(97, 13);
             this.label5.TabIndex = 39;
@@ -90,8 +90,8 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Chocolate;
-            this.label2.Location = new System.Drawing.Point(433, 23);
+            this.label2.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label2.Location = new System.Drawing.Point(439, 20);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 38;
@@ -101,8 +101,8 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Chocolate;
-            this.label1.Location = new System.Drawing.Point(192, 24);
+            this.label1.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label1.Location = new System.Drawing.Point(188, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 37;
@@ -111,7 +111,7 @@
             // dateTimePicker2
             // 
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(479, 17);
+            this.dateTimePicker2.Location = new System.Drawing.Point(506, 16);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(136, 20);
             this.dateTimePicker2.TabIndex = 36;
@@ -134,7 +134,7 @@
             "Email",
             "NivelUsuario",
             "Usuario"});
-            this.cbFiltro.Location = new System.Drawing.Point(54, 72);
+            this.cbFiltro.Location = new System.Drawing.Point(54, 59);
             this.cbFiltro.Name = "cbFiltro";
             this.cbFiltro.Size = new System.Drawing.Size(102, 21);
             this.cbFiltro.TabIndex = 33;
@@ -143,8 +143,8 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Chocolate;
-            this.label3.Location = new System.Drawing.Point(6, 80);
+            this.label3.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label3.Location = new System.Drawing.Point(6, 67);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 28;
@@ -152,19 +152,19 @@
             // 
             // txtCriterio
             // 
-            this.txtCriterio.Location = new System.Drawing.Point(215, 70);
+            this.txtCriterio.Location = new System.Drawing.Point(243, 57);
             this.txtCriterio.Name = "txtCriterio";
-            this.txtCriterio.Size = new System.Drawing.Size(279, 20);
+            this.txtCriterio.Size = new System.Drawing.Size(251, 20);
             this.txtCriterio.TabIndex = 30;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.BackColor = System.Drawing.Color.Chocolate;
+            this.btnBuscar.BackColor = System.Drawing.SystemColors.Highlight;
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(526, 57);
+            this.btnBuscar.Location = new System.Drawing.Point(539, 44);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(103, 36);
             this.btnBuscar.TabIndex = 31;
@@ -175,8 +175,8 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Chocolate;
-            this.label4.Location = new System.Drawing.Point(162, 77);
+            this.label4.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label4.Location = new System.Drawing.Point(188, 62);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 13);
             this.label4.TabIndex = 29;
@@ -185,14 +185,14 @@
             // dgvConsulta
             // 
             this.dgvConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvConsulta.Location = new System.Drawing.Point(12, 127);
+            this.dgvConsulta.Location = new System.Drawing.Point(12, 108);
             this.dgvConsulta.Name = "dgvConsulta";
-            this.dgvConsulta.Size = new System.Drawing.Size(658, 231);
+            this.dgvConsulta.Size = new System.Drawing.Size(658, 250);
             this.dgvConsulta.TabIndex = 36;
             // 
             // Imprimir
             // 
-            this.Imprimir.BackColor = System.Drawing.Color.Chocolate;
+            this.Imprimir.BackColor = System.Drawing.SystemColors.Highlight;
             this.Imprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Imprimir.ForeColor = System.Drawing.Color.White;
             this.Imprimir.Image = ((System.Drawing.Image)(resources.GetObject("Imprimir.Image")));
@@ -208,12 +208,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(703, 424);
+            this.ClientSize = new System.Drawing.Size(682, 410);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvConsulta);
             this.Controls.Add(this.Imprimir);
             this.Name = "cCliente";
-            this.Text = "cCliente";
+            this.Text = "Consulta Cliente";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).EndInit();

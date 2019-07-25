@@ -1,4 +1,7 @@
-﻿using ProyectoFinal.UI.Consulta;
+﻿using BLL;
+using DAL;
+using Entidades;
+using ProyectoFinal.UI.Consulta;
 using ProyectoFinal.UI.Registro;
 using ProyectoFinal_WalderReyes.UI.Registro;
 using ProyectoFinal_WalderReyes.UI.Reporte;
@@ -69,8 +72,21 @@ namespace ProyectoFinal_WalderReyes
 
         private void BtnEntrer_Click(object sender, EventArgs e)
         {
-            Main m = new Main();
-            m.Show();
+            Contexto con = new Contexto();
+            RepositorioBase<Usuarios> repositorio = new RepositorioBase<Usuarios>(new Contexto());
+            Usuarios usuarios = new Usuarios();
+             var usuario = repositorio.Buscar(usuarios.UsuarioId);
+            if (txtUse.Text.Equals("admin") && txtPassword.Text.Equals("vivo"))
+            {
+                Main m = new Main();
+                m.Show();
+
+            }
+            else
+            {
+                MessageBox.Show("Usuario No enciantrado");
+            }
+
         }
 
         private void BtnClose_Click(object sender, EventArgs e)

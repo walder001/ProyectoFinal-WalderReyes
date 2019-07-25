@@ -19,6 +19,7 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
         {
             InitializeComponent();
             CalcularGanancia();
+            LLenaCombobox();
 
         }
         public void Limpiar()
@@ -176,6 +177,13 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
 
         }
 
+        public void LLenaCombobox()
+        {
+            RepositorioBase<Productos> repositorio = new RepositorioBase<Productos>(new Contexto());
+            ProveedorComboBox1.DataSource = repositorio.GetList(a => true);
+            ProveedorComboBox1.ValueMember = "ProveedorId";
+            ProveedorComboBox1.DisplayMember = "Nombre";
+        }
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
             RepositorioBase<Productos> repositorio = new RepositorioBase<Productos>(new Contexto());

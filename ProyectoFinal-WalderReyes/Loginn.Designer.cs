@@ -112,7 +112,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(319, 16);
             this.txtPassword.TabIndex = 13;
-            this.txtPassword.Text = "CONTRASEÑA: ";
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // txtUse
             // 
@@ -124,7 +124,6 @@
             this.txtUse.Name = "txtUse";
             this.txtUse.Size = new System.Drawing.Size(319, 16);
             this.txtUse.TabIndex = 12;
-            this.txtUse.Text = "USUARIO: ";
             // 
             // panel2
             // 

@@ -56,7 +56,7 @@ namespace ProyectoFinal.UI.Registro
             us.Email = txtEmail.Text.TrimStart();
             us.NivelUsuario = Convert.ToInt32(NivelUsuario.Value);
             us.Usuario = txtUsuario.Text.TrimStart();
-            us.Clave = ClaveTexBox.Text;
+            us.Clave = EnCryptDecrypt.CryptorEngine.Encrypt(ClaveTexBox.Text,true) ;
             us.FehaIngreso = dateTime.Value;
             return us;
         }
@@ -67,8 +67,8 @@ namespace ProyectoFinal.UI.Registro
             txtEmail.Text = usuarios.Email;
             NivelUsuario.Value = usuarios.NivelUsuario;
             txtUsuario.Text = usuarios.Usuario;
-            ClaveTexBox.Text = usuarios.Clave;
-            ConfirmarTextbox.Text = usuarios.Clave;
+            ClaveTexBox.Text = EnCryptDecrypt.CryptorEngine.Decrypt(usuarios.Clave, true);
+            ConfirmarTextbox.Text = EnCryptDecrypt.CryptorEngine.Decrypt(usuarios.Clave, true); ;
             dateTime.Value = DateTime.Now;
         }
 
@@ -275,6 +275,29 @@ namespace ProyectoFinal.UI.Registro
         private void TxtUsuario_KeyPress(object sender, KeyPressEventArgs e)
         {
             LetrasNumeros(e);
+        }
+
+        private void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked == true)
+            {
+                ClaveTexBox.UseSystemPasswordChar = false;
+                ConfirmarTextbox.UseSystemPasswordChar = false;
+
+
+            }
+            else
+            {
+                ClaveTexBox.UseSystemPasswordChar = true;
+                ConfirmarTextbox.UseSystemPasswordChar = true;
+
+            }
+
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            ClaveTexBox.UseSystemPasswordChar = true;
         }
     }
 }
