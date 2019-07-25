@@ -129,11 +129,8 @@
             this.cbFiltro.FormattingEnabled = true;
             this.cbFiltro.Items.AddRange(new object[] {
             "Todos",
-            "UsuarioId",
-            "Nombre",
-            "Email",
-            "NivelUsuario",
-            "Usuario"});
+            "ProveedorId",
+            "NombreProveedor"});
             this.cbFiltro.Location = new System.Drawing.Point(54, 72);
             this.cbFiltro.Name = "cbFiltro";
             this.cbFiltro.Size = new System.Drawing.Size(102, 21);
@@ -170,6 +167,7 @@
             this.btnBuscar.TabIndex = 31;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
             // 
             // label4
             // 
