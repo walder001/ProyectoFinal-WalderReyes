@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BLL;
+using DAL;
+using Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +18,76 @@ namespace ProyectoFinal_WalderReyes.UI.Consulta
         public cVentas()
         {
             InitializeComponent();
+            txtCriterio.Text = "Todos";
+        }
+
+        private void BtnBuscar_Click(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked == true)
+            {
+                var listar = new List<Ventas>();
+                RepositorioBase<Ventas> BLL = new RepositorioBase<Ventas>(new Contexto());
+                if (txtCriterio.Text.Trim().Length > 0)
+                {
+                    switch (cbFiltro.Text)
+                    {
+
+                        case "Todos":
+                            listar = BLL.GetList(p => true);
+                           
+                            break;
+
+                        case "UsuarioId":
+                            int id = Convert.ToInt32(txtCriterio.Text);
+                            listar = BLL.GetList(p => p.ClienteId == id);
+                            break;
+
+
+                    }
+                    listar = listar.Where(c => c.FechaVenta.Date >= DesdedateTimePicker.Value.Date && c.FechaVenta.Date <= HastaDateTimePicker.Value.Date).ToList();
+
+                }
+                else
+                {
+                    listar = BLL.GetList(i => true);
+                }
+                dgvConsulta.DataSource = null;
+                dgvConsulta.DataSource = listar;
+            }
+            else
+            {
+                var listar = new List<Clientes>();
+                RepositorioBase<Clientes> BLL = new RepositorioBase<Clientes>(new Contexto());
+                if (txtCriterio.Text.Trim().Length > 0)
+                {
+                    switch (cbFiltro.Text)
+                    {
+
+                        case "Todos":
+                            listar = BLL.GetList(p => true);
+                            break;
+
+                        case "UsuarioId":
+                            int id = Convert.ToInt32(txtCriterio.Text);
+                            listar = BLL.GetList(p => p.ClienteId == id);
+                            break;
+
+                        case "Nombre":
+                            listar = BLL.GetList(p => p.Nombres.Contains(txtCriterio.Text));
+                            break;
+
+
+                    }
+                }
+                else
+                {
+                    listar = BLL.GetList(i => true);
+                }
+                dgvConsulta.DataSource = null;
+                dgvConsulta.DataSource = listar;
+            }
+
         }
     }
-}
+    }
+

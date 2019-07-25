@@ -55,5 +55,5 @@ namespace ProyectoFinal_WalderReyes.UI.Consulta
 
         }
     }
-    }
-}
+ }
+
