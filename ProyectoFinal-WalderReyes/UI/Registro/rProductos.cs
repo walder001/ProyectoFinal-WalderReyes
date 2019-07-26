@@ -186,9 +186,16 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
         public void LLenaCombobox()
         {
             RepositorioBase<Proveedores> repositorio = new RepositorioBase<Proveedores>(new Contexto());
+            RepositorioBase<Categorias> categorias = new RepositorioBase<Categorias>(new Contexto());
+
             ProveedorComboBox1.DataSource = repositorio.GetList(a => true);
             ProveedorComboBox1.ValueMember = "ProveedorId";
             ProveedorComboBox1.DisplayMember = "NombreProveedor";
+
+            CategoriaComboBox.DataSource = categorias.GetList(a => true);
+            CategoriaComboBox.ValueMember = "CategoriaId";
+            CategoriaComboBox.DisplayMember = "NombreCategoria";
+
         }
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
