@@ -111,6 +111,12 @@
     <Compile Include="UI\Consulta\cVentas.Designer.cs">
       <DependentUpon>cVentas.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Registro\rCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Registro\rCompras.Designer.cs">
+      <DependentUpon>rCompras.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Registro\rProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Consulta\cVentas.resx">
       <DependentUpon>cVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Registro\rCompras.resx">
+      <DependentUpon>rCompras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Registro\rProveedor.resx">
       <DependentUpon>rProveedor.cs</DependentUpon>

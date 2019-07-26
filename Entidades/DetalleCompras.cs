@@ -13,7 +13,8 @@ namespace Entidades
         public int ProductoId { get; set; }
         public decimal Catidad { get; set; }
         public decimal Costo { get; set; }
-        public decimal TotalCompra { get; set; }
+        public decimal Importe { get; set; }
+
         public DetalleCompras()
         {
             DetalleCompraId = 0;
@@ -21,9 +22,18 @@ namespace Entidades
             ProductoId = 0;
             Catidad = 0;
             Costo = 0;
-            TotalCompra = 0;
+            Importe = 0;
 
 
+        }
+        public DetalleCompras(int detalleCompraId, int compraId, int productoId, decimal catidad, decimal costo, decimal importe)
+        {
+            DetalleCompraId = detalleCompraId;
+            CompraId = compraId;
+            ProductoId = productoId;
+            Catidad = catidad;
+            Costo = costo;
+            Importe = importe;
         }
 
     }
