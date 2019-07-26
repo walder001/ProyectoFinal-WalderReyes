@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class DetalleCompra
+    public class DetalleCompras
     {
         public int DetalleCompraId { get; set; }
         public int CompraId { get; set; }
@@ -14,7 +14,7 @@ namespace Entidades
         public decimal Catidad { get; set; }
         public decimal Costo { get; set; }
         public decimal TotalCompra { get; set; }
-        public DetalleCompra()
+        public DetalleCompras()
         {
             DetalleCompraId = 0;
             CompraId = 0;

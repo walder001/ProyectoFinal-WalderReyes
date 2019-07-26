@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class Categoria
+    public class Categorias
     {
         public int CategoriaId { get; set; }
         public string NomnbreCategoria { get; set; }
-        public Categoria()
+        public Categorias()
         {
             CategoriaId = 0;
             NomnbreCategoria = string.Empty;
 
         }
 
-        public Categoria(int categoriaId, string nomnbreCategoria)
+        public Categorias(int categoriaId, string nomnbreCategoria)
         {
             CategoriaId = categoriaId;
             NomnbreCategoria = nomnbreCategoria;
