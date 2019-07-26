@@ -193,5 +193,13 @@ namespace BLL
 
             return inscripcion;
         }
+
+        public static decimal Calculo(decimal cantidad, decimal precio)
+        {
+            decimal calculo = cantidad * precio;
+
+            return calculo;
+
+        }
     }
 }

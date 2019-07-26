@@ -34,13 +34,13 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             ProductoComboBox.Text = null;
             CodigoTextBox.Text = string.Empty;
             CantidadNumericUpDown.Value = 0;
-            PrecioTextBox.Text = string.Empty;
+            PrecioTextBox.Clear();
             InteresTextBox.Text = string.Empty;
             ItebisTextBox.Text = string.Empty;
             SubTotalTextBox.Text = string.Empty;
             TotalTextBox.Text = string.Empty;
-            this.Detalle = new List<VentasDetalle>();
-            CargarGrid();
+            ErrorProvider.Clear();
+            ventaDataGridView.DataSource = null;
         }
         /// <summary>
         /// Metodo encargado de llenar la clase y el detalle
@@ -52,9 +52,9 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             pro.VentasId = (int)VentasIdNumericUpDown.Value;
             pro.ClienteId = Convert.ToInt32(ClienteComboBox.SelectedIndex);
             pro.TipoPago = TipoPagoTextBox.Text;
-            pro.ItebisVenta = Convert.ToInt32(ItebisTextBox.Text);
-            pro.SubTotalVenta = Convert.ToInt32(ItebisTextBox.Text);
-            pro.CostoVenta = Convert.ToInt32(ItebisTextBox.Text);
+            pro.ItebisVenta = Convert.ToDecimal(ItebisTextBox.Text);
+            pro.SubTotalVenta = Convert.ToDecimal(SubTotalTextBox.Text);
+            pro.CostoVenta = Convert.ToDecimal(TotalTextBox.Text);
             foreach (DataGridViewRow item in ventaDataGridView.Rows)
             {
                    pro.AgregarDetalle(
@@ -66,6 +66,10 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
                      ToInt(item.Cells["Precio"].Value),
                      ToInt(item.Cells["Descuento"].Value),
                      ToInt(item.Cells["Total"].Value));
+                ventaDataGridView.Columns["VentaDetalleId"].Visible = false;
+                ventaDataGridView.Columns["VentaId"].Visible = false;
+                ventaDataGridView.Columns["ProductoId"].Visible = false;
+                ventaDataGridView.Columns["ClienteId"].Visible = false;
 
             }
           
@@ -88,14 +92,13 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
         public void LLenaCampo(Ventas pro)
         {
             VentasIdNumericUpDown.Value = pro.VentasId;
-           ClienteComboBox.SelectedItem = Convert.ToInt32(pro.ClienteId);
+            ClienteComboBox.SelectedIndex = pro.ClienteId;
             TipoPagoTextBox.Text = Convert.ToString(pro.TipoPago);
-
-            ItebisTextBox.Text = pro.TipoPago;
+            ItebisTextBox.Text = Convert.ToString(pro.ItebisVenta);
             SubTotalTextBox.Text = pro.SubTotalVenta.ToString();
             TotalTextBox.Text = pro.CostoVenta.ToString();
-            ventaDataGridView.DataSource = pro.Detalle;
-            ventaDataGridView.Columns["InscripcioneDetalleId"].Visible = false;
+            ventaDataGridView.DataSource = pro.Detalle; 
+            ventaDataGridView.Columns["VentaDetalleId"].Visible = false;
             ventaDataGridView.Columns["VentaId"].Visible = false;
             ventaDataGridView.Columns["ProductoId"].Visible = false;
             ventaDataGridView.Columns["ClienteId"].Visible = false;
@@ -184,7 +187,6 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
         private void LLenarProducto()
         {
             RepositorioBase<Productos> repositorio = new RepositorioBase<Productos>(new Contexto());
-            ProductoComboBox.DataSource = null;
             ProductoComboBox.DataSource = repositorio.GetList(a => true);
             ProductoComboBox.ValueMember = "ProductoId";
             ProductoComboBox.DisplayMember = "Descripcion";
@@ -200,6 +202,59 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             ClienteComboBox.DataSource = repositorio.GetList(c => true);
             ClienteComboBox.ValueMember = "ClienteId";
             ClienteComboBox.DisplayMember = "Nombres";
+        }
+
+        private void LlenarPrecio()
+        {
+            RepositorioBase<Productos> repositorio = new RepositorioBase<Productos>(new Contexto());
+            List<Productos> ListProductos = repositorio.GetList(c => c.Descripcion == ProductoComboBox.Text);
+
+            foreach (var item in ListProductos)
+            {
+                CodigoTextBox.Text = ProductoComboBox.SelectedValue.ToString();
+                PrecioTextBox.Text = item.Precio.ToString();
+                InteresTextBox.Text = item.Itebis.ToString();
+                DisponibletextBox.Text = item.Cantidad.ToString();
+            }
+        }
+        private void LLenarImporte()
+        {
+
+            RepositorioBase<Productos> repositorio = new RepositorioBase<Productos>(new Contexto());
+            List<Productos> ListProductos = repositorio.GetList(c => c.Descripcion == ProductoComboBox.Text);
+
+            decimal cantidad, precio;
+
+            cantidad = Convert.ToDecimal(CantidadNumericUpDown.Value);
+                foreach (var item in ListProductos)
+                {
+                    precio = item.Precio;
+
+                    ImporteTextBox.Text = BLL.VentasBLL.Calculo(cantidad, precio).ToString();
+
+                }
+
+        }
+        private void LlenarValores()
+        {
+            List<VentasDetalle> detalle = new List<VentasDetalle>();
+
+            if (ventaDataGridView.DataSource != null)
+            {
+                detalle = (List<VentasDetalle>)ventaDataGridView.DataSource;
+            }
+            decimal Importe = 0;
+            decimal Itbis = 0;
+            decimal SubTotal = 0;
+            foreach (var item in detalle)
+            {
+                Importe += item.Total;
+            }
+            Itbis = Importe * (decimal)0.18;
+            SubTotal = Importe - Itbis;
+            SubTotalTextBox.Text = SubTotal.ToString();
+            ItebisTextBox.Text = Itbis.ToString();
+            TotalTextBox.Text = Importe.ToString();
         }
 
         /// <summary>
@@ -230,6 +285,7 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             }
 
             ventas = LLenaClase();
+            Limpiar();
 
             //Determinar si es Guardar o Modificar
             if (VentasIdNumericUpDown.Value == 0)
@@ -258,6 +314,7 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
 
             if (ventas != null)
             {
+                Limpiar();
                 LLenaCampo(ventas);
             }
             else
@@ -273,28 +330,32 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             List<VentasDetalle> detalle = new List<VentasDetalle>();
             try
             {
-
-
                 if (ventaDataGridView.DataSource != null)
                 {
                     detalle = (List<VentasDetalle>)ventaDataGridView.DataSource;
                 }
-                CargarGrid();
-              
-                detalle.Add(
-                    new VentasDetalle(
-                        ventaDetalleId: 0,
-                        productoId: (int)ProductoComboBox.SelectedValue,
-                        ventaId: (int)VentasIdNumericUpDown.Value,
-                        clienteId: (int)ClienteComboBox.SelectedValue,
-                        cantidad: Convert.ToDecimal(CantidadNumericUpDown.Value),
-                        precio: Convert.ToDecimal(PrecioTextBox.Text),
-                        descuento: 0,
-                        total: Convert.ToDecimal(TotalTextBox.Text)
-                        )
-                    );
+                
+                    detalle.Add(
+                        new VentasDetalle(
+                            ventaDetalleId: 0,
+                            productoId: (int)ProductoComboBox.SelectedValue,
+                            ventaId: (int)VentasIdNumericUpDown.Value,
+                            clienteId: (int)ClienteComboBox.SelectedValue,
+                            cantidad: Convert.ToDecimal(CantidadNumericUpDown.Value),
+                            precio: Convert.ToDecimal(PrecioTextBox.Text),
+                            descuento: 0,
+                            total: Convert.ToDecimal(ImporteTextBox.Text)
+                            )
+                        );
+                    
+                    ventaDataGridView.DataSource = null;
+                    ventaDataGridView.DataSource = detalle;
+                    LlenarValores();
 
-               
+                
+
+
+
             }
             catch (Exception)
             {
@@ -359,13 +420,15 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
         /// <param name="e"></param>
         private void CantidadTextBox_TextChanged(object sender, EventArgs e)
         {
-            Cantidad(Convert.ToInt32(ProductoComboBox.SelectedIndex));
+            LlenarPrecio();
+            LLenarImporte();
 
         }
 
         private void ProductoComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Cantidad(Convert.ToInt32(ProductoComboBox.SelectedIndex));
+            LlenarPrecio();
+            LLenarImporte();
 
         }
 
@@ -385,13 +448,18 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
 
         private void CantidadNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            Cantidad(Convert.ToInt32(ProductoComboBox.SelectedIndex));
+
+            LlenarPrecio();
+            LLenarImporte();
+            LlenarValores();
+
 
         }
 
         private void ClienteComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Cantidad(Convert.ToInt32(ProductoComboBox.SelectedIndex));
+            LlenarPrecio();
+            LLenarImporte();
 
         }
     }

@@ -65,6 +65,8 @@
             this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.DescuentoTextBox = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.ImporteTextBox = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.VentasIdNumericUpDown)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CantidadNumericUpDown)).BeginInit();
@@ -202,6 +204,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.ImporteTextBox);
             this.groupBox1.Controls.Add(this.InteresTextBox);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.CantidadNumericUpDown);
@@ -224,7 +228,7 @@
             // 
             // InteresTextBox
             // 
-            this.InteresTextBox.Location = new System.Drawing.Point(328, 35);
+            this.InteresTextBox.Location = new System.Drawing.Point(242, 33);
             this.InteresTextBox.Name = "InteresTextBox";
             this.InteresTextBox.ReadOnly = true;
             this.InteresTextBox.Size = new System.Drawing.Size(89, 20);
@@ -235,7 +239,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label13.Location = new System.Drawing.Point(325, 19);
+            this.label13.Location = new System.Drawing.Point(239, 16);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(46, 13);
             this.label13.TabIndex = 73;
@@ -243,15 +247,15 @@
             // 
             // CantidadNumericUpDown
             // 
-            this.CantidadNumericUpDown.Location = new System.Drawing.Point(102, 34);
+            this.CantidadNumericUpDown.Location = new System.Drawing.Point(74, 32);
             this.CantidadNumericUpDown.Name = "CantidadNumericUpDown";
-            this.CantidadNumericUpDown.Size = new System.Drawing.Size(104, 20);
+            this.CantidadNumericUpDown.Size = new System.Drawing.Size(62, 20);
             this.CantidadNumericUpDown.TabIndex = 72;
             this.CantidadNumericUpDown.ValueChanged += new System.EventHandler(this.CantidadNumericUpDown_ValueChanged);
             // 
             // DisponibletextBox
             // 
-            this.DisponibletextBox.Location = new System.Drawing.Point(218, 34);
+            this.DisponibletextBox.Location = new System.Drawing.Point(147, 32);
             this.DisponibletextBox.Name = "DisponibletextBox";
             this.DisponibletextBox.ReadOnly = true;
             this.DisponibletextBox.Size = new System.Drawing.Size(89, 20);
@@ -262,7 +266,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label12.Location = new System.Drawing.Point(215, 18);
+            this.label12.Location = new System.Drawing.Point(144, 16);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(66, 13);
             this.label12.TabIndex = 70;
@@ -293,7 +297,7 @@
             // 
             // PrecioTextBox
             // 
-            this.PrecioTextBox.Location = new System.Drawing.Point(431, 35);
+            this.PrecioTextBox.Location = new System.Drawing.Point(430, 34);
             this.PrecioTextBox.Name = "PrecioTextBox";
             this.PrecioTextBox.ReadOnly = true;
             this.PrecioTextBox.Size = new System.Drawing.Size(89, 20);
@@ -304,7 +308,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label5.Location = new System.Drawing.Point(428, 19);
+            this.label5.Location = new System.Drawing.Point(438, 19);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(43, 13);
             this.label5.TabIndex = 63;
@@ -315,7 +319,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label4.Location = new System.Drawing.Point(106, 18);
+            this.label4.Location = new System.Drawing.Point(73, 16);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 13);
             this.label4.TabIndex = 61;
@@ -323,9 +327,9 @@
             // 
             // CodigoTextBox
             // 
-            this.CodigoTextBox.Location = new System.Drawing.Point(6, 34);
+            this.CodigoTextBox.Location = new System.Drawing.Point(6, 31);
             this.CodigoTextBox.Name = "CodigoTextBox";
-            this.CodigoTextBox.Size = new System.Drawing.Size(89, 20);
+            this.CodigoTextBox.Size = new System.Drawing.Size(62, 20);
             this.CodigoTextBox.TabIndex = 60;
             // 
             // label10
@@ -433,6 +437,25 @@
             this.label14.TabIndex = 80;
             this.label14.Text = "Descuentos";
             // 
+            // ImporteTextBox
+            // 
+            this.ImporteTextBox.Location = new System.Drawing.Point(337, 34);
+            this.ImporteTextBox.Name = "ImporteTextBox";
+            this.ImporteTextBox.ReadOnly = true;
+            this.ImporteTextBox.Size = new System.Drawing.Size(87, 20);
+            this.ImporteTextBox.TabIndex = 75;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label15.Location = new System.Drawing.Point(345, 17);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(49, 13);
+            this.label15.TabIndex = 76;
+            this.label15.Text = "Importe";
+            // 
             // rVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -509,5 +532,7 @@
         private System.Windows.Forms.NumericUpDown CantidadNumericUpDown;
         private System.Windows.Forms.TextBox DescuentoTextBox;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox ImporteTextBox;
+        private System.Windows.Forms.Label label15;
     }
 }

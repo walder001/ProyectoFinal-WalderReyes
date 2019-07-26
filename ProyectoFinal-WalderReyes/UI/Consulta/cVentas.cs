@@ -18,7 +18,7 @@ namespace ProyectoFinal_WalderReyes.UI.Consulta
         public cVentas()
         {
             InitializeComponent();
-            txtCriterio.Text = "Todos";
+            cbFiltro.Text = "Todos";
         }
 
         private void BtnBuscar_Click(object sender, EventArgs e)
