@@ -42,6 +42,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.ImporteTextBox = new System.Windows.Forms.TextBox();
             this.InteresTextBox = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.CantidadNumericUpDown = new System.Windows.Forms.NumericUpDown();
@@ -65,8 +67,6 @@
             this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.DescuentoTextBox = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.ImporteTextBox = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.VentasIdNumericUpDown)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CantidadNumericUpDown)).BeginInit();
@@ -226,6 +226,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos";
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label15.Location = new System.Drawing.Point(345, 17);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(49, 13);
+            this.label15.TabIndex = 76;
+            this.label15.Text = "Importe";
+            // 
+            // ImporteTextBox
+            // 
+            this.ImporteTextBox.Location = new System.Drawing.Point(337, 34);
+            this.ImporteTextBox.Name = "ImporteTextBox";
+            this.ImporteTextBox.ReadOnly = true;
+            this.ImporteTextBox.Size = new System.Drawing.Size(87, 20);
+            this.ImporteTextBox.TabIndex = 75;
+            // 
             // InteresTextBox
             // 
             this.InteresTextBox.Location = new System.Drawing.Point(242, 33);
@@ -276,9 +295,9 @@
             // 
             this.ventaDataGridView.AllowUserToOrderColumns = true;
             this.ventaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ventaDataGridView.Location = new System.Drawing.Point(6, 60);
+            this.ventaDataGridView.Location = new System.Drawing.Point(6, 61);
             this.ventaDataGridView.Name = "ventaDataGridView";
-            this.ventaDataGridView.Size = new System.Drawing.Size(543, 107);
+            this.ventaDataGridView.Size = new System.Drawing.Size(543, 106);
             this.ventaDataGridView.TabIndex = 69;
             this.ventaDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.VentaDataGridView_CellContentClick);
             // 
@@ -299,7 +318,6 @@
             // 
             this.PrecioTextBox.Location = new System.Drawing.Point(430, 34);
             this.PrecioTextBox.Name = "PrecioTextBox";
-            this.PrecioTextBox.ReadOnly = true;
             this.PrecioTextBox.Size = new System.Drawing.Size(89, 20);
             this.PrecioTextBox.TabIndex = 64;
             // 
@@ -436,25 +454,6 @@
             this.label14.Size = new System.Drawing.Size(74, 13);
             this.label14.TabIndex = 80;
             this.label14.Text = "Descuentos";
-            // 
-            // ImporteTextBox
-            // 
-            this.ImporteTextBox.Location = new System.Drawing.Point(337, 34);
-            this.ImporteTextBox.Name = "ImporteTextBox";
-            this.ImporteTextBox.ReadOnly = true;
-            this.ImporteTextBox.Size = new System.Drawing.Size(87, 20);
-            this.ImporteTextBox.TabIndex = 75;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label15.Location = new System.Drawing.Point(345, 17);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(49, 13);
-            this.label15.TabIndex = 76;
-            this.label15.Text = "Importe";
             // 
             // rVentas
             // 

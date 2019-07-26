@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    class OrdenCompraBLL
+   public class OrdenCompraBLL
     {
         /// <summary>
         /// Permite guardar una entidad en la base de datos

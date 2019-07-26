@@ -23,67 +23,92 @@ namespace ProyectoFinal_WalderReyes
 
         private void UsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            rUsuario r = new rUsuario();
-            r.Show();
-        }
-
-        private void ClienteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            rClientes c = new rClientes();
-            c.Show();
-        }
-
-        private void ProductoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            rProveedor p = new rProveedor();
-            p.Show();
-        }
-
-        private void ProductoToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            rProductos p = new rProductos();
-            p.Show();
-        }
-
-        private void VentaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            rVentas v = new rVentas();
-            v.Show();
-        }
-
-        private void SalirToolStripMenuItem_Click(object sender, EventArgs e)
-        {
             Close();
         }
 
         private void UsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            cUsuario u = new cUsuario();
-            u.Show();
+            rUsuario usuario = new rUsuario();
+            usuario.Show();
         }
 
         private void ClientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            cCliente c = new cCliente();
-            c.Show();
+            rClientes clientes = new rClientes();
+            clientes.Show();
         }
 
         private void ProveedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            cProveedor p = new cProveedor();
-            p.Show();
+            rProveedor proveedor = new rProveedor();
+            proveedor.Show();
         }
 
         private void ProductosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CProducto pro = new CProducto();
-            pro.Show();
+            rCategorias categorias = new rCategorias();
+            categorias.Show();
         }
 
         private void VentasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            cVentas v = new cVentas();
-            v.Show();
+            rProductos productos = new rProductos();
+            productos.Show();
+            
+
+        }
+
+        private void VentasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            rVentas ventas = new rVentas();
+            ventas.Show();
+        }
+
+        private void ComprasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rCompras compras = new rCompras();
+            compras.Show();
+                 
+        }
+
+        private void UsuariosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            cUsuario usuario = new cUsuario();
+            usuario.Show();
+        }
+
+        private void ClientesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            cCliente cliente = new cCliente();
+            cliente.Show();
+        }
+
+        private void ProveedoresToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            cProveedor proveedor = new cProveedor();
+            proveedor.Show();
+        }
+
+        private void CategoriasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void ProductosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            CProducto producto = new CProducto();
+            producto.Show();
+        }
+
+        private void VentasToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            cVentas ventas = new cVentas();
+            ventas.Show();
+        }
+
+        private void ComprasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

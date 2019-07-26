@@ -134,6 +134,7 @@ namespace ProyectoFinal.UI.Registro
                     return;
 
                 usuarios = LlenarClase();
+                Limpiar();
                 //Determinar si es guardar o modificar
                 if (UsarioId.Value == 0)
                     paso = UsuarioBLL.Guardar(usuarios);

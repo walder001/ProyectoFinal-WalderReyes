@@ -35,6 +35,7 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             CodigoTextBox.Text = string.Empty;
             CantidadNumericUpDown.Value = 0;
             PrecioTextBox.Clear();
+            ImporteTextBox.Clear();
             InteresTextBox.Text = string.Empty;
             ItebisTextBox.Text = string.Empty;
             SubTotalTextBox.Text = string.Empty;
@@ -334,17 +335,30 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
                 {
                     detalle = (List<VentasDetalle>)ventaDataGridView.DataSource;
                 }
-                
-                    detalle.Add(
+
+                RepositorioBase<Productos> repositorio = new RepositorioBase<Productos>(new Contexto());
+                List<Productos> ListProductos = repositorio.GetList(c => c.Descripcion == ProductoComboBox.Text);
+
+                decimal cantidad, precio, importe ;
+
+                cantidad = Convert.ToDecimal(CantidadNumericUpDown.Value);
+                foreach (var item in ListProductos)
+                {
+                    precio = item.Precio;
+
+                   ImporteTextBox.Text = BLL.VentasBLL.Calculo(cantidad, precio).ToString();
+
+                }
+                detalle.Add(
                         new VentasDetalle(
                             ventaDetalleId: 0,
                             productoId: (int)ProductoComboBox.SelectedValue,
                             ventaId: (int)VentasIdNumericUpDown.Value,
                             clienteId: (int)ClienteComboBox.SelectedValue,
-                            cantidad: Convert.ToDecimal(CantidadNumericUpDown.Value),
-                            precio: Convert.ToDecimal(PrecioTextBox.Text),
+                            cantidad: (decimal)Convert.ToDecimal(CantidadNumericUpDown.Value),
+                            precio: 0,
                             descuento: 0,
-                            total: Convert.ToDecimal(ImporteTextBox.Text)
+                            total: (decimal)Convert.ToDecimal(ImporteTextBox.Text)
                             )
                         );
                     

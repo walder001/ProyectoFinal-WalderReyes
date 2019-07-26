@@ -33,7 +33,7 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             PrecioNumericUpDown.Value = 0;
             ItebisNumericUpDown1.Value = 0;
             GananciaTextBox.Text = string.Empty;
-            CategoriaComboBox.Text = string.Empty;
+            CategoriaComboBox.Text = null;
 
         }
         public Productos LLenaClase()
@@ -42,10 +42,12 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             pro.ProductoId = (int)ProductoIdNumericUpDown.Value;
             pro.Descripcion = DescripcionTextBox.Text.TrimStart();
             pro.Cantidad = (decimal)CantidadnumericUpDown.Value;
+            pro.ProveedorId = (int)ProveedorComboBox1.SelectedValue;
             pro.Costo = (decimal)CostoNumericUpDown.Value;
             pro.Precio = (decimal)PrecioNumericUpDown.Value;
             pro.Itebis = ((decimal)ItebisNumericUpDown1.Value/100);
             pro.Ganancia = Convert.ToDecimal(GananciaTextBox.Text);
+            pro.CategoriaId = (int)CategoriaComboBox.SelectedValue;
 
             return pro;
         } 
@@ -53,11 +55,13 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
         {
             ProductoIdNumericUpDown.Value = pro.ProductoId;
             DescripcionTextBox.Text = pro.Descripcion;
+            ProveedorComboBox1.SelectedIndex = pro.ProveedorId;
             CantidadnumericUpDown.Value = pro.Cantidad;
             CostoNumericUpDown.Value = pro.Costo;
             PrecioNumericUpDown.Value = pro.Precio;
             ItebisNumericUpDown1.Value = pro.Itebis;
-             GananciaTextBox.Text =Convert.ToString(pro.Ganancia);
+             GananciaTextBox.Text = Convert.ToString(pro.Ganancia);
+            CategoriaComboBox.SelectedIndex = pro.CategoriaId;
 
         }
         public bool Validar()
@@ -194,7 +198,7 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
 
             CategoriaComboBox.DataSource = categorias.GetList(a => true);
             CategoriaComboBox.ValueMember = "CategoriaId";
-            CategoriaComboBox.DisplayMember = "NombreCategoria";
+            CategoriaComboBox.DisplayMember = "NomnbreCategoria";
 
         }
         private void BtnBuscar_Click(object sender, EventArgs e)
