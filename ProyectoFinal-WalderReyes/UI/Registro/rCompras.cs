@@ -18,6 +18,8 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
         public rCompras()
         {
             InitializeComponent();
+            LLenarComboBox();
+            Limpiar();
         }
 
         private void ProductoComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -45,6 +47,7 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             ImporteTextBox.Text = string.Empty;
             CompraDataGridView.DataSource = null;
             TotalTextBox.Text = string.Empty;
+            
         }
         /// <summary>
         /// Implementacion del metodo del boton limpiar
@@ -211,6 +214,24 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             }
             else
                 MessageBox.Show("No se encontro!", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        
+        public void LLenarComboBox()
+        {
+            RepositorioBase<Usuarios> usuario = new RepositorioBase<Usuarios>(new Contexto());
+            UsuarioComboBox.DataSource = usuario.GetList(u => true);
+            UsuarioComboBox.ValueMember = "UsuarioId";
+            UsuarioComboBox.DisplayMember = "Usuario";
+
+            RepositorioBase<Productos> producto = new RepositorioBase<Productos>(new Contexto());
+            ProductoComboBox.DataSource = producto.GetList(u => true);
+            ProductoComboBox.ValueMember = "ProductoId";
+            ProductoComboBox.DisplayMember = "Descripcion";
+
+            RepositorioBase<Proveedores> proveedor = new RepositorioBase<Proveedores>(new Contexto());
+            ProveedorComboBox1.DataSource = proveedor.GetList(u => true);
+            ProveedorComboBox1.ValueMember = "ProveedorId";
+            ProveedorComboBox1.DisplayMember = "NombreProveedor";
         }
     }
 }

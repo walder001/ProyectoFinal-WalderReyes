@@ -315,12 +315,21 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
 
             if (ventas != null)
             {
-                Limpiar();
+                Limpiar(); 
                 LLenaCampo(ventas);
             }
             else
                 MessageBox.Show("No se encontro!", "Fallo",MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
+        private double ToDouble(object valor)
+        {
+            double retorno = 0;
+            double.TryParse(valor.ToString(), out retorno);
+
+            return Convert.ToDouble(retorno);
+        }
+
         /// <summary>
         /// Boton Agregar al grid
         /// </summary>
@@ -355,10 +364,10 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
                             productoId: (int)ProductoComboBox.SelectedValue,
                             ventaId: (int)VentasIdNumericUpDown.Value,
                             clienteId: (int)ClienteComboBox.SelectedValue,
-                            cantidad: (decimal)Convert.ToDecimal(CantidadNumericUpDown.Value),
-                            precio: 0,
+                            cantidad: (decimal)Convert.ToDouble(CantidadNumericUpDown.Value),
+                            precio: (decimal)Convert.ToDouble(PrecioTextBox.Text),
                             descuento: 0,
-                            total: (decimal)Convert.ToDecimal(ImporteTextBox.Text)
+                            total: (decimal)Convert.ToDouble(ImporteTextBox.Text)
                             )
                         );
                     
@@ -384,13 +393,21 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
         /// <param name="e"></param>
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(VentasIdNumericUpDown.Value);
+            try
+            {
+                int id = Convert.ToInt32(VentasIdNumericUpDown.Value);
 
-            //todo: validar que exista
-            if (BLL.VentasBLL.Eliminar(id))
-                MessageBox.Show("Eliminado!!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            else
-                MessageBox.Show("No se pudo eliminar!!", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //todo: validar que exista
+                if (BLL.VentasBLL.Eliminar(id))
+                    MessageBox.Show("Eliminado!!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                    MessageBox.Show("No se pudo eliminar!!", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No es posible eliminar la venta","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+
+            }
         }
         /// <summary>
         /// Metodo encargado de buscar los datos del producto
@@ -476,5 +493,7 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             LLenarImporte();
 
         }
+
+       
     }
 }

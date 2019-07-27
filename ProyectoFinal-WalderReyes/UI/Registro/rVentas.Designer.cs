@@ -143,9 +143,9 @@
             // 
             // TipoPagoTextBox
             // 
-            this.TipoPagoTextBox.Location = new System.Drawing.Point(111, 80);
+            this.TipoPagoTextBox.Location = new System.Drawing.Point(113, 80);
             this.TipoPagoTextBox.Name = "TipoPagoTextBox";
-            this.TipoPagoTextBox.Size = new System.Drawing.Size(459, 20);
+            this.TipoPagoTextBox.Size = new System.Drawing.Size(457, 20);
             this.TipoPagoTextBox.TabIndex = 60;
             // 
             // label3
@@ -318,6 +318,7 @@
             // 
             this.PrecioTextBox.Location = new System.Drawing.Point(430, 34);
             this.PrecioTextBox.Name = "PrecioTextBox";
+            this.PrecioTextBox.ReadOnly = true;
             this.PrecioTextBox.Size = new System.Drawing.Size(89, 20);
             this.PrecioTextBox.TabIndex = 64;
             // 
@@ -387,6 +388,7 @@
             // 
             this.SubTotalTextBox.Location = new System.Drawing.Point(513, 355);
             this.SubTotalTextBox.Name = "SubTotalTextBox";
+            this.SubTotalTextBox.ReadOnly = true;
             this.SubTotalTextBox.Size = new System.Drawing.Size(55, 20);
             this.SubTotalTextBox.TabIndex = 74;
             // 
@@ -394,6 +396,7 @@
             // 
             this.TotalTextBox.Location = new System.Drawing.Point(513, 381);
             this.TotalTextBox.Name = "TotalTextBox";
+            this.TotalTextBox.ReadOnly = true;
             this.TotalTextBox.Size = new System.Drawing.Size(55, 20);
             this.TotalTextBox.TabIndex = 75;
             // 
@@ -401,6 +404,7 @@
             // 
             this.ItebisTextBox.Location = new System.Drawing.Point(513, 303);
             this.ItebisTextBox.Name = "ItebisTextBox";
+            this.ItebisTextBox.ReadOnly = true;
             this.ItebisTextBox.Size = new System.Drawing.Size(55, 20);
             this.ItebisTextBox.TabIndex = 76;
             // 
@@ -441,6 +445,7 @@
             // 
             this.DescuentoTextBox.Location = new System.Drawing.Point(513, 329);
             this.DescuentoTextBox.Name = "DescuentoTextBox";
+            this.DescuentoTextBox.ReadOnly = true;
             this.DescuentoTextBox.Size = new System.Drawing.Size(55, 20);
             this.DescuentoTextBox.TabIndex = 81;
             // 
