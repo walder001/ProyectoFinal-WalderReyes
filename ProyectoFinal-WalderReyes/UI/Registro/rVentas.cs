@@ -348,7 +348,7 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
                 RepositorioBase<Productos> repositorio = new RepositorioBase<Productos>(new Contexto());
                 List<Productos> ListProductos = repositorio.GetList(c => c.Descripcion == ProductoComboBox.Text);
 
-                decimal cantidad, precio, importe ;
+                decimal cantidad, precio ;
 
                 cantidad = Convert.ToDecimal(CantidadNumericUpDown.Value);
                 foreach (var item in ListProductos)

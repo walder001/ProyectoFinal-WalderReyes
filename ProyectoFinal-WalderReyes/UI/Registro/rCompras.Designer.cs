@@ -41,7 +41,6 @@
             this.CantidadNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.CompraDataGridView = new System.Windows.Forms.DataGridView();
             this.AgregarButton = new System.Windows.Forms.Button();
-            this.CostoTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -57,11 +56,13 @@
             this.ProveedorComboBox1 = new System.Windows.Forms.ComboBox();
             this.FechaDateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.CostoNumericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CantidadNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CompraDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CompraIdNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CostoNumericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // label11
@@ -113,12 +114,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.CostoNumericUpDown1);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.ImporteTextBox);
             this.groupBox1.Controls.Add(this.CantidadNumericUpDown);
             this.groupBox1.Controls.Add(this.CompraDataGridView);
             this.groupBox1.Controls.Add(this.AgregarButton);
-            this.groupBox1.Controls.Add(this.CostoTextBox);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label7);
@@ -150,10 +151,11 @@
             // 
             // CantidadNumericUpDown
             // 
-            this.CantidadNumericUpDown.Location = new System.Drawing.Point(113, 31);
+            this.CantidadNumericUpDown.Location = new System.Drawing.Point(11, 34);
             this.CantidadNumericUpDown.Name = "CantidadNumericUpDown";
             this.CantidadNumericUpDown.Size = new System.Drawing.Size(80, 20);
             this.CantidadNumericUpDown.TabIndex = 72;
+            this.CantidadNumericUpDown.ValueChanged += new System.EventHandler(this.CantidadNumericUpDown_ValueChanged);
             // 
             // CompraDataGridView
             // 
@@ -177,20 +179,12 @@
             this.AgregarButton.UseVisualStyleBackColor = false;
             this.AgregarButton.Click += new System.EventHandler(this.AgregarButton_Click);
             // 
-            // CostoTextBox
-            // 
-            this.CostoTextBox.Location = new System.Drawing.Point(230, 32);
-            this.CostoTextBox.Name = "CostoTextBox";
-            this.CostoTextBox.ReadOnly = true;
-            this.CostoTextBox.Size = new System.Drawing.Size(81, 20);
-            this.CostoTextBox.TabIndex = 64;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label5.Location = new System.Drawing.Point(227, 15);
+            this.label5.Location = new System.Drawing.Point(152, 18);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(39, 13);
             this.label5.TabIndex = 63;
@@ -201,7 +195,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label4.Location = new System.Drawing.Point(110, 14);
+            this.label4.Location = new System.Drawing.Point(8, 17);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 13);
             this.label4.TabIndex = 61;
@@ -348,6 +342,14 @@
             // 
             this.ErrorProvider.ContainerControl = this;
             // 
+            // CostoNumericUpDown1
+            // 
+            this.CostoNumericUpDown1.Location = new System.Drawing.Point(138, 35);
+            this.CostoNumericUpDown1.Name = "CostoNumericUpDown1";
+            this.CostoNumericUpDown1.Size = new System.Drawing.Size(80, 20);
+            this.CostoNumericUpDown1.TabIndex = 77;
+            this.CostoNumericUpDown1.ValueChanged += new System.EventHandler(this.CostoNumericUpDown1_ValueChanged);
+            // 
             // rCompras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -378,6 +380,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.CompraDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CompraIdNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CostoNumericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -395,7 +398,6 @@
         private System.Windows.Forms.NumericUpDown CantidadNumericUpDown;
         private System.Windows.Forms.DataGridView CompraDataGridView;
         private System.Windows.Forms.Button AgregarButton;
-        private System.Windows.Forms.TextBox CostoTextBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label7;
@@ -411,5 +413,6 @@
         private System.Windows.Forms.ComboBox ProveedorComboBox1;
         private System.Windows.Forms.DateTimePicker FechaDateTimePicker1;
         private System.Windows.Forms.ErrorProvider ErrorProvider;
+        private System.Windows.Forms.NumericUpDown CostoNumericUpDown1;
     }
 }

@@ -15,6 +15,7 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
 {
     public partial class rCompras : Form
     {
+        public List<VentasDetalle> Detalle { get; set; }
         public rCompras()
         {
             InitializeComponent();
@@ -43,7 +44,7 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             ProductoComboBox.Text = null;
             ProveedorComboBox1.Text = null;
             CantidadNumericUpDown.Value = 0;
-            CostoTextBox.Text = string.Empty;
+            CostoNumericUpDown1.Value = 0;
             ImporteTextBox.Text = string.Empty;
             CompraDataGridView.DataSource = null;
             TotalTextBox.Text = string.Empty;
@@ -62,17 +63,17 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
         {
             Compras compra = new Compras();
             compra.CompraId = (int)CompraIdNumericUpDown.Value;
-            compra.UsuarioId = Convert.ToInt32(UsuarioComboBox.Text);
+            compra.UsuarioId = Convert.ToInt32(UsuarioComboBox.SelectedValue);
             compra.FechaCompra = FechaDateTimePicker1.Value;
-            compra.ProductoId = Convert.ToInt32(ProductoComboBox.Text);
-            compra.ProveedorId = Convert.ToInt32(ProveedorComboBox1.Text);
+            compra.ProductoId = Convert.ToInt32(ProductoComboBox.SelectedValue);
+            compra.ProveedorId = Convert.ToInt32(ProveedorComboBox1.SelectedValue);
             foreach (DataGridViewRow item in CompraDataGridView.Rows)
             {
                 compra.AgregarDetalle(
-                    ToInt(item.Cells["CompraDetalleId"].Value),
-                    ToInt(item.Cells["VentaId"].Value),
+                    ToInt(item.Cells["DetalleCompraId"].Value),
+                    ToInt(item.Cells["CompraId"].Value),
                     ToInt(item.Cells["ProductoId"].Value),
-                    ToInt(item.Cells["Cantidad"].Value),
+                    ToInt(item.Cells["Catidad"].Value),
                      ToInt(item.Cells["Costo"].Value),
                       ToInt(item.Cells["Importe"].Value)
 
@@ -96,10 +97,10 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             Compras compra = new Compras();
 
             CompraIdNumericUpDown.Value = compra.CompraId;
-            UsuarioComboBox.Text = compra.UsuarioId.ToString();
+            UsuarioComboBox.SelectedItem = compra.UsuarioId;
             FechaDateTimePicker1.Value = compra.FechaCompra;
-            ProductoComboBox.Text = compra.ProductoId.ToString();
-            ProveedorComboBox1.Text =  compra.ProveedorId.ToString();
+            ProductoComboBox.SelectedItem = compra.ProductoId;
+            ProveedorComboBox1.SelectedIndex = compra.ProveedorId;
             CompraDataGridView.DataSource = compra.Detalles;
 
         }
@@ -154,7 +155,42 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             else
                 MessageBox.Show("No se pudo guardar!!", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+        public void LLenarCosto()
+        {
+            RepositorioBase<Productos> repositorio = new RepositorioBase<Productos>(new Contexto());
+            List<Productos> productos = repositorio.GetList(a => a.Descripcion == ProductoComboBox.Text);
+            decimal cantidad, precio;
 
+            foreach (var item in productos)
+            {
+                cantidad = CantidadNumericUpDown.Value;
+                precio = CostoNumericUpDown1.Value;
+                ImporteTextBox.Text = BLL.OrdenCompraBLL.Calculo(cantidad,precio).ToString();
+
+            }
+        
+        }
+        public void LLenar()
+        {
+            List<DetalleCompras> p = new List<DetalleCompras>();
+            if (CompraDataGridView.DataSource != null)
+            {
+                p = (List<DetalleCompras>) CompraDataGridView.DataSource;
+            }
+            decimal Total = 0;
+            foreach (var item in p)
+            {
+                Total += item.Importe;
+            }
+            TotalTextBox.Text = Total.ToString();
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AgregarButton_Click(object sender, EventArgs e)
         {
             List<DetalleCompras> detalle = new List<DetalleCompras>();
@@ -171,13 +207,15 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
                         compraId: (int) CompraIdNumericUpDown.Value,
                         productoId: (int)ProductoComboBox.SelectedValue,
                         catidad: Convert.ToDecimal(CantidadNumericUpDown.Value),
-                        costo: Convert.ToDecimal(CostoTextBox.Text),
+                        costo: Convert.ToDecimal(CostoNumericUpDown1.Value),
                         importe: Convert.ToDecimal(ImporteTextBox.Text)
                         )
                     );
-
+              
                 CompraDataGridView.DataSource = null;
                 CompraDataGridView.DataSource = detalle;
+                LLenarCosto();
+                LLenar();
 
 
 
@@ -232,6 +270,16 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             ProveedorComboBox1.DataSource = proveedor.GetList(u => true);
             ProveedorComboBox1.ValueMember = "ProveedorId";
             ProveedorComboBox1.DisplayMember = "NombreProveedor";
+        }
+
+        private void CantidadNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            LLenarCosto();
+        }
+
+        private void CostoNumericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            LLenarCosto();
         }
     }
 }

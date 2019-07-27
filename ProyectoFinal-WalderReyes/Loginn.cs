@@ -69,25 +69,31 @@ namespace ProyectoFinal_WalderReyes
             Main m = new Main();
             m.Show();
         }
+        Main m = new Main();
 
         private void BtnEntrer_Click(object sender, EventArgs e)
         {
             Contexto con = new Contexto();
             RepositorioBase<Usuarios> repositorio = new RepositorioBase<Usuarios>(new Contexto());
             Usuarios usuarios = new Usuarios();
-             var usuario = repositorio.Buscar(usuarios.UsuarioId);
-            /* if (txtUse.Text.Equals("admin") && txtPassword.Text.Equals("vivo"))
-             {
-                 Main m = new Main();
-                 m.Show();
 
-             }
-             else
+            var usuario = repositorio.Buscar(usuarios.UsuarioId);
+            if (txtUse.Text.Equals("admin") && txtPassword.Text.Equals("vivo"))
+             {
+                Main main = new Main();
+                main.Show();
+            }
+            else if (usuarios.NivelUsuario == 2)
+            {
+                m.Cajera();
+                m.Show();
+
+            }
+            else
              {
                  MessageBox.Show("Usuario No enciantrado");
-             }*/
-            Main m = new Main();
-            m.Show();
+             }
+           
 
         }
 

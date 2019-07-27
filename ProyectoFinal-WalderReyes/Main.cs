@@ -20,6 +20,7 @@ namespace ProyectoFinal_WalderReyes
         {
             InitializeComponent();
         }
+        public static Main Mdiobj;
 
         private void UsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -109,6 +110,34 @@ namespace ProyectoFinal_WalderReyes
         private void ComprasToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             
+        }
+
+
+        public void M()
+        {
+            registroToolStripMenuItem.Enabled = false;
+
+        }
+        public void Cajera()
+        {
+            consultaToolStripMenuItem.Enabled = false;
+
+
+        }
+
+        /*private void CargarUsuario()
+        {
+            UsuarioTextBox.DataBindings.Clear();
+            var Usuario = UsuarioBLL.GetList(c => true);
+            Binding doBinding = new Binding("Text", Usuario, "Nombres");
+            UsuarioTextBox.DataBindings.Add(doBinding);
+        }*/
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+         
+                      
+
         }
     }
 }
