@@ -42,7 +42,7 @@ namespace Entidades.Tests
             Productos producto = new Productos();
             producto.ProductoId = 1;
             producto.Descripcion = "Azucar";
-            producto.ProveedoresId = 1;
+            producto.ProveedorId = 1;
             producto.Cantidad = 1;
             producto.Costo = 1;
             producto.Precio = 1;

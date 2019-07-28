@@ -14,6 +14,10 @@ namespace DAL
             bool paso = false;
             Contexto contexto = new Contexto();
             var op = contexto.Ususarios.FirstOrDefault(a => a.Usuario == user && a.Clave == pass);
+            Usuarios u = new Usuarios();
+            int Nivel = u.NivelUsuario;
+            
+            
             if (op != null)
             {
                 paso = true;
@@ -28,6 +32,10 @@ namespace DAL
             Permisos p = new Permisos();
 
             if (u.NivelUsuario == Accesos.Administrado)
+            {
+
+            }
+            if (u.NivelUsuario == Accesos.Contador || u.NivelUsuario == Accesos.Cajero)
             {
 
             }

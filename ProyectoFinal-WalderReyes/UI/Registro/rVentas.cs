@@ -286,14 +286,16 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             }
 
             ventas = LLenaClase();
-            Limpiar();
 
             //Determinar si es Guardar o Modificar
             if (VentasIdNumericUpDown.Value == 0)
+            
                 Paso = BLL.VentasBLL.Guardar(ventas);
+                        
             else
                 //todo: validar que exista.
                 Paso = BLL.VentasBLL.Modificar(ventas);
+
 
             //Informar el resultado
             if (Paso)

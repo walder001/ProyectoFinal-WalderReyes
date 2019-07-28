@@ -130,13 +130,13 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
                 EmailTextBox.Focus();
                 paso = false;
             }
-            if (string.IsNullOrWhiteSpace(CedulaMaskedTextBox.Text))
+            if (CedulaMaskedTextBox.MaskFull == false)
             {
                 ErrorProvider.SetError(CedulaMaskedTextBox,"No puede haber espacios en blanco");
                 CedulaMaskedTextBox.Focus();
                 paso = false;
             }
-            if (string.IsNullOrWhiteSpace(TelefonoMaskedTextBox.Text))
+            if (TelefonoMaskedTextBox.MaskFull == false)
             {
                 ErrorProvider.SetError(TelefonoMaskedTextBox,"No puede haber espacios en blanco");
                 TelefonoMaskedTextBox.Focus();
@@ -154,6 +154,7 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
                 FemeninoRadioButton.Focus();
                 paso = false;
             }
+            
             /*if (ValidarTelefono(TelefonoMaskedTextBox.Text) == false)
             {
                 ErrorProvider.SetError(TelefonoMaskedTextBox, "telefono invalido");
@@ -322,16 +323,24 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
         //Implementacion del boton eliminar
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
-            RepositorioBase<Clientes> repositorio = new RepositorioBase<Clientes>(new Contexto());
-            ErrorProvider.Clear();
-            int id = (int)ClienteIdNumericUpDown.Value;
-            if (repositorio.Eliminar(id))
+            try
             {
-                MessageBox.Show("Eliminado!!");
-
+                RepositorioBase<Clientes> repositorio = new RepositorioBase<Clientes>(new Contexto());
+                ErrorProvider.Clear();
+                int id = (int)ClienteIdNumericUpDown.Value;
+                if (repositorio.Eliminar(id))
+                {
+                    MessageBox.Show("Eliminado!!");
+                    Limpiar();
+                }
+                else
+                {
+                    ErrorProvider.SetError(ClienteIdNumericUpDown, "No se puede eliminar un cleinte que no esiste");
+                }
             }
-            else{
-                ErrorProvider.SetError(ClienteIdNumericUpDown,"No se puede eliminar un cleinte que no esiste");
+            catch (Exception)
+            {
+                MessageBox.Show("No se pudo eliminar","Information",MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
@@ -344,12 +353,13 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
                clientes = repositorio.Buscar((int)ClienteIdNumericUpDown.Value);
                 if (clientes != null)
                 {
-                    
+                    Limpiar();   
                     LLenaCampo(clientes);
                 }
                 else
                 {
                     MessageBox.Show("Cliente no encontrado","Information",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    Limpiar();
 
                 }
            

@@ -41,10 +41,10 @@ namespace Entidades.Tests
 
         public void Modificar()
         {
-            RepositorioBase<Clientes> repositorio;
+            RepositorioBase<Clientes> repositorio; 
             repositorio = new RepositorioBase<Clientes>(new Contexto());
             Clientes clientes = new Clientes();
-            clientes.CienteId = 1;
+            clientes.ClienteId = 1;
             clientes.Nombres = "Walder";
             clientes.Sexo = "Masculino";
             clientes.Direccion = "Libertad";

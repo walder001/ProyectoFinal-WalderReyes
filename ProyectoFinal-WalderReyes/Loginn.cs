@@ -85,8 +85,7 @@ namespace ProyectoFinal_WalderReyes
             {
                 Main main = new Main();
                 main.Show();
-                this.Hide();
-
+                //this.Hide();
 
 
             }

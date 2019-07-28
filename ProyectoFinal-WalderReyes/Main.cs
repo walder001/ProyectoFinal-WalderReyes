@@ -1,4 +1,7 @@
-﻿using ProyectoFinal.UI.Consulta;
+﻿using BLL;
+using DAL;
+using Entidades;
+using ProyectoFinal.UI.Consulta;
 using ProyectoFinal.UI.Registro;
 using ProyectoFinal_WalderReyes.UI.Consulta;
 using ProyectoFinal_WalderReyes.UI.Registro;
@@ -24,7 +27,7 @@ namespace ProyectoFinal_WalderReyes
 
         private void UsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Close();
+            Application.Exit();
         }
 
         private void UsuariosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -113,17 +116,7 @@ namespace ProyectoFinal_WalderReyes
         }
 
 
-        public void M()
-        {
-            registroToolStripMenuItem.Enabled = false;
-
-        }
-        public void Cajera()
-        {
-            consultaToolStripMenuItem.Enabled = false;
-
-
-        }
+       
 
         /*private void CargarUsuario()
         {
@@ -135,8 +128,38 @@ namespace ProyectoFinal_WalderReyes
 
         private void Main_Load(object sender, EventArgs e)
         {
-         
-                      
+            /* RepositorioBase<Usuarios> repositorio = new RepositorioBase<Usuarios>(new Contexto());
+             List<Usuarios> ListProductos = repositorio.GetList(c => true);
+
+             foreach (var item in ListProductos)
+             {
+                 Usuarios u = new Usuarios();
+                 Contexto con = new Contexto();
+
+                     textBox1.Text = Convert.ToString(u.NivelUsuario);
+
+
+                 if (item.NivelUsuario == 1)
+                 {
+
+
+                 }else if (item.NivelUsuario == 2)
+                 {
+                     registroToolStripMenuItem.Enabled = false;
+
+                 }
+                 else
+                 {
+
+
+                 }
+
+             }*/
+
+          
+
+
+
 
         }
     }
