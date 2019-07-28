@@ -136,14 +136,27 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
         {
             RepositorioBase<Productos> reposistorio = new RepositorioBase<Productos>(new Contexto());
             Productos productos = new Productos();
+            Contexto contexto = new Contexto();
             bool paso = false;
             if (!Validar())
                 return;
+            
             productos = LLenaClase();
-            Limpiar();
+
             if (ProductoIdNumericUpDown.Value == 0)
             {
-                paso = reposistorio.Guardar(productos);
+                var op = contexto.Productos.FirstOrDefault(p => p.Descripcion == DescripcionTextBox.Text && p.ProveedorId == ProveedorComboBox1.SelectedIndex && p.CategoriaId == CategoriaComboBox.SelectedIndex);
+                if (op != null)
+                {
+                    ErrorProvider.SetError(DescripcionTextBox, "Producto existente en la base de datos");
+                    DescripcionTextBox.Focus();
+                    paso = false;
+                }
+                else
+                {
+                    paso = reposistorio.Guardar(productos);
+                    Limpiar();
+                }
             }
             else
             {
@@ -165,7 +178,7 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             }
             if (paso)
             {
-                MessageBox.Show("Guardo", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Guardo!!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             else

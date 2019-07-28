@@ -86,6 +86,11 @@
             // ProductoIdNumericUpDown
             // 
             this.ProductoIdNumericUpDown.Location = new System.Drawing.Point(129, 19);
+            this.ProductoIdNumericUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.ProductoIdNumericUpDown.Name = "ProductoIdNumericUpDown";
             this.ProductoIdNumericUpDown.Size = new System.Drawing.Size(98, 20);
             this.ProductoIdNumericUpDown.TabIndex = 94;
