@@ -29,5 +29,6 @@ namespace Entidades
             Clave = string.Empty;
             FehaIngreso = DateTime.Now;
         }
+        
     }
 }

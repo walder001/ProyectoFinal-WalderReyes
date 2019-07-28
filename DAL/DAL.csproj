@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Acceso.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Contexto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

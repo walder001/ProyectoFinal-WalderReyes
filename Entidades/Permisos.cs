@@ -21,5 +21,12 @@ namespace Entidades
             PermisoId = permisoId;
             Descripcion = descripcion;
         }
+
+    }
+    public struct Accesos
+    {
+        public const int Administrado = 1;
+        public const int Cajero = 2;
+        public const int Contador = 3;
     }
 }
