@@ -30,7 +30,7 @@ namespace ProyectoFinal.UI.Registro
             UsarioId.Value = 0;
             txtNombre.Text = string.Empty;
             txtEmail.Text = string.Empty;
-            NivelUsuario.Value = 0;
+            NiverUsuarioComboBox.Text = null;
             txtUsuario.Text = string.Empty;
             ClaveTexBox.Text = string.Empty;
             ConfirmarTextbox.Text = string.Empty;
@@ -54,7 +54,7 @@ namespace ProyectoFinal.UI.Registro
             us.UsuarioId = Convert.ToInt32(UsarioId.Value);
             us.Nombres = txtNombre.Text.TrimStart();
             us.Email = txtEmail.Text.TrimStart();
-            us.NivelUsuario = Convert.ToInt32(NivelUsuario.Value);
+            us.NivelUsuario = Convert.ToInt32(NiverUsuarioComboBox.SelectedIndex);
             us.Usuario = txtUsuario.Text.TrimStart();
             us.Clave = EnCryptDecrypt.CryptorEngine.Encrypt(ClaveTexBox.Text,true) ;
             us.FehaIngreso = dateTime.Value;
@@ -65,7 +65,7 @@ namespace ProyectoFinal.UI.Registro
             UsarioId.Value = usuarios.UsuarioId;
             txtNombre.Text = usuarios.Nombres;
             txtEmail.Text = usuarios.Email;
-            NivelUsuario.Value = usuarios.NivelUsuario;
+            NiverUsuarioComboBox.SelectedIndex = usuarios.NivelUsuario;
             txtUsuario.Text = usuarios.Usuario;
             ClaveTexBox.Text = EnCryptDecrypt.CryptorEngine.Decrypt(usuarios.Clave, true);
             ConfirmarTextbox.Text = EnCryptDecrypt.CryptorEngine.Decrypt(usuarios.Clave, true); ;
@@ -104,8 +104,6 @@ namespace ProyectoFinal.UI.Registro
                 paso = false;
             }
 
-            
-
             if (string.IsNullOrWhiteSpace(txtEmail.Text))
             {
                 ErrorProvider.SetError(txtEmail, "El campo Direccion no puede estar vacio");
@@ -118,7 +116,13 @@ namespace ProyectoFinal.UI.Registro
                 ClaveTexBox.Focus();
                 paso = false;
             }
-
+            if (NiverUsuarioComboBox.SelectedValue != null)
+            {
+                ErrorProvider.SetError(NiverUsuarioComboBox, "El nive no puede esta vacio");
+                NiverUsuarioComboBox.Focus();
+                paso = false;
+            }
+            
             return paso;
         }
         private void BtnGuardar_Click(object sender, EventArgs e)
@@ -134,10 +138,27 @@ namespace ProyectoFinal.UI.Registro
                     return;
 
                 usuarios = LlenarClase();
-                Limpiar();
                 //Determinar si es guardar o modificar
                 if (UsarioId.Value == 0)
-                    paso = UsuarioBLL.Guardar(usuarios);
+                {
+                    Contexto contexto = new Contexto();
+                    var op = contexto.Ususarios.FirstOrDefault(a => a.Usuario == txtUsuario.Text);
+                    if (op != null)
+                    {
+                        ErrorProvider.SetError(txtUsuario, "Usuario Existente");
+                        NiverUsuarioComboBox.Focus();
+                        paso = false;
+
+                    }
+                    else
+                    {
+                        paso = UsuarioBLL.Guardar(usuarios);
+                        Limpiar();
+
+                    }
+                   
+
+                }  
                 else
                 {
                     if (!ExisteEnLaBaseDeDatos())
@@ -303,5 +324,7 @@ namespace ProyectoFinal.UI.Registro
         {
             ClaveTexBox.UseSystemPasswordChar = true;
         }
+
+        
     }
 }

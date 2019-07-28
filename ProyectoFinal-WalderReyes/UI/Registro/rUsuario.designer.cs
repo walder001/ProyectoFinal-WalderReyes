@@ -48,14 +48,13 @@
             this.dateTime = new System.Windows.Forms.DateTimePicker();
             this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.UsarioId = new System.Windows.Forms.NumericUpDown();
-            this.NivelUsuario = new System.Windows.Forms.NumericUpDown();
             this.Buscar = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.ConfirmarTextbox = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.NiverUsuarioComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UsarioId)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NivelUsuario)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -242,16 +241,14 @@
             // UsarioId
             // 
             this.UsarioId.Location = new System.Drawing.Point(115, 21);
+            this.UsarioId.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.UsarioId.Name = "UsarioId";
             this.UsarioId.Size = new System.Drawing.Size(98, 20);
             this.UsarioId.TabIndex = 21;
-            // 
-            // NivelUsuario
-            // 
-            this.NivelUsuario.Location = new System.Drawing.Point(115, 144);
-            this.NivelUsuario.Name = "NivelUsuario";
-            this.NivelUsuario.Size = new System.Drawing.Size(221, 20);
-            this.NivelUsuario.TabIndex = 22;
             // 
             // Buscar
             // 
@@ -297,15 +294,27 @@
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.CheckBox1_CheckedChanged);
             // 
+            // NiverUsuarioComboBox
+            // 
+            this.NiverUsuarioComboBox.FormattingEnabled = true;
+            this.NiverUsuarioComboBox.Items.AddRange(new object[] {
+            "Administrador",
+            "Contador",
+            "Cajero"});
+            this.NiverUsuarioComboBox.Location = new System.Drawing.Point(115, 143);
+            this.NiverUsuarioComboBox.Name = "NiverUsuarioComboBox";
+            this.NiverUsuarioComboBox.Size = new System.Drawing.Size(221, 21);
+            this.NiverUsuarioComboBox.TabIndex = 52;
+            // 
             // rUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(355, 390);
+            this.Controls.Add(this.NiverUsuarioComboBox);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.Buscar);
-            this.Controls.Add(this.NivelUsuario);
             this.Controls.Add(this.UsarioId);
             this.Controls.Add(this.dateTime);
             this.Controls.Add(this.btnBuscar);
@@ -330,7 +339,6 @@
             this.Text = "Registro de Usuario";
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UsarioId)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NivelUsuario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -355,11 +363,11 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.DateTimePicker dateTime;
         private System.Windows.Forms.ErrorProvider ErrorProvider;
-        private System.Windows.Forms.NumericUpDown NivelUsuario;
         private System.Windows.Forms.NumericUpDown UsarioId;
         private System.Windows.Forms.Button Buscar;
         private System.Windows.Forms.TextBox ConfirmarTextbox;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.ComboBox NiverUsuarioComboBox;
     }
 }

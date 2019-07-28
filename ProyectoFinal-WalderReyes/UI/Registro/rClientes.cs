@@ -296,11 +296,15 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
                 {
                     if (!Existe())
                     {
-                        MessageBox.Show("No se puede modificar un cliente que no existe");
+                        MessageBox.Show("No se puede modificar un cliente que no existe","Informamtion",MessageBoxButtons.OKCancel,MessageBoxIcon.Information);
                     }
                     else
                     {
-                        paso = BLL.Modificar(clientes);
+                        var opcion = MessageBox.Show("Decea Modificar el Usuario", "Question", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                        if (DialogResult.OK == opcion)
+                        {
+                            paso = BLL.Modificar(clientes);
+                        }
                     }
                    
                 }
