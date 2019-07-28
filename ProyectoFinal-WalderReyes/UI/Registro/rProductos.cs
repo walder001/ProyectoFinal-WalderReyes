@@ -158,6 +158,7 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
                     if (DialogResult.OK == opcion)
                     {
                         paso = reposistorio.Modificar(productos);
+                        Limpiar();
                     }
                 }
 

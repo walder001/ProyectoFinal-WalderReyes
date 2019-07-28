@@ -154,21 +154,6 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
                 FemeninoRadioButton.Focus();
                 paso = false;
             }
-            
-            /*if (ValidarTelefono(TelefonoMaskedTextBox.Text) == false)
-            {
-                ErrorProvider.SetError(TelefonoMaskedTextBox, "telefono invalido");
-                TelefonoMaskedTextBox.Focus();
-                paso = false;
-
-            }
-            if (ValidarTelefono(CelulamaskedTextBox.Text) == false)
-            {
-                ErrorProvider.SetError(CedulaMaskedTextBox, "telefono invalido");
-                CedulaMaskedTextBox.Focus();
-                paso = false;
-
-            }*/
           
             return paso;
         }
@@ -289,7 +274,20 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
                 clientes = LLenaCLase();
                 if (ClienteIdNumericUpDown.Value == 0)
                 {
-                    paso = BLL.Guardar(clientes);
+                    Contexto contexto = new Contexto();
+                    var op = contexto.Clientes.FirstOrDefault(c => c.Nombres == NombresTextBox.Text);
+                    if (op != null)
+                    {
+                        ErrorProvider.SetError(NombresTextBox,"Cliente existente en la base de datos");
+                        NombresTextBox.Focus();
+                        paso = false;
+                    }
+                    else
+                    {
+                        paso = BLL.Guardar(clientes);
+
+                    }
+
 
                 }
                 else

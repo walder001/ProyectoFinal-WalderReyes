@@ -158,13 +158,20 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
                 NombreTextBox.Focus();
                 paso = false;
             }
-           /* if (ValidarTelefono(TelefonoMaskedTextBox.Text))
+            if (TelefonoMaskedTextBox.MaskFull == false)
             {
                 ErrorProvider.SetError(TelefonoMaskedTextBox, "Telefono invalido");
                 TelefonoMaskedTextBox.Focus();
                 paso = false;
 
-            }*/
+            }
+            if (RNCMaskedTextBox.MaskFull == false)
+            {
+                ErrorProvider.SetError(RNCMaskedTextBox, "RNC invalido");
+                RNCMaskedTextBox.Focus();
+                paso = false;
+
+            }
             if (ValidarEmail(EmailTextBox.Text) == false)
             {
                 ErrorProvider.SetError(EmailTextBox,"EmailInvalido");
@@ -217,14 +224,30 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
         {
             RepositorioBase<Proveedores> repositorio = new RepositorioBase<Proveedores>(new Contexto());
             Proveedores proveedores = new Proveedores();
+            Contexto contexto = new Contexto();
             bool paso = false;
             if (!Validar())
                 return;
             proveedores = LLenaClase();
-            Limpiar();
             if ((int)ProveedordNumericUpDown.Value == 0)
             {
-                paso = repositorio.Guardar(proveedores);
+                var op = contexto.Proveedores.FirstOrDefault(a => a.NombreProveedor == NombreTextBox.Text);
+                if (op != null)
+                {
+                    ErrorProvider.SetError(NombreTextBox,"Proveedor existente en la base de datos");
+                    NombreTextBox.Focus();
+                    paso = false;
+
+                }
+                else
+                {
+                    paso = repositorio.Guardar(proveedores);
+                    Limpiar();
+
+                }
+
+
+
             }
             else
             {
@@ -238,19 +261,22 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
                     if ( opcion == DialogResult.OK)
                     {
                         paso = repositorio.Modificar(proveedores);
+                        Limpiar();
                     }
                 }
-                if (paso)
-                {
-                    MessageBox.Show("Guardado!!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("No se pudo Guardar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+
+            }
+            if (paso)
+            {
+                MessageBox.Show("Guardado!!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
             }
+            else
+            {
+                MessageBox.Show("No se pudo Guardar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
 
         }
 

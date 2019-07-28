@@ -57,6 +57,11 @@
             // ExtencionNumericUpDown
             // 
             this.ExtencionNumericUpDown.Location = new System.Drawing.Point(140, 264);
+            this.ExtencionNumericUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.ExtencionNumericUpDown.Name = "ExtencionNumericUpDown";
             this.ExtencionNumericUpDown.Size = new System.Drawing.Size(221, 20);
             this.ExtencionNumericUpDown.TabIndex = 129;
@@ -75,6 +80,11 @@
             // ProveedordNumericUpDown
             // 
             this.ProveedordNumericUpDown.Location = new System.Drawing.Point(140, 23);
+            this.ProveedordNumericUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.ProveedordNumericUpDown.Name = "ProveedordNumericUpDown";
             this.ProveedordNumericUpDown.Size = new System.Drawing.Size(98, 20);
             this.ProveedordNumericUpDown.TabIndex = 121;
