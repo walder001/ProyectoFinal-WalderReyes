@@ -46,6 +46,11 @@
             // CategoriaIdNumericUpDown
             // 
             this.CategoriaIdNumericUpDown.Location = new System.Drawing.Point(142, 24);
+            this.CategoriaIdNumericUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.CategoriaIdNumericUpDown.Name = "CategoriaIdNumericUpDown";
             this.CategoriaIdNumericUpDown.Size = new System.Drawing.Size(98, 20);
             this.CategoriaIdNumericUpDown.TabIndex = 145;

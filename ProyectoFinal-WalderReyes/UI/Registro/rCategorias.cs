@@ -98,6 +98,7 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
             RepositorioBase<Categorias> repositorio = new RepositorioBase<Categorias>(new Contexto());
+            Contexto contexto = new Contexto();
             bool paso = false;
 
             if (!Validar())
@@ -105,7 +106,20 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             Categorias categorias = LLenaClase();
             if (CategoriaIdNumericUpDown.Value == 0)
             {
-                paso = repositorio.Guardar(categorias);
+                var op = contexto.Categorias.FirstOrDefault(c => c.NomnbreCategoria == NombreCategoriaTextBox.Text);
+                if (op != null)
+                {
+                    ErrorProvider.SetError(NombreCategoriaTextBox,"Nombre existente en la base de datos");
+                    NombreCategoriaTextBox.Focus();
+                    paso = false;
+
+                }
+               else
+                {
+                    paso = repositorio.Guardar(categorias);
+                    Limpiar();
+                }
+
             }
             else
             {
@@ -119,6 +133,8 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
                     if (DialogResult.OK == opcion)
                     {
                         repositorio.Modificar(categorias);
+                        Limpiar();
+
 
                     }
 
@@ -150,6 +166,7 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
                 if (DialogResult.OK == opcion)
                 {
                     repositorio.Eliminar((int)CategoriaIdNumericUpDown.Value);
+                    Limpiar();
                 }
 
             }
