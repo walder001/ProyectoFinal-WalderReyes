@@ -192,8 +192,16 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
 
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
-            RepositorioBase<Productos> reposistorio = new RepositorioBase<Productos>(new Contexto());
-            reposistorio.Eliminar((int)ProductoIdNumericUpDown.Value);
+            try
+            {
+                RepositorioBase<Productos> reposistorio = new RepositorioBase<Productos>(new Contexto());
+                reposistorio.Eliminar((int)ProductoIdNumericUpDown.Value);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No se pudo eliminar el usuario", "Erro", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+
+            }
         }
 
         private void RProductos_Load(object sender, EventArgs e)

@@ -153,11 +153,29 @@
     <Compile Include="UI\Registro\rVentas.Designer.cs">
       <DependentUpon>rVentas.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Reporte\Form1.cs">
+    <Compile Include="UI\Reporte\ClienteReposte.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Reporte\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="UI\Reporte\ClienteReposte.Designer.cs">
+      <DependentUpon>ClienteReposte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reporte\ClientesCrystalReports.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClientesCrystalReports.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reporte\ProductosCrystalReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductosCrystalReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reporte\ProveedoresCrystalReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProveedoresCrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="UI\Reporte\UsuarioReporte.cs">
       <AutoGen>True</AutoGen>
@@ -170,6 +188,12 @@
     </Compile>
     <Compile Include="UI\Reporte\UsuarioReportyView.Designer.cs">
       <DependentUpon>UsuarioReportyView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reporte\VentasCrystalReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VentasCrystalReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="UsuarioReporte.cs">
       <AutoGen>True</AutoGen>
@@ -236,8 +260,20 @@
     <EmbeddedResource Include="UI\Registro\rVentas.resx">
       <DependentUpon>rVentas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Reporte\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Reporte\ClienteReposte.resx">
+      <DependentUpon>ClienteReposte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reporte\ClientesCrystalReports.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ClientesCrystalReports.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reporte\ProductosCrystalReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ProductosCrystalReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reporte\ProveedoresCrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ProveedoresCrystalReport1.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Reporte\UsuarioReporte.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -245,6 +281,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Reporte\UsuarioReportyView.resx">
       <DependentUpon>UsuarioReportyView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reporte\VentasCrystalReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>VentasCrystalReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="UsuarioReporte.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -301,8 +341,6 @@
     <Content Include="Release\Icon\baseline_print_white_18dp.png" />
     <Content Include="Release\Icon\baseline_save_white_18dp.png" />
     <Content Include="Release\Icon\baseline_search_white_18dp.png" />
-    <Content Include="UI\Reporte\Imagenes.png" />
-    <Content Include="UI\Reporte\Reporte.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

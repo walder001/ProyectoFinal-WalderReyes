@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ProyectoFinal_WalderReyes.UI.Reporte
 {
-    public partial class Form1 : Form
+    public partial class ClienteReposte : Form
     {
-        public Form1()
+        public ClienteReposte()
         {
             InitializeComponent();
         }
