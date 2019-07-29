@@ -1,6 +1,6 @@
 ﻿namespace ProyectoFinal_WalderReyes.UI.Reporte
 {
-    partial class UsuarioReportyView
+    partial class ReporteProductos
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.productosCrystalReport1 = new ProyectoFinal_WalderReyes.UI.Reporte.ProductosCrystalReport();
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.UsuarioReporte1 = new ProyectoFinal_WalderReyes.UsuarioReporte();
             this.SuspendLayout();
             // 
             // crystalReportViewer1
@@ -40,31 +40,27 @@
             this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crystalReportViewer1.Location = new System.Drawing.Point(0, 0);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.ReportSource = this.UsuarioReporte1;
+            this.crystalReportViewer1.ReportSource = "C:\\Users\\Walder Reyes\\source\\repos\\ProyectoFinal-WalderReyes\\ProyectoFinal-Walder" +
+    "Reyes\\UI\\Reporte\\ProductosCrystalReport.rpt";
             this.crystalReportViewer1.Size = new System.Drawing.Size(800, 450);
             this.crystalReportViewer1.TabIndex = 0;
-            this.crystalReportViewer1.Load += new System.EventHandler(this.CrystalReportViewer1_Load);
             // 
-            // UsuarioReporte1
-            // 
-            this.UsuarioReporte1.InitReport += new System.EventHandler(this.UsuarioReporte1_InitReport);
-            // 
-            // UsuarioReportyView
+            // ReporteProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.crystalReportViewer1);
-            this.Name = "UsuarioReportyView";
-            this.Text = "UsuarioReportyView";
-            this.Load += new System.EventHandler(this.UsuarioReportyView_Load);
+            this.Name = "ReporteProductos";
+            this.Text = "ReporteProductos";
+            this.Load += new System.EventHandler(this.ReporteProductos_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        private ProductosCrystalReport productosCrystalReport1;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
-        private ProyectoFinal_WalderReyes.UsuarioReporte UsuarioReporte1;
     }
 }

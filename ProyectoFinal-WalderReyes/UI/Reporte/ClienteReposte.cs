@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,30 @@ namespace ProyectoFinal_WalderReyes.UI.Reporte
 {
     public partial class ClienteReposte : Form
     {
-        public ClienteReposte()
+        private List<Clientes> ListarCliente;
+        public ClienteReposte(List<Clientes> clientes)
         {
+            this.ListarCliente = clientes;
             InitializeComponent();
+        }
+
+        private void ClienteReposte_Load(object sender, EventArgs e)
+        {
+            ClientesCrystalReports us = new ClientesCrystalReports();
+            us.SetDataSource(ListarCliente);
+
+            crystalReportViewer1.ReportSource = us;
+            crystalReportViewer1.Refresh();
+        }
+
+        private void CrystalReportViewer1_Load(object sender, EventArgs e)
+        {
+            ClientesCrystalReports us = new ClientesCrystalReports();
+            us.SetDataSource(ListarCliente);
+
+            crystalReportViewer1.ReportSource = us;
+            crystalReportViewer1.Refresh();
+
         }
     }
 }

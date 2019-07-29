@@ -10,22 +10,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProyectoFinal_WalderReyes.UI.Reporte;
 
 namespace ProyectoFinal_WalderReyes.UI.Consulta
 {
     public partial class cProveedor : Form
     {
+        List<Proveedores> lista = new List<Proveedores>();
         public cProveedor()
         {
             InitializeComponent();
-            txtCriterio.Text = "Todos";
+            cbFiltro.Text = "Todos";
         }
 
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
 
-            var lista = new List<Productos>();
-            RepositorioBase<Productos> repositorio = new RepositorioBase<Productos>(new Contexto());
+            RepositorioBase<Proveedores> repositorio = new RepositorioBase<Proveedores>(new Contexto());
             if (txtCriterio.Text.Trim().Length > 0)
             {
                 switch (cbFiltro.Text)
@@ -35,12 +36,27 @@ namespace ProyectoFinal_WalderReyes.UI.Consulta
                         break;
                     case "ProveedorId":
                         int id = Convert.ToInt32(txtCriterio.Text);
-                        lista = repositorio.GetList(p => p.ProductoId == id);
+                        lista = repositorio.GetList(p => p.ProveedorId == id);
                         break;
-                    case "NombreProveedor":
-                        lista = repositorio.GetList(p => p.Descripcion.Contains(txtCriterio.Text));
+                    case "RNC":
+                        lista = repositorio.GetList(p => p.RNC.Contains(txtCriterio.Text));
                         break;
 
+                    case "NombreProveedor":
+                        lista = repositorio.GetList(p => p.NombreProveedor.Contains(txtCriterio.Text));
+
+                        break;
+                    case "Email":
+                        lista = repositorio.GetList(p => p.Email.Contains(txtCriterio.Text));
+                        break;
+
+                    case "NombreRepresentante":
+                        lista = repositorio.GetList(p => p.NombreRepresentante.Contains(txtCriterio.Text));
+                        break;
+                    case "ExtencioRepreasentante":
+                        int ad = Convert.ToInt32(txtCriterio.Text);
+                        lista = repositorio.GetList(p => p.ExtencionRepresentante == ad);
+                        break;
                 }
 
 
@@ -54,6 +70,20 @@ namespace ProyectoFinal_WalderReyes.UI.Consulta
 
 
         }
+
+        private void Imprimir_Click_1(object sender, EventArgs e)
+        {
+            if (lista.Count == 0)
+            {
+                MessageBox.Show("No hay datos para imprimir");
+                return;
+            }
+
+            ProveedorReporte r = new ProveedorReporte(lista);
+            r.ShowDialog();
+        }
+
+        
     }
  }
 

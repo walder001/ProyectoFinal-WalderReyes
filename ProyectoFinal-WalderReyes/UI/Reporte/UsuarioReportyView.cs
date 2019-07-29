@@ -38,5 +38,10 @@ namespace ProyectoFinal_WalderReyes.UI.Reporte
             crystalReportViewer1.Refresh();
 
         }
+
+        private void UsuarioReporte1_InitReport(object sender, EventArgs e)
+        {
+
+        }
     }
 }

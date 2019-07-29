@@ -129,7 +129,7 @@
             this.cbFiltro.FormattingEnabled = true;
             this.cbFiltro.Items.AddRange(new object[] {
             "Todos",
-            "UsuarioId",
+            "ClienteId",
             "Nombre",
             "Email",
             "NivelUsuario",
@@ -154,7 +154,7 @@
             // 
             this.txtCriterio.Location = new System.Drawing.Point(243, 57);
             this.txtCriterio.Name = "txtCriterio";
-            this.txtCriterio.Size = new System.Drawing.Size(251, 20);
+            this.txtCriterio.Size = new System.Drawing.Size(279, 20);
             this.txtCriterio.TabIndex = 30;
             // 
             // btnBuscar
@@ -204,6 +204,7 @@
             this.Imprimir.TabIndex = 37;
             this.Imprimir.Text = "Impirmir";
             this.Imprimir.UseVisualStyleBackColor = false;
+            this.Imprimir.Click += new System.EventHandler(this.Imprimir_Click);
             // 
             // cCliente
             // 
