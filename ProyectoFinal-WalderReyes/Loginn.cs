@@ -104,5 +104,15 @@ namespace ProyectoFinal_WalderReyes
         {
             Close();
         }
+
+        private void Label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

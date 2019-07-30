@@ -38,6 +38,8 @@
             this.txtUse = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             this.panel2.SuspendLayout();
@@ -108,11 +110,12 @@
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPassword.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.ForeColor = System.Drawing.Color.DarkGray;
-            this.txtPassword.Location = new System.Drawing.Point(338, 158);
+            this.txtPassword.Location = new System.Drawing.Point(394, 147);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(319, 16);
+            this.txtPassword.Size = new System.Drawing.Size(260, 16);
             this.txtPassword.TabIndex = 13;
             this.txtPassword.UseSystemPasswordChar = true;
+            this.txtPassword.TextChanged += new System.EventHandler(this.TxtPassword_TextChanged);
             // 
             // txtUse
             // 
@@ -120,9 +123,9 @@
             this.txtUse.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUse.Font = new System.Drawing.Font("Century", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUse.ForeColor = System.Drawing.Color.DarkGray;
-            this.txtUse.Location = new System.Drawing.Point(338, 109);
+            this.txtUse.Location = new System.Drawing.Point(406, 97);
             this.txtUse.Name = "txtUse";
-            this.txtUse.Size = new System.Drawing.Size(319, 16);
+            this.txtUse.Size = new System.Drawing.Size(248, 16);
             this.txtUse.TabIndex = 12;
             // 
             // panel2
@@ -139,12 +142,35 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(12, 109);
+            this.pictureBox3.Location = new System.Drawing.Point(12, 94);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(235, 142);
+            this.pictureBox3.Size = new System.Drawing.Size(235, 157);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DarkGray;
+            this.label1.Location = new System.Drawing.Point(332, 147);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 20);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Clave: ";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.DarkGray;
+            this.label2.Location = new System.Drawing.Point(332, 94);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 20);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Usuario: ";
+            this.label2.Click += new System.EventHandler(this.Label2_Click);
             // 
             // Loginn
             // 
@@ -152,6 +178,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(722, 315);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.btnMinimizar);
             this.Controls.Add(this.btnClose);
@@ -183,6 +211,8 @@
         private System.Windows.Forms.TextBox txtUse;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 

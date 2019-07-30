@@ -19,6 +19,7 @@ namespace ProyectoFinal.UI.Consulta
     public partial class cUsuario : Form
     {
         private List<Usuarios> ListarUsuarios = new List<Usuarios>();
+        List<Usuarios> lista = new List<Usuarios>();
         public cUsuario()
         {
             InitializeComponent();
@@ -33,16 +34,14 @@ namespace ProyectoFinal.UI.Consulta
         {
             Expression<Func<Usuarios, bool>> filtro = x => true;
 
-            int id;
             switch (cbFiltro.SelectedIndex)
             {
                 case 0://ID
                     filtro = x => true;
                     break;
                 case 1://Usuario
-                    id = Convert.ToInt32(txtCriterio.Text);
-                    filtro = x => x.UsuarioId == id && 
-                    (x.FehaIngreso >= DesdedateTimePicker.Value && x.FehaIngreso <= dateTimePicker2.Value);
+                    
+                  
                     break;
                 case 2://Nombre
                     filtro = x => x.Nombres.Contains(txtCriterio.Text)

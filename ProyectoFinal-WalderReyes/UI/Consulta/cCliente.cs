@@ -28,6 +28,11 @@ namespace ProyectoFinal_WalderReyes.UI.Consulta
         {
             if (checkBox1.Checked == true)
             {
+                listar = listar.Where(c => c.FechaNacimiento.Date == DesdedateTimePicker.Value.Date && c.FechaNacimiento.Date <= HastaDateTimePicker.Value.Date).ToList();
+
+            }
+            if (checkBox1.Checked == true)
+            {
                 RepositorioBase<Clientes> BLL = new RepositorioBase<Clientes>(new Contexto());
                 if (txtCriterio.Text.Trim().Length > 0)
                 {
@@ -100,8 +105,6 @@ namespace ProyectoFinal_WalderReyes.UI.Consulta
                         case "Nombre":
                             listar = BLL.GetList(p => p.Nombres.Contains(txtCriterio.Text));
                             break;
-
-
                     }
                 }
                 else

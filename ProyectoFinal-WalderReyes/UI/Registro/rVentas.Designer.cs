@@ -35,7 +35,6 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.TipoPagoTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -67,6 +66,7 @@
             this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.DescuentoTextBox = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.TipoUsuariocomboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.VentasIdNumericUpDown)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CantidadNumericUpDown)).BeginInit();
@@ -140,13 +140,6 @@
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click);
-            // 
-            // TipoPagoTextBox
-            // 
-            this.TipoPagoTextBox.Location = new System.Drawing.Point(113, 80);
-            this.TipoPagoTextBox.Name = "TipoPagoTextBox";
-            this.TipoPagoTextBox.Size = new System.Drawing.Size(457, 20);
-            this.TipoPagoTextBox.TabIndex = 60;
             // 
             // label3
             // 
@@ -297,7 +290,7 @@
             this.ventaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ventaDataGridView.Location = new System.Drawing.Point(6, 61);
             this.ventaDataGridView.Name = "ventaDataGridView";
-            this.ventaDataGridView.Size = new System.Drawing.Size(543, 106);
+            this.ventaDataGridView.Size = new System.Drawing.Size(543, 130);
             this.ventaDataGridView.TabIndex = 69;
             this.ventaDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.VentaDataGridView_CellContentClick);
             // 
@@ -460,12 +453,24 @@
             this.label14.TabIndex = 80;
             this.label14.Text = "Descuentos";
             // 
+            // TipoUsuariocomboBox
+            // 
+            this.TipoUsuariocomboBox.FormattingEnabled = true;
+            this.TipoUsuariocomboBox.Items.AddRange(new object[] {
+            "Efectivo",
+            "Credito"});
+            this.TipoUsuariocomboBox.Location = new System.Drawing.Point(113, 80);
+            this.TipoUsuariocomboBox.Name = "TipoUsuariocomboBox";
+            this.TipoUsuariocomboBox.Size = new System.Drawing.Size(457, 21);
+            this.TipoUsuariocomboBox.TabIndex = 82;
+            // 
             // rVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(580, 410);
+            this.Controls.Add(this.TipoUsuariocomboBox);
             this.Controls.Add(this.DescuentoTextBox);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label11);
@@ -483,7 +488,6 @@
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnNuevo);
-            this.Controls.Add(this.TipoPagoTextBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -506,7 +510,6 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.TextBox TipoPagoTextBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -538,5 +541,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox ImporteTextBox;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ComboBox TipoUsuariocomboBox;
     }
 }

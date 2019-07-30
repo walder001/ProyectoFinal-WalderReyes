@@ -29,6 +29,8 @@ namespace BLL
                     foreach (var item in venta.Detalle)
                     {
                         contexto.Clientes.Find(item.ClienteId).Balance += (decimal)item.Total;
+                        contexto.Productos.Find(item.ProductoId).Cantidad -= (decimal)item.Cantidad;
+
                     }
 
                     contexto.SaveChanges(); //Guardar los cambios

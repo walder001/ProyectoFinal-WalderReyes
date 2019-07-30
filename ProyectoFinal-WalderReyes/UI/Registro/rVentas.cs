@@ -30,7 +30,7 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
         {
             VentasIdNumericUpDown.Value = 0;
             ClienteComboBox.Text = null;
-            TipoPagoTextBox.Text = string.Empty;
+           // TipoPagoTextBox.Text = string.Empty;
             ProductoComboBox.Text = null;
             CodigoTextBox.Text = string.Empty;
             CantidadNumericUpDown.Value = 0;
@@ -42,6 +42,8 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             TotalTextBox.Text = string.Empty;
             ErrorProvider.Clear();
             ventaDataGridView.DataSource = null;
+            TipoUsuariocomboBox.Text = null;
+
         }
         /// <summary>
         /// Metodo encargado de llenar la clase y el detalle
@@ -52,7 +54,8 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
             Ventas pro = new Ventas();
             pro.VentasId = (int)VentasIdNumericUpDown.Value;
             pro.ClienteId = Convert.ToInt32(ClienteComboBox.SelectedIndex);
-            pro.TipoPago = TipoPagoTextBox.Text;
+            // pro.TipoPago = TipoPagoTextBox.Text;
+            pro.TipoPago = TipoUsuariocomboBox.Text;
             pro.ItebisVenta = Convert.ToDecimal(ItebisTextBox.Text);
             pro.SubTotalVenta = Convert.ToDecimal(SubTotalTextBox.Text);
             pro.CostoVenta = Convert.ToDecimal(TotalTextBox.Text);
@@ -94,7 +97,8 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
         {
             VentasIdNumericUpDown.Value = pro.VentasId;
             ClienteComboBox.SelectedIndex = pro.ClienteId;
-            TipoPagoTextBox.Text = Convert.ToString(pro.TipoPago);
+            // TipoPagoTextBox.Text = Convert.ToString(pro.TipoPago);
+            TipoUsuariocomboBox.Text = Convert.ToString(pro.TipoPago);
             ItebisTextBox.Text = Convert.ToString(pro.ItebisVenta);
             SubTotalTextBox.Text = pro.SubTotalVenta.ToString();
             TotalTextBox.Text = pro.CostoVenta.ToString();
@@ -275,35 +279,44 @@ namespace ProyectoFinal_WalderReyes.UI.Registro
         /// <param name="e"></param>
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            Ventas ventas;
-            bool Paso = false;
-
-            if (!Validar())
+            try
             {
-                MessageBox.Show("Favor revisar todos los campos", "Validación",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+
+                Ventas ventas;
+                bool Paso = false;
+
+                if (!Validar())
+                {
+                    MessageBox.Show("Favor revisar todos los campos", "Validación",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                ventas = LLenaClase();
+
+                //Determinar si es Guardar o Modificar
+                if (VentasIdNumericUpDown.Value == 0)
+
+                    Paso = BLL.VentasBLL.Guardar(ventas);
+
+                else
+                    //todo: validar que exista.
+                    Paso = BLL.VentasBLL.Modificar(ventas);
+
+
+                //Informar el resultado
+                if (Paso)
+                {
+                    MessageBox.Show("Guardado!!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                    MessageBox.Show("No se pudo guardar!!", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            ventas = LLenaClase();
-
-            //Determinar si es Guardar o Modificar
-            if (VentasIdNumericUpDown.Value == 0)
-            
-                Paso = BLL.VentasBLL.Guardar(ventas);
-                        
-            else
-                //todo: validar que exista.
-                Paso = BLL.VentasBLL.Modificar(ventas);
-
-
-            //Informar el resultado
-            if (Paso)
+            catch (Exception)
             {
-                MessageBox.Show("Guardado!!", "Exito",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No se pudo modificar");
+
             }
-            else
-                MessageBox.Show("No se pudo guardar!!", "Fallo",MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         /// <summary>
         /// Boton Buscar
